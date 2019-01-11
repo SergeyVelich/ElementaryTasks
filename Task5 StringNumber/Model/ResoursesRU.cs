@@ -62,34 +62,31 @@ namespace Task5_StringNumber.Model
 
         public static readonly Dictionary<int, string> multiplesOf1000Form1 = new Dictionary<int, string>()
         {
-            { 15, "квадриллион" },
-            { 12, "триллион" },
-            { 9, "миллиард" },
-            { 6, "миллион" },
             { 3, "тысяча" },
+            { 6, "миллион" },
+            { 9, "миллиард" },
+            { 12, "триллион" },
         };
 
         public static readonly Dictionary<int, string> multiplesOf1000Form234 = new Dictionary<int, string>()
         {
-            { 15, "квадриллиона" },
-            { 12, "триллиона" },
-            { 9, "миллиарда" },
-            { 6, "миллиона" },
             { 3, "тысячи" },
+            { 6, "миллиона" },
+            { 9, "миллиарда" },
+            { 12, "триллиона" }, 
         };
 
         public static readonly Dictionary<int, string> multiplesOf1000Form5 = new Dictionary<int, string>()
         {
-            { 15, "квадриллионов" },
-            { 12, "триллионов" },
-            { 9, "миллиардов" },
-            { 6, "миллионов" },
             { 3, "тысяч" },
+            { 6, "миллионов" },
+            { 9, "миллиардов" },
+            { 12, "триллионов" },
         };
 
         public static readonly string negative = "минус";
 
-        public static readonly int maxRank = 15;
+        public static readonly int maxRank = 12;
 
         public static readonly int periodRank = 3;
     }
