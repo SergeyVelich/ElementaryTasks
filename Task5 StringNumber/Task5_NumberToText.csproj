@@ -44,13 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
-    <Compile Include="Model\ConverterToTextEN.cs" />
-    <Compile Include="Model\ConverterToTextUA.cs" />
     <Compile Include="Model\ConverterToTextRU.cs" />
     <Compile Include="Model\ConverterToText.cs" />
     <Compile Include="Model\Local.cs" />
-    <Compile Include="Model\ResoursesUA.cs" />
-    <Compile Include="Model\ResoursesEN.cs" />
     <Compile Include="Model\ResoursesRU.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

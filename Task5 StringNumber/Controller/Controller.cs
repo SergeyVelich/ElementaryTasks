@@ -50,17 +50,15 @@ namespace Task5_StringNumber.Controller
 
         public ConverterToText GetConverter(Local local)
         {
-            ConverterToText converter;
+            ConverterToText converter = null;
             switch (local)
-            {
-                case Local.EN:
-                    converter = new ConverterToTextEN();
+            {               
+                case Local.EN:                   
                     break;
                 case Local.RU:
                     converter = new ConverterToTextRU();
                     break;
                 case Local.UA:
-                    converter = new ConverterToTextUA();
                     break;
                 default:
                     converter = null;
