@@ -23,7 +23,6 @@ namespace Task5_StringNumber.Model
             _multiplesOf1000Form5 = ResourcesRU.multiplesOf1000Form5;
             _negative = ResourcesRU.negative;
             _maxRank = ResourcesRU.maxRank;
-            _periodRank = ResourcesRU.periodRank;
         }
 
         public override string Convert(int value)
@@ -43,7 +42,7 @@ namespace Task5_StringNumber.Model
                     minus = true;
                 }
 
-                for (int i = 0; value > 0 && i <= _maxRank; i += _periodRank)
+                for (int i = 0; i <= _maxRank && value > 0; i++)
                 {
                     result.Insert(0, ConvertWithRank(value, i));
                     value /= 1000;
@@ -84,7 +83,7 @@ namespace Task5_StringNumber.Model
                 int rem100 = rem1000 % 100;
                 if (rem100 < 20)
                 {
-                    if (rem100 == 1 || rem100 == 2 && rank == 1000)
+                    if (rem100 == 1 || rem100 == 2 && rank == 1)
                     {
                         result.AppendFormat("{0}", _first100FemaleChanges[rem100]);
                     }

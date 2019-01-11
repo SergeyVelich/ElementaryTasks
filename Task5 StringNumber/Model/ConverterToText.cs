@@ -16,7 +16,6 @@ namespace Task5_StringNumber.Model
         protected Dictionary<int, string> _multiplesOf1000Form5;
         protected string _negative;
         protected int _maxRank;
-        protected int _periodRank;
 
         protected abstract void LoadResources();
         public abstract string Convert(int value);
