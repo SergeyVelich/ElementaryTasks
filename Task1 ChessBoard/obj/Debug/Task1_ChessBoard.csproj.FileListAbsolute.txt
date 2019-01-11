@@ -1,0 +1,7 @@
+F:\Проекты C#\ElementaryTasks\Task1 ChessBoard\bin\Debug\Task1 ChessBoard.exe.config
+F:\Проекты C#\ElementaryTasks\Task1 ChessBoard\bin\Debug\Task1 ChessBoard.exe
+F:\Проекты C#\ElementaryTasks\Task1 ChessBoard\bin\Debug\Task1 ChessBoard.pdb
+F:\Проекты C#\ElementaryTasks\Task1 ChessBoard\obj\Debug\Task1_ChessBoard.csprojAssemblyReference.cache
+F:\Проекты C#\ElementaryTasks\Task1 ChessBoard\obj\Debug\Task1_ChessBoard.csproj.CoreCompileInputs.cache
+F:\Проекты C#\ElementaryTasks\Task1 ChessBoard\obj\Debug\Task1 ChessBoard.exe
+F:\Проекты C#\ElementaryTasks\Task1 ChessBoard\obj\Debug\Task1 ChessBoard.pdb
