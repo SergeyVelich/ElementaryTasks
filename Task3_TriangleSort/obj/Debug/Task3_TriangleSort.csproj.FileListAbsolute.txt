@@ -1,0 +1,9 @@
+F:\Проекты C#\ElementaryTasks\Task3_TriangleSort\bin\Debug\Task3_TriangleSort.exe.config
+F:\Проекты C#\ElementaryTasks\Task3_TriangleSort\bin\Debug\Task3_TriangleSort.exe
+F:\Проекты C#\ElementaryTasks\Task3_TriangleSort\bin\Debug\Task3_TriangleSort.pdb
+F:\Проекты C#\ElementaryTasks\Task3_TriangleSort\obj\Debug\Task3_TriangleSort.csprojAssemblyReference.cache
+F:\Проекты C#\ElementaryTasks\Task3_TriangleSort\obj\Debug\Task3_TriangleSort.Resources.MessagesResources.resources
+F:\Проекты C#\ElementaryTasks\Task3_TriangleSort\obj\Debug\Task3_TriangleSort.csproj.GenerateResource.cache
+F:\Проекты C#\ElementaryTasks\Task3_TriangleSort\obj\Debug\Task3_TriangleSort.csproj.CoreCompileInputs.cache
+F:\Проекты C#\ElementaryTasks\Task3_TriangleSort\obj\Debug\Task3_TriangleSort.exe
+F:\Проекты C#\ElementaryTasks\Task3_TriangleSort\obj\Debug\Task3_TriangleSort.pdb

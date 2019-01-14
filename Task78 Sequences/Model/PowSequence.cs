@@ -10,13 +10,14 @@ namespace Task78_Sequences.Model
     {
         public PowSequence(int upLimit) : base(upLimit)
         {
-
+            FillSequence();
         }
 
-        override public void FillSequence()
+        protected override void FillSequence()
         {
             int upLimitNumber = (int)Math.Sqrt(_upLimit);
-            for (int i = 1; i <= upLimitNumber; i++)
+            int lowLimitNumber = (int)Math.Sqrt(_lowLimit);
+            for (int i = lowLimitNumber; i <= upLimitNumber; i++)
             {
                 _sequenceMembers.Add(i);
             }

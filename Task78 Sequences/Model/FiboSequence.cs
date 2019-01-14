@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Task78_Sequences.Model
 {
-    public class FiboSequence : Sequence
+    class FiboSequence : Sequence
     {
         public FiboSequence(int lowLimit, int upLimit) : base(lowLimit, upLimit)
         {
-
+            FillSequence();
         }
 
-        override public void FillSequence()
+        protected override void FillSequence()
         {
             int p;
             int p1 = 0;

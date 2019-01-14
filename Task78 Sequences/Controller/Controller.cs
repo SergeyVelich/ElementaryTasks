@@ -5,13 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Task78_Sequences.Model;
 using Task78_Sequences.Model.ValidationInboxParameters;
-using Task78_Sequences.Representation;
+using Task78_Sequences.UI;
+using Task78_Sequences.Resources;
 
 namespace Task78_Sequences.Controller
 {
     class Presenter
     {
-        IView _view;
+        private IView _view;
+        private InboxParameters _inboxParameters;
+        private WorkMode _workMode;
 
         public Presenter(IView view)
         {
@@ -19,37 +22,44 @@ namespace Task78_Sequences.Controller
         }
 
         public void Run(string[] args)
-        {
-            string viewText;
-            if (args.Length == 0)
-            {
-                viewText = "instruction";
-                _view.PrintInstructionText(viewText);
-                return;
-            }
-
-            MainParamValidator paramValidator = new MainParamValidator();
-            InboxParameters inboxParameters = paramValidator.GetMainParameters(args);
-
-            if (!inboxParameters.IsValid)
-            {
-                _view.PrintErrorText(inboxParameters.ErrorText);
-                return;
-            }
-
+        {                        
             Sequence sequence;
 
-            sequence = new FiboSequence(inboxParameters.LowLimit, inboxParameters.UpLimit);
-            sequence.FillSequence();
+            if (args.Length == 0)
+            {
+                _view.PrintInstructionText(MessagesResources.instruction);
+                return;
+            }
 
-            viewText = String.Format("Fibonacci sequence from {0} to {1}: ", inboxParameters.LowLimit, inboxParameters.UpLimit) + sequence.ToString();
-            _view.PrintAnswer(viewText);
+            try
+            {
+                _inboxParameters = new MainParamValidator(args).GetMainParameters();
+            }
+            catch (Exception ex)
+            {
+                _view.PrintErrorText(ex.Message);
+                return;
+            }
 
-            sequence = new PowSequence(inboxParameters.UpLimit);
-            sequence.FillSequence();
+            if (args.Length == 1)
+            {
+                _workMode = WorkMode.Pow;
+            }
+            else
+            {
+                _workMode = WorkMode.Fibonaccі;
+            }            
 
-            viewText = String.Format("Pow sequence from {0} to {1}: ", inboxParameters.LowLimit, inboxParameters.UpLimit) + sequence.ToString();
-            _view.PrintAnswer(viewText);
+            if (_workMode == WorkMode.Fibonaccі)
+            {
+                sequence = new FiboSequence(_inboxParameters.LowLimit, _inboxParameters.UpLimit);
+                _view.PrintAnswerText(String.Format(MessagesResources.FibonacciAnswer, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
+            }
+            else if (_workMode == WorkMode.Pow)
+            {
+                sequence = new PowSequence(_inboxParameters.UpLimit);
+                _view.PrintAnswerText(String.Format(MessagesResources.PowAnswer, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
+            }
         }
     }
 }

@@ -8,51 +8,46 @@ namespace Task1_ChessBoard.Model.ValidationInboxParameters
 {
     public class MainParamValidator
     {
-        public InboxParameters GetMainParameters(string[] args)
+        private readonly string[] _args;
+
+        public MainParamValidator(string[] args)
         {
-            int height = 0;
-            int width = 0;
+            _args = args;
+        }
 
+        public InboxParameters GetMainParameters()
+        {
             InboxParameters inboxParameters = new InboxParameters();
-            inboxParameters.IsValid = true;
-            inboxParameters.ErrorText = "";
 
-            if (args.Length < 2)
+            if (_args.Length < 2)
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                throw new ArgumentException("");
             }
 
-            if (!int.TryParse(args[0], out height))
+            if (!int.TryParse(_args[0], out int height))
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                throw new ArgumentException("");
             }
             else if (height <= 0)
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                throw new ArgumentException("");
             }
             else if (height > int.MaxValue)
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                throw new ArgumentException("");
             }
 
-            if (!int.TryParse(args[1], out width))
+            if (!int.TryParse(_args[1], out int width))
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                throw new ArgumentException("");
             }
             else if (height <= 0)
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                throw new ArgumentException("");
             }
             else if (width > int.MaxValue)
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                throw new ArgumentException("");
             }
 
             inboxParameters.Height = height;

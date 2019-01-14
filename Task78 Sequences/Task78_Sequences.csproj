@@ -51,11 +51,23 @@
     <Compile Include="Model\ValidationInboxParameters\MainParamValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Representation\IView.cs" />
-    <Compile Include="Representation\View.cs" />
+    <Compile Include="Resources\MainResources.cs" />
+    <Compile Include="UI\IView.cs" />
+    <Compile Include="UI\ConsoleView.cs" />
+    <Compile Include="Resources\MessagesResources.Designer.cs">
+      <DependentUpon>MessagesResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MessagesResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessagesResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

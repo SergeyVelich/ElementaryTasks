@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Task5_StringNumber.Model;
 using Task5_StringNumber.Model.ValidationInboxParameters;
-using Task5_StringNumber.Representation;
+using Task5_StringNumber.UI;
 
 namespace Task5_StringNumber.Controller
 {
     class Presenter
     {
         private IView _view;
+        private InboxParameters inboxParameters;
 
         public Presenter(IView view)
         {
@@ -20,45 +21,47 @@ namespace Task5_StringNumber.Controller
 
         public void Run(string[] args)
         {
-            string viewText;
+            ConverterToText converter;
+
             if (args.Length == 0)
             {
-                viewText = "instruction";
-                _view.PrintInstructionText(viewText);
+                _view.PrintInstructionText(MessagesResources.instruction);
                 return;
             }
 
-            MainParamValidator paramValidator = new MainParamValidator();
-            InboxParameters inboxParameters = paramValidator.GetMainParameters(args);
-
-            if (!inboxParameters.IsValid)
+            try
             {
-                _view.PrintErrorText(inboxParameters.ErrorText);
+                inboxParameters = new MainParamValidator(args).GetMainParameters();
+            }
+            catch (Exception ex)
+            {
+                _view.PrintErrorText(ex.Message);
                 return;
             }
 
-            ConverterToText converter = GetConverter(inboxParameters.Region);
+            converter = GetConverter(inboxParameters.Region);
             if (converter == null)
             {
-                viewText = "";
-                _view.PrintErrorText(viewText);
+                _view.PrintErrorText("Error");
                 return;
             }
-            viewText = String.Format("{0} = {1}", inboxParameters.Number, converter.Convert(inboxParameters.Number));
-            _view.PrintAnswer(viewText);
+
+            _view.PrintAnswerText(String.Format("{0} = {1}", inboxParameters.Number, converter.Convert(inboxParameters.Number)));
         }
 
         public ConverterToText GetConverter(Local local)
         {
-            ConverterToText converter = null;
+            ConverterToText converter;
             switch (local)
-            {               
-                case Local.EN:                   
+            {
+                case Local.EN:
+                    converter = new ConverterToTextEN();
                     break;
                 case Local.RU:
                     converter = new ConverterToTextRU();
                     break;
                 case Local.UA:
+                    converter = new ConverterToTextUA();
                     break;
                 default:
                     converter = null;

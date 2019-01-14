@@ -1,0 +1,9 @@
+F:\Проекты C#\ElementaryTasks\Task4_FileParser\bin\Debug\Task4_FileParser.exe.config
+F:\Проекты C#\ElementaryTasks\Task4_FileParser\bin\Debug\Task4_FileParser.exe
+F:\Проекты C#\ElementaryTasks\Task4_FileParser\bin\Debug\Task4_FileParser.pdb
+F:\Проекты C#\ElementaryTasks\Task4_FileParser\obj\Debug\Task4_FileParser.csprojAssemblyReference.cache
+F:\Проекты C#\ElementaryTasks\Task4_FileParser\obj\Debug\Task4_FileParser.csproj.CoreCompileInputs.cache
+F:\Проекты C#\ElementaryTasks\Task4_FileParser\obj\Debug\Task4_FileParser.exe
+F:\Проекты C#\ElementaryTasks\Task4_FileParser\obj\Debug\Task4_FileParser.pdb
+F:\Проекты C#\ElementaryTasks\Task4_FileParser\obj\Debug\Task4_FileParser.Resources.MessagesResources.resources
+F:\Проекты C#\ElementaryTasks\Task4_FileParser\obj\Debug\Task4_FileParser.csproj.GenerateResource.cache

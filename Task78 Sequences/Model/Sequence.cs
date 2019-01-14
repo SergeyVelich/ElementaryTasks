@@ -12,7 +12,7 @@ namespace Task78_Sequences.Model
         protected int _upLimit;
         protected List<int> _sequenceMembers;
 
-        public abstract void FillSequence();
+        protected abstract void FillSequence();
 
         public Sequence()
         {
@@ -20,6 +20,7 @@ namespace Task78_Sequences.Model
             _upLimit = 0;
             _sequenceMembers = new List<int>();
         }
+
         public Sequence(int upLimit) : this()
         {
             _upLimit = upLimit;

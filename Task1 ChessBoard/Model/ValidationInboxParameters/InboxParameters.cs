@@ -10,7 +10,5 @@ namespace Task1_ChessBoard.Model.ValidationInboxParameters
     {
         public int Height { get; set; }
         public int Width { get; set; }
-        public bool IsValid { get; set; }
-        public string ErrorText { get; set; }
     }
 }

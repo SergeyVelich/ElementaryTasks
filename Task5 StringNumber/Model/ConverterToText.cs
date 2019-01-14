@@ -11,7 +11,7 @@ namespace Task5_StringNumber.Model
         protected Dictionary<int, string> _first100;
         protected Dictionary<int, string> _first100FemaleChanges;
         protected Dictionary<int, string> _hundreds;
-        protected Dictionary<int, string> _multiplesOf1000Form1;
+        protected Dictionary<int, string> _multiplesOf1000;
         protected Dictionary<int, string> _multiplesOf1000Form234;
         protected Dictionary<int, string> _multiplesOf1000Form5;
         protected string _negative;

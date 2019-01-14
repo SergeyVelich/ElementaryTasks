@@ -3,56 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task78_Sequences.Resources;
 
 namespace Task78_Sequences.Model.ValidationInboxParameters
 {
     public class MainParamValidator
     {
-        public InboxParameters GetMainParameters(string[] args)
+        private readonly string[] _args;
+
+        public MainParamValidator(string[] args)
         {
-            int lowLimit = 0;
-            int upLimit = 0;
+            _args = args;
+        }
 
+        public InboxParameters GetMainParameters()
+        {
             InboxParameters inboxParameters = new InboxParameters();
-            inboxParameters.IsValid = true;
-            inboxParameters.ErrorText = "";
 
-            if (args.Length < 2)
+            if (!int.TryParse(_args[0], out int lowLimit))
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                throw new ArgumentException(MessagesResources.InvalidArgument1);
             }
-
-            if (!int.TryParse(args[0], out lowLimit))
+            if (!int.TryParse(_args[1], out int upLimit))
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
-            }
-            else if (lowLimit == 0)
-            {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
-            }
-            else if (lowLimit > int.MaxValue)
-            {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                throw new ArgumentException(MessagesResources.InvalidArgument2);
             }
 
-            if (!int.TryParse(args[1], out upLimit))
+            if (_args.Length == 1)
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                if (upLimit < 0)
+                {
+                    throw new ArgumentException(MessagesResources.InvalidArgumentPowNegative);
+                }
             }
-            else if (upLimit < lowLimit)
+            else if (_args.Length > 1)
             {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
-            }
-            else if (upLimit > int.MaxValue)
-            {
-                inboxParameters.IsValid = false;
-                inboxParameters.ErrorText = "Property cannot be null or empty";
+                if (upLimit <= 0)
+                {
+                    throw new ArgumentException(MessagesResources.InvalidArgumentFiboNegative);
+                }
+                else if (upLimit < lowLimit)
+                {
+                    throw new ArgumentException(MessagesResources.InvalidArgumentFiboMixLimits);
+                }
             }
 
             inboxParameters.LowLimit = lowLimit;

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task5_StringNumber.Model
 {
-    public class ConverterToTextRU: ConverterToText
+    public class ConverterToTextUA: ConverterToText
     {
-        public ConverterToTextRU()
+        public ConverterToTextUA()
         {
             LoadResources();
         }
@@ -18,7 +18,7 @@ namespace Task5_StringNumber.Model
             _first100 = ResourcesRU.first100;
             _first100FemaleChanges = ResourcesRU.first100FemaleChanges;
             _hundreds = ResourcesRU.hundreds;
-            _multiplesOf1000Form1 = ResourcesRU.multiplesOf1000Form1;
+            _multiplesOf1000 = ResourcesRU.multiplesOf1000;
             _multiplesOf1000Form234 = ResourcesRU.multiplesOf1000Form234;
             _multiplesOf1000Form5 = ResourcesRU.multiplesOf1000Form5;
             _negative = ResourcesRU.negative;
@@ -115,7 +115,7 @@ namespace Task5_StringNumber.Model
 
             switch (t)
             {
-                case 1: return _multiplesOf1000Form1[rank];
+                case 1: return _multiplesOf1000[rank];
                 case 2: case 3: case 4: return _multiplesOf1000Form234[rank];
                 default: return _multiplesOf1000Form5[rank];
             }

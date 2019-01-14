@@ -10,7 +10,5 @@ namespace Task78_Sequences.Model.ValidationInboxParameters
     {
         public int LowLimit { get; set; }
         public int UpLimit { get; set; }
-        public bool IsValid { get; set; }
-        public string ErrorText { get; set; }
     }
 }

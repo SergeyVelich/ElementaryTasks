@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Task1_ChessBoard.Model;
 using Task1_ChessBoard.Model.ValidationInboxParameters;
-using Task1_ChessBoard.Representation;
+using Task1_ChessBoard.UI;
 
 namespace Task1_ChessBoard.Controller
 {
     class Presenter
     {
-        IView _view;
+        private IView _view;
+        private InboxParameters _inboxParameters;
 
         public Presenter(IView view)
         {
@@ -20,26 +21,23 @@ namespace Task1_ChessBoard.Controller
 
         public void Run(string[] args)
         {
-            string viewText;
             if (args.Length == 0)
             {
-                viewText = "instruction";
-                _view.PrintInstructionText(viewText);
+                _view.PrintInstructionText(MessagesResources.instruction);
                 return;
             }
 
-            MainParamValidator paramValidator = new MainParamValidator();
-            InboxParameters inboxParameters = paramValidator.GetMainParameters(args);
-
-            if (!inboxParameters.IsValid)
+            try
             {
-                _view.PrintErrorText(inboxParameters.ErrorText);
+                _inboxParameters = new MainParamValidator(args).GetMainParameters();
+            }
+            catch (Exception ex)
+            {
+                _view.PrintErrorText(ex.Message);
                 return;
             }
 
-            Board board = new Board(inboxParameters.Height, inboxParameters.Width);
-            viewText = board.ToString();
-            _view.PrintAnswer(viewText);          
+            _view.PrintAnswerText(new Board(_inboxParameters.Height, _inboxParameters.Width).ToString());          
         }
     }
 }
