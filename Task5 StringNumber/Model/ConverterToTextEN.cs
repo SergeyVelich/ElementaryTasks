@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task5_StringNumber.Resources;
 
 namespace Task5_StringNumber.Model
 {
@@ -21,7 +22,7 @@ namespace Task5_StringNumber.Model
             _maxRank = ResourcesEN.maxRank;
         }
 
-        public override string Convert(int value)
+        public override string Convert(long value)
         {
             StringBuilder result = new StringBuilder();
             bool minus = false;
@@ -57,16 +58,16 @@ namespace Task5_StringNumber.Model
             return result.ToString();
         }
 
-        public string ConvertWithRank(int value, int rank)
+        public string ConvertWithRank(long value, int rank)
         {
             StringBuilder result = new StringBuilder();
 
             if (value == 0)
             {
-                result.Append("");
+                result.Append(String.Empty);
             }
 
-            int rem1000 = value % 1000;
+            long rem1000 = value % 1000;
 
             if (rem1000 == 0)
             {
@@ -76,7 +77,7 @@ namespace Task5_StringNumber.Model
             {
                 result.AppendFormat("{0} ", _hundreds[rem1000 / 100]);
 
-                int rem100 = rem1000 % 100;
+                long rem100 = rem1000 % 100;
                 if (rem100 < 20)
                 {
                     result.AppendFormat("{0}", _first100[rem100]);                 
@@ -98,7 +99,7 @@ namespace Task5_StringNumber.Model
             return result.ToString();
         }
 
-        public string GetFormMultiplesOf1000(int val, int rank)
+        public string GetFormMultiplesOf1000(long val, int rank)
         {
             return _multiplesOf1000[rank];
         }

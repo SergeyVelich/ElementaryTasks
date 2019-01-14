@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task5_StringNumber.Model
+namespace Task5_StringNumber.Resources
 {
     public enum Local
     {

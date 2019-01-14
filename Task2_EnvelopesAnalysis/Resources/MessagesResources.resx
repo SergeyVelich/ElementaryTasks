@@ -117,7 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="instruction" xml:space="preserve">
-    <value />
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Envelope Analyzer</value>
+  </data>
+  <data name="AskContunue" xml:space="preserve">
+    <value>Do you want to continue? (yes/y)</value>
+  </data>
+  <data name="AskInputEnvelope" xml:space="preserve">
+    <value>Enter height and width for {0} envelope:</value>
+  </data>
+  <data name="AskInputHeight" xml:space="preserve">
+    <value>Enter height:</value>
+  </data>
+  <data name="AskInputWidth" xml:space="preserve">
+    <value>Enter width:</value>
+  </data>
+  <data name="ErrorInvalidArgument1" xml:space="preserve">
+    <value>Invalid argument 1.</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>The application responds if you can put one envelope in another.
+
+Parameters:
+    - required:
+        none
+    - optional:
+        none</value>
+  </data>
+  <data name="ResultNegative" xml:space="preserve">
+    <value>The second envelope can't be inserted in the first</value>
+  </data>
+  <data name="ResultPositive" xml:space="preserve">
+    <value>The second envelope can be inserted in the first</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>yes</value>
+  </data>
+  <data name="YesShort" xml:space="preserve">
+    <value>y</value>
   </data>
 </root>

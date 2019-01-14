@@ -9,16 +9,18 @@ namespace Task3_TriangleSort.UI
 {
     class ConsoleView : IView
     {
+        private const string BLOCK_SEPARATOR = "==================================================================";
+
         public event EventHandler SetTriangle;
         public event EventHandler AddTriangle;
         public event EventHandler EndWork;
 
         public void PrintInstructionText(string text)
         {
-            Console.WriteLine("==================================================================");
+            Console.WriteLine(BLOCK_SEPARATOR);
             Console.WriteLine(text);
-            Console.WriteLine("==================================================================");
-            Console.ReadLine();
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine();
         }
 
         public void PrintErrorText(string text)
@@ -26,15 +28,15 @@ namespace Task3_TriangleSort.UI
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine(text);
             Console.ResetColor();
-            Console.ReadLine();
+            Console.WriteLine();
         }
 
-        public void PrintAnswerText(string text)
+        public void PrintResultText(string text)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(text);
             Console.ResetColor();
-            Console.ReadLine();
+            Console.WriteLine();
         }
 
         public void AskInputEnvelope(string text)

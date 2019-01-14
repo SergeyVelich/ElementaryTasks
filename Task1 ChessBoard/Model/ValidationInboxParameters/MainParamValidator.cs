@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task1_ChessBoard.Resources;
 
 namespace Task1_ChessBoard.Model.ValidationInboxParameters
 {
@@ -21,33 +22,25 @@ namespace Task1_ChessBoard.Model.ValidationInboxParameters
 
             if (_args.Length < 2)
             {
-                throw new ArgumentException("");
+                throw new ArgumentException(MessagesResources.ErrorArgumentNotFoundArgument2);
             }
 
             if (!int.TryParse(_args[0], out int height))
             {
-                throw new ArgumentException("");
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
             }
             else if (height <= 0)
             {
-                throw new ArgumentException("");
-            }
-            else if (height > int.MaxValue)
-            {
-                throw new ArgumentException("");
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgumentNegative);
             }
 
             if (!int.TryParse(_args[1], out int width))
             {
-                throw new ArgumentException("");
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument2);
             }
             else if (height <= 0)
             {
-                throw new ArgumentException("");
-            }
-            else if (width > int.MaxValue)
-            {
-                throw new ArgumentException("");
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgumentNegative);
             }
 
             inboxParameters.Height = height;

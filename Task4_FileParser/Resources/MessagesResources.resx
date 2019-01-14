@@ -117,10 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="instruction" xml:space="preserve">
-    <value>This application is designed to find entries in the text file.
-You may launch it from command line passing either two or three arguments:
-if 2 arguments - mode Seek,
-if 3 arguments - mode - Replace</value>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>File Parser</value>
+  </data>
+  <data name="AskContunue" xml:space="preserve">
+    <value>Do you want to continue? (yes/y)</value>
+  </data>
+  <data name="ErrorArgumentNotFoundArgument2" xml:space="preserve">
+    <value>Argument 2 isn't found.</value>
+  </data>
+  <data name="ErrorFileNotFound" xml:space="preserve">
+    <value>File isn't found</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Application find and replace entries in the text file.
+
+Mode Seeker
+
+Parameters:
+    - required:
+        [0] - path to text file
+        [1] - pattern string
+    - optional:
+        none
+
+Mode Replacer
+
+Parameters:
+    - required:
+        [0] - path to text file
+        [1] - pattern string
+        [2] - replacement string
+    - optional:
+        none
+
+</value>
   </data>
 </root>

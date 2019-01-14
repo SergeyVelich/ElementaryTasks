@@ -61,11 +61,90 @@ namespace Task1_ChessBoard.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на Chess Board.
         /// </summary>
-        internal static string instruction {
+        internal static string ApplicationName {
             get {
-                return ResourceManager.GetString("instruction", resourceCulture);
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Do you want to continue? (yes/y).
+        /// </summary>
+        internal static string AskContunue {
+            get {
+                return ResourceManager.GetString("AskContunue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на *.
+        /// </summary>
+        internal static string ColorBlack {
+            get {
+                return ResourceManager.GetString("ColorBlack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на  .
+        /// </summary>
+        internal static string ColorWhite {
+            get {
+                return ResourceManager.GetString("ColorWhite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Argument 2 isn&apos;t found..
+        /// </summary>
+        internal static string ErrorArgumentNotFoundArgument2 {
+            get {
+                return ResourceManager.GetString("ErrorArgumentNotFoundArgument2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invalid argument 1..
+        /// </summary>
+        internal static string ErrorInvalidArgument1 {
+            get {
+                return ResourceManager.GetString("ErrorInvalidArgument1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invalid argument 2..
+        /// </summary>
+        internal static string ErrorInvalidArgument2 {
+            get {
+                return ResourceManager.GetString("ErrorInvalidArgument2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The upper limit value must be greater than 0.
+        /// </summary>
+        internal static string ErrorInvalidArgumentNegative {
+            get {
+                return ResourceManager.GetString("ErrorInvalidArgumentNegative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Application displays a chessboard with the specified dimensions.
+        ///
+        ///Parameters:
+        ///    - required:
+        ///        [0] - height of board
+        ///        [1] - width of board
+        ///    - optional:
+        ///        none.
+        /// </summary>
+        internal static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
             }
         }
     }

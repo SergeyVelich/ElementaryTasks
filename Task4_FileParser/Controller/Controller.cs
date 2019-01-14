@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Task4_FileParser.Model;
 using Task4_FileParser.Model.ValidationInboxParameters;
 using Task4_FileParser.UI;
+using Task4_FileParser.Resources;
 
 namespace Task4_FileParser.Controller
 {
@@ -28,7 +29,7 @@ namespace Task4_FileParser.Controller
 
             if (args.Length == 0)
             {
-                _view.PrintInstructionText(MessagesResources.instruction));
+                _view.PrintInstructionText(MessagesResources.Instruction);
                 return;
             }
 
@@ -47,11 +48,11 @@ namespace Task4_FileParser.Controller
             {
                 switch (_inboxParameters.workMode)
                 {
-                    case Resources.WorkMode.Find:
-                        result = parser.GetCountFinded(_inboxParameters.StringToFind);                    
+                    case Resources.WorkMode.FindMode:
+                        result = parser.GetCountFinded(_inboxParameters.Pattern);                    
                         break;
-                    case Resources.WorkMode.Replace:
-                        result = parser.GetCountReplaced(_inboxParameters.StringToReplaced, _inboxParameters.StringReplacer);
+                    case Resources.WorkMode.ReplaceMode:
+                        result = parser.GetCountReplaced(_inboxParameters.Pattern, _inboxParameters.Replacement);
                         break;
                     default:
                         throw new Exception();

@@ -61,11 +61,107 @@ namespace Task2_EnvelopesAnalysis.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на Envelope Analyzer.
         /// </summary>
-        internal static string instruction {
+        internal static string ApplicationName {
             get {
-                return ResourceManager.GetString("instruction", resourceCulture);
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Do you want to continue? (yes/y).
+        /// </summary>
+        internal static string AskContunue {
+            get {
+                return ResourceManager.GetString("AskContunue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter height and width for {0} envelope:.
+        /// </summary>
+        internal static string AskInputEnvelope {
+            get {
+                return ResourceManager.GetString("AskInputEnvelope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter height:.
+        /// </summary>
+        internal static string AskInputHeight {
+            get {
+                return ResourceManager.GetString("AskInputHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter width:.
+        /// </summary>
+        internal static string AskInputWidth {
+            get {
+                return ResourceManager.GetString("AskInputWidth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invalid argument 1..
+        /// </summary>
+        internal static string ErrorInvalidArgument1 {
+            get {
+                return ResourceManager.GetString("ErrorInvalidArgument1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The application responds if you can put one envelope in another.
+        ///
+        ///Parameters:
+        ///    - required:
+        ///        none
+        ///    - optional:
+        ///        none.
+        /// </summary>
+        internal static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The second envelope can&apos;t be inserted in the first.
+        /// </summary>
+        internal static string ResultNegative {
+            get {
+                return ResourceManager.GetString("ResultNegative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The second envelope can be inserted in the first.
+        /// </summary>
+        internal static string ResultPositive {
+            get {
+                return ResourceManager.GetString("ResultPositive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на y.
+        /// </summary>
+        internal static string YesShort {
+            get {
+                return ResourceManager.GetString("YesShort", resourceCulture);
             }
         }
     }

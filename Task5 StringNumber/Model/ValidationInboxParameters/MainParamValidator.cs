@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task5_StringNumber.Resources;
 
 namespace Task5_StringNumber.Model.ValidationInboxParameters
 {
@@ -23,20 +24,16 @@ namespace Task5_StringNumber.Model.ValidationInboxParameters
 
             if (_args.Length < 1)
             {
-                throw new ArgumentException("Error");
+                throw new ArgumentException(MessagesResources.ErrorArgumentNotFoundArgument1);
             }
 
-            if (!int.TryParse(_args[0], out int number))
+            if (!long.TryParse(_args[0], out long number))
             {
-                throw new ArgumentException("Error");
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
             }
-            else if (number < int.MinValue)
+            else if (number < long.MinValue || number > long.MaxValue)
             {
-                throw new ArgumentException("Error");
-            }
-            else if (number > int.MaxValue)
-            {
-                throw new ArgumentException("Error");
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
             }
 
             if (_args.Length > 1)
@@ -47,7 +44,7 @@ namespace Task5_StringNumber.Model.ValidationInboxParameters
                 }
                 else
                 {
-                    throw new ArgumentException("Error");
+                    throw new ArgumentException(MessagesResources.ErrorConverterNotFound);
                 }
             }
 

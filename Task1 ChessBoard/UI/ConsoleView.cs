@@ -8,11 +8,14 @@ namespace Task1_ChessBoard.UI
 {
     class ConsoleView : IView
     {
+        private const string BLOCK_SEPARATOR = "==================================================================";
+
         public void PrintInstructionText(string text)
         {
-            Console.WriteLine("==================================================================");
+            Console.WriteLine(BLOCK_SEPARATOR);
             Console.WriteLine(text);
-            Console.WriteLine("==================================================================");
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine();
             Console.ReadKey();
         }
 
@@ -21,14 +24,16 @@ namespace Task1_ChessBoard.UI
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine(text);
             Console.ResetColor();
+            Console.WriteLine();
             Console.ReadKey();
         }
 
-        public void PrintAnswerText(string text)
+        public void PrintResultText(string text)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(text);
             Console.ResetColor();
+            Console.WriteLine();
             Console.ReadKey();
         }
     }

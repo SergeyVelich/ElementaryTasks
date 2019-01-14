@@ -22,29 +22,29 @@ namespace Task78_Sequences.Model.ValidationInboxParameters
 
             if (!int.TryParse(_args[0], out int lowLimit))
             {
-                throw new ArgumentException(MessagesResources.InvalidArgument1);
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
             }
             if (!int.TryParse(_args[1], out int upLimit))
             {
-                throw new ArgumentException(MessagesResources.InvalidArgument2);
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument2);
             }
 
             if (_args.Length == 1)
             {
                 if (upLimit < 0)
                 {
-                    throw new ArgumentException(MessagesResources.InvalidArgumentPowNegative);
+                    throw new ArgumentException(MessagesResources.ErrorInvalidArgumentPowNegative);
                 }
             }
             else if (_args.Length > 1)
             {
                 if (upLimit <= 0)
                 {
-                    throw new ArgumentException(MessagesResources.InvalidArgumentFiboNegative);
+                    throw new ArgumentException(MessagesResources.ErrorInvalidArgumentFiboNegative);
                 }
                 else if (upLimit < lowLimit)
                 {
-                    throw new ArgumentException(MessagesResources.InvalidArgumentFiboMixLimits);
+                    throw new ArgumentException(MessagesResources.ErrorInvalidArgumentFiboMixLimits);
                 }
             }
 

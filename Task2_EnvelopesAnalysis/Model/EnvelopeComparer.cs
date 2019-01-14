@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task2_EnvelopesAnalysis.Resources;
 
 namespace Task2_EnvelopesAnalysis.Model
 {
@@ -20,11 +21,11 @@ namespace Task2_EnvelopesAnalysis.Model
             int comparisonResult = envOut.CompareTo(envIn);
             if (comparisonResult > 0)
             {
-                result = "The second envelope can be inserted in the first";
+                result = MessagesResources.ResultPositive;
             }
             else
             {
-                result = "The second envelope can't be inserted in the first";
+                result = MessagesResources.ResultNegative;
             }
             return comparisonResult;
         }

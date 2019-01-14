@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,27 +23,23 @@ namespace Task4_FileParser.Model.ValidationInboxParameters
 
             if (_args.Length < 2)
             {
-                throw new ArgumentException("");
+                throw new ArgumentException(MessagesResources.ErrorArgumentNotFoundArgument2);
             }
 
-            //if (!int.TryParse(_args[0], out lowLimit))
-            //{
-            //    throw new ArgumentException("");
-            //}
-            //if (!File.Exists(path))
-            //{
-            //    throw new FileToParseNotFoundException(path);
-            //}
+            if (!File.Exists(_args[0]))
+            {
+                throw new ArgumentException(MessagesResources.ErrorFileNotFound);
+            }
 
             inboxParameters.Path = _args[0];
             if (_args.Length == 2)
             {
-                inboxParameters.StringToFind = _args[1];
-        }
+                inboxParameters.Pattern = _args[1];
+            }
             else
             {
-                inboxParameters.StringToReplaced = _args[1];
-                inboxParameters.StringReplacer = _args[2];
+                inboxParameters.Pattern = _args[1];
+                inboxParameters.Replacement = _args[2];
             }
 
             return inboxParameters;

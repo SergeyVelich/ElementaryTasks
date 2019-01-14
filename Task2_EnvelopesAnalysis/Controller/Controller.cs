@@ -31,7 +31,7 @@ namespace Task2_EnvelopesAnalysis.Controller
 
             if (args.Length == 0)
             {
-                _view.PrintInstructionText(MessagesResources.instruction);
+                _view.PrintInstructionText(MessagesResources.Instruction);
             }
 
             try
@@ -56,12 +56,14 @@ namespace Task2_EnvelopesAnalysis.Controller
                 {
                     _currentEnvelope = new Envelope();
 
+                    _view.AskInputEnvelope(String.Format(MessagesResources.AskInputEnvelope, i+1));
+
                     bool isFailed = false;
                     do
                     {
                         try
                         {
-                            _view.AskInputHeight("Enter height: ");
+                            _view.AskInputHeight(MessagesResources.AskInputHeight);
                             isFailed = false;
                         }
                         catch(Exception ex)
@@ -75,7 +77,7 @@ namespace Task2_EnvelopesAnalysis.Controller
                     {
                         try
                         {
-                            _view.AskInputWidth("Enter width: ");
+                            _view.AskInputWidth(MessagesResources.AskInputWidth);
                             isFailed = false;
                         }
                         catch (Exception ex)
@@ -91,10 +93,10 @@ namespace Task2_EnvelopesAnalysis.Controller
                 for (int i = 1; i < envelopes.Length; i++)
                 {
                     comparer.Compare(envelopes[0], envelopes[i], out string viewText);
-                    _view.PrintAnswerText(viewText);
+                    _view.PrintResultText(viewText);
                 }
 
-                _view.AskContinue("Do you want to continue? yes(y)/no(n)");
+                _view.AskContinue(MessagesResources.AskContunue);
             }            
         }
 
@@ -102,7 +104,7 @@ namespace Task2_EnvelopesAnalysis.Controller
         {
             if (!double.TryParse(((StringEventArgs)e).Value, out double height))
             {
-                throw new ArgumentException("Error");
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
             }
             _currentEnvelope.Height = height;         
         }
@@ -111,14 +113,14 @@ namespace Task2_EnvelopesAnalysis.Controller
         {
             if (!double.TryParse(((StringEventArgs)e).Value, out double width))
             {
-                throw new ArgumentException("Error");
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
             }
             _currentEnvelope.Width = width;
         }
 
         protected virtual void OnEndWork(object sender, EventArgs e)
         {
-            _run = ((StringEventArgs)e).Value.ToLower().Trim() == "y" || ((StringEventArgs)e).Value.ToLower().Trim() == "yes";
+            _run = ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.Yes || ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.YesShort;
         }
     }
 }

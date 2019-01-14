@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task1_ChessBoard.Resources;
 
 namespace Task1_ChessBoard.Model
 {
@@ -50,11 +51,11 @@ namespace Task1_ChessBoard.Model
                     cell = _cells[y, x];
                     if (cell.IsBlack)
                     {
-                        result.Append("*");
+                        result.Append(MessagesResources.ColorBlack);
                     }
                     else
                     {
-                        result.Append(" ");
+                        result.Append(MessagesResources.ColorWhite);
                     }
                 }
                 result.Append("\n");

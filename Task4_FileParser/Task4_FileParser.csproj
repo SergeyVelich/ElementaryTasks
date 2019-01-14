@@ -51,7 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\IView.cs" />
     <Compile Include="UI\ConsoleView.cs" />
-    <Compile Include="Resources\CommonResources.cs" />
+    <Compile Include="Resources\MainResources.cs" />
     <Compile Include="Resources\MessagesResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

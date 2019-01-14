@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task5_StringNumber.Model
+namespace Task5_StringNumber.Resources
 {
     public static class ResourcesEN
     {
         public static readonly int maxRank = 5;
         public static readonly string negative = "minus";      
 
-        public static readonly Dictionary<int, string> first100 = new Dictionary<int, string>()
+        public static readonly Dictionary<long, string> first100 = new Dictionary<long, string>()
         {
             { 0, "ноль" },
             { 1, "one" },
@@ -44,7 +44,7 @@ namespace Task5_StringNumber.Model
             { 100, "handred" }
         };
 
-        public static readonly Dictionary<int, string> multiplesOf1000 = new Dictionary<int, string>()
+        public static readonly Dictionary<long, string> multiplesOf1000 = new Dictionary<long, string>()
         {
             { 0, "" },
             { 1, "thousand" },

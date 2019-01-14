@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="instruction" xml:space="preserve">
-    <value />
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Lacky Tickets</value>
+  </data>
+  <data name="AskContunue" xml:space="preserve">
+    <value>Do you want to continue? (yes/y)</value>
+  </data>
+  <data name="AskInputPath" xml:space="preserve">
+    <value>Enter path file with metod: </value>
+  </data>
+  <data name="ErrorFileNotFound" xml:space="preserve">
+    <value>File isn't found</value>
+  </data>
+  <data name="ErrorMethodNotFound" xml:space="preserve">
+    <value>Generation method not found</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Application count lacky tickets.
+
+Parameters:
+    - required:
+        [0] - path to text file with method description
+    - optional:
+        none</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>yes</value>
+  </data>
+  <data name="YesShort" xml:space="preserve">
+    <value>y</value>
   </data>
 </root>

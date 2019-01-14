@@ -12,24 +12,22 @@ namespace Task78_Sequences.Model
         protected int _upLimit;
         protected List<int> _sequenceMembers;
 
-        protected abstract void FillSequence();
+        protected abstract void GenerateSequence();
 
-        public Sequence()
+        public Sequence(int upLimit)
         {
             _lowLimit = 0;
-            _upLimit = 0;
-            _sequenceMembers = new List<int>();
-        }
-
-        public Sequence(int upLimit) : this()
-        {
             _upLimit = upLimit;
+
+            GenerateSequence();
         }
 
-        public Sequence(int lowLimit, int upLimit) : this()
+        public Sequence(int lowLimit, int upLimit)
         {
             _lowLimit = lowLimit;
             _upLimit = upLimit;
+
+            GenerateSequence();
         }
 
         public override string ToString()

@@ -117,30 +117,51 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FibonacciAnswer" xml:space="preserve">
+  <data name="ResultFibonacci" xml:space="preserve">
     <value>Fibonacci sequence from {0} to {1}: </value>
   </data>
-  <data name="instruction" xml:space="preserve">
-    <value>This application generate the number sequence depending on algorythms choosen:
-if 1 argument - Pow mode,
-if 2 arguments - Fibonacci mode</value>
+  <data name="Instruction" xml:space="preserve">
+    <value>Application generate the number sequence with specified algorythm.
+
+Pow mode 
+
+Parameters:
+    - required:
+        [0] - up limit
+    - optional:
+        none
+
+Fibonacci  mode
+
+Parameters:
+    - required:
+        [0] - low limit
+        [1] - up limit
+    - optional:
+        none</value>
   </data>
-  <data name="InvalidArgument1" xml:space="preserve">
+  <data name="ErrorInvalidArgument1" xml:space="preserve">
     <value>Invalid argument 1. Enter integer number from -2 147 483 648 to 2 147 483 648</value>
   </data>
-  <data name="InvalidArgument2" xml:space="preserve">
+  <data name="ErrorInvalidArgument2" xml:space="preserve">
     <value>Invalid argument 2. Enter integer number from -2 147 483 648 to 2 147 483 648</value>
   </data>
-  <data name="InvalidArgumentFiboMixLimits" xml:space="preserve">
+  <data name="ErrorInvalidArgumentFiboMixLimits" xml:space="preserve">
     <value>The upper limit value must be greater than lower</value>
   </data>
-  <data name="InvalidArgumentFiboNegative" xml:space="preserve">
+  <data name="ErrorInvalidArgumentFiboNegative" xml:space="preserve">
     <value>The upper limit value must be greater than 0</value>
   </data>
-  <data name="InvalidArgumentPowNegative" xml:space="preserve">
+  <data name="ErrorInvalidArgumentPowNegative" xml:space="preserve">
     <value>The upper limit value must be greater than 0</value>
   </data>
-  <data name="PowAnswer" xml:space="preserve">
+  <data name="ResultPow" xml:space="preserve">
     <value>Pow sequence from {0} to {1}: </value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Sequences</value>
+  </data>
+  <data name="AskContunue" xml:space="preserve">
+    <value>Do you want to continue? (yes/y)</value>
   </data>
 </root>

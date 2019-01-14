@@ -32,7 +32,7 @@ namespace Task6_LuckyTickets.Controller
 
             if (args.Length == 0)
             {
-                _view.PrintInstructionText(MessagesResources.instruction);
+                _view.PrintInstructionText(MessagesResources.Instruction);
             }
 
             try
@@ -52,7 +52,7 @@ namespace Task6_LuckyTickets.Controller
                 {
                     try
                     {
-                        _view.AskInputPath("Enter path file with metod: ");
+                        _view.AskInputPath(MessagesResources.AskInputPath);
                         lackyGenerator = new LuckyTicketsGenerator(_path);
                         isFailed = false;
                     }
@@ -64,8 +64,8 @@ namespace Task6_LuckyTickets.Controller
                 } while (isFailed);
 
                 lackyGenerator.Generate();
-                _view.PrintAnswerText(lackyGenerator.Count().ToString());
-                _view.AskContinue("Do you want to continue? yes(y)/no(n)");
+                _view.PrintResultText(lackyGenerator.Count().ToString());
+                _view.AskContinue(MessagesResources.AskContunue);
 
             } while (_run);
         }
@@ -74,14 +74,14 @@ namespace Task6_LuckyTickets.Controller
         {
             if (!File.Exists(((StringEventArgs)e).Value))
             {
-                throw new ArgumentException("Error");
+                throw new ArgumentException(MessagesResources.ErrorFileNotFound);
             }
             _path = ((StringEventArgs)e).Value;
         }
 
         protected virtual void OnEndWork(object sender, EventArgs e)
         {
-            _run = ((StringEventArgs)e).Value.ToLower().Trim() == "y" || ((StringEventArgs)e).Value.ToLower().Trim() == "yes";
+            _run = ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.Yes || ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.YesShort;
         }
     }
 }

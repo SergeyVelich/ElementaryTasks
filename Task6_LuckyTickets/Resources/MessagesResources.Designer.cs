@@ -61,11 +61,80 @@ namespace Task6_LuckyTickets.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на Lacky Tickets.
         /// </summary>
-        internal static string instruction {
+        internal static string ApplicationName {
             get {
-                return ResourceManager.GetString("instruction", resourceCulture);
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Do you want to continue? (yes/y).
+        /// </summary>
+        internal static string AskContunue {
+            get {
+                return ResourceManager.GetString("AskContunue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter path file with metod: .
+        /// </summary>
+        internal static string AskInputPath {
+            get {
+                return ResourceManager.GetString("AskInputPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на File isn&apos;t found.
+        /// </summary>
+        internal static string ErrorFileNotFound {
+            get {
+                return ResourceManager.GetString("ErrorFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Generation method not found.
+        /// </summary>
+        internal static string ErrorMethodNotFound {
+            get {
+                return ResourceManager.GetString("ErrorMethodNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Application count lacky tickets.
+        ///
+        ///Parameters:
+        ///    - required:
+        ///        [0] - path to text file with method description
+        ///    - optional:
+        ///        none.
+        /// </summary>
+        internal static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на y.
+        /// </summary>
+        internal static string YesShort {
+            get {
+                return ResourceManager.GetString("YesShort", resourceCulture);
             }
         }
     }

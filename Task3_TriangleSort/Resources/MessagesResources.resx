@@ -117,7 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="instruction" xml:space="preserve">
-    <value />
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Triangle Sorter</value>
+  </data>
+  <data name="AskAddTriangle" xml:space="preserve">
+    <value>Add next one? (yes/y)</value>
+  </data>
+  <data name="AskContunue" xml:space="preserve">
+    <value>Do you want to continue? (yes/y)</value>
+  </data>
+  <data name="AskInputTriangle" xml:space="preserve">
+    <value>Enter next triangle: </value>
+  </data>
+  <data name="ErrorArgumentNotFoundArgument4" xml:space="preserve">
+    <value>Argument 4 isn't found.</value>
+  </data>
+  <data name="ErrorInvalidArgument1" xml:space="preserve">
+    <value>Invalid argument 1.</value>
+  </data>
+  <data name="ErrorInvalidArgument2" xml:space="preserve">
+    <value>Invalid argument 2.</value>
+  </data>
+  <data name="ErrorInvalidArgument3" xml:space="preserve">
+    <value>Invalid argument 3.</value>
+  </data>
+  <data name="ErrorInvalidArgument4" xml:space="preserve">
+    <value>Invalid argument 4.</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>The application sorts triangles in descending order of their area.
+
+Parameters:
+    - required:
+        none
+    - optional:
+        none</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>yes</value>
+  </data>
+  <data name="YesShort" xml:space="preserve">
+    <value>y</value>
   </data>
 </root>

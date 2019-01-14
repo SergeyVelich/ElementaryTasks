@@ -11,8 +11,7 @@ namespace Task4_FileParser.Model.ValidationInboxParameters
     {
         public WorkMode workMode { get; set; }
         public string Path { get; set; }
-        public string StringToFind { get; set; }
-        public string StringToReplaced { get; set; }
-        public string StringReplacer { get; set; }
+        public string Pattern { get; set; }
+        public string Replacement { get; set; }
     }
 }

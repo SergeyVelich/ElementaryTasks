@@ -10,10 +10,10 @@ namespace Task78_Sequences.Model
     {
         public PowSequence(int upLimit) : base(upLimit)
         {
-            FillSequence();
+
         }
 
-        protected override void FillSequence()
+        protected override void GenerateSequence()
         {
             int upLimitNumber = (int)Math.Sqrt(_upLimit);
             int lowLimitNumber = (int)Math.Sqrt(_lowLimit);

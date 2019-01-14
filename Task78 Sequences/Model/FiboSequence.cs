@@ -10,10 +10,10 @@ namespace Task78_Sequences.Model
     {
         public FiboSequence(int lowLimit, int upLimit) : base(lowLimit, upLimit)
         {
-            FillSequence();
+            
         }
 
-        protected override void FillSequence()
+        protected override void GenerateSequence()
         {
             int p;
             int p1 = 0;

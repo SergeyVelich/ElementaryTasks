@@ -8,7 +8,7 @@ namespace Task78_Sequences.Resources
 {
     enum WorkMode
     {
-        Fibonaccі,
-        Pow,
+        FibonaccіMode,
+        PowMode,
     }
 }

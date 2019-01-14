@@ -61,14 +61,68 @@ namespace Task4_FileParser.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на This application is designed to find entries in the text file.
-        ///You may launch it from command line passing either two or three arguments:
-        ///if 2 arguments - mode Seek,
-        ///if 3 arguments - mode - Replace.
+        ///   Ищет локализованную строку, похожую на File Parser.
         /// </summary>
-        internal static string instruction {
+        internal static string ApplicationName {
             get {
-                return ResourceManager.GetString("instruction", resourceCulture);
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Do you want to continue? (yes/y).
+        /// </summary>
+        internal static string AskContunue {
+            get {
+                return ResourceManager.GetString("AskContunue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Argument 2 isn&apos;t found..
+        /// </summary>
+        internal static string ErrorArgumentNotFoundArgument2 {
+            get {
+                return ResourceManager.GetString("ErrorArgumentNotFoundArgument2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на File isn&apos;t found.
+        /// </summary>
+        internal static string ErrorFileNotFound {
+            get {
+                return ResourceManager.GetString("ErrorFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Application find and replace entries in the text file.
+        ///
+        ///Mode Seeker
+        ///
+        ///Parameters:
+        ///    - required:
+        ///        [0] - path to text file
+        ///        [1] - pattern string
+        ///    - optional:
+        ///        none
+        ///
+        ///Mode Replacer
+        ///
+        ///Parameters:
+        ///    - required:
+        ///        [0] - path to text file
+        ///        [1] - pattern string
+        ///        [2] - replacement string
+        ///    - optional:
+        ///        none
+        ///
+        ///.
+        /// </summary>
+        internal static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
             }
         }
     }

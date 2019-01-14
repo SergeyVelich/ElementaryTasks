@@ -27,7 +27,7 @@ namespace Task78_Sequences.Controller
 
             if (args.Length == 0)
             {
-                _view.PrintInstructionText(MessagesResources.instruction);
+                _view.PrintInstructionText(MessagesResources.Instruction);
                 return;
             }
 
@@ -43,22 +43,22 @@ namespace Task78_Sequences.Controller
 
             if (args.Length == 1)
             {
-                _workMode = WorkMode.Pow;
+                _workMode = WorkMode.PowMode;
             }
             else
             {
-                _workMode = WorkMode.Fibonaccі;
+                _workMode = WorkMode.FibonaccіMode;
             }            
 
-            if (_workMode == WorkMode.Fibonaccі)
+            if (_workMode == WorkMode.FibonaccіMode)
             {
                 sequence = new FiboSequence(_inboxParameters.LowLimit, _inboxParameters.UpLimit);
-                _view.PrintAnswerText(String.Format(MessagesResources.FibonacciAnswer, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
+                _view.PrintResultText(String.Format(MessagesResources.ResultFibonacci, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
             }
-            else if (_workMode == WorkMode.Pow)
+            else if (_workMode == WorkMode.PowMode)
             {
                 sequence = new PowSequence(_inboxParameters.UpLimit);
-                _view.PrintAnswerText(String.Format(MessagesResources.PowAnswer, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
+                _view.PrintResultText(String.Format(MessagesResources.ResultPow, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
             }
         }
     }

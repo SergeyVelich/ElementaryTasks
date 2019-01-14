@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Task1_ChessBoard.Model;
 using Task1_ChessBoard.Model.ValidationInboxParameters;
 using Task1_ChessBoard.UI;
+using Task1_ChessBoard.Resources;
 
 namespace Task1_ChessBoard.Controller
 {
@@ -23,7 +24,7 @@ namespace Task1_ChessBoard.Controller
         {
             if (args.Length == 0)
             {
-                _view.PrintInstructionText(MessagesResources.instruction);
+                _view.PrintInstructionText(MessagesResources.Instruction);
                 return;
             }
 
@@ -37,7 +38,7 @@ namespace Task1_ChessBoard.Controller
                 return;
             }
 
-            _view.PrintAnswerText(new Board(_inboxParameters.Height, _inboxParameters.Width).ToString());          
+            _view.PrintResultText(new Board(_inboxParameters.Height, _inboxParameters.Width).ToString());          
         }
     }
 }

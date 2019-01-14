@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task5_StringNumber.Model
+namespace Task5_StringNumber.Resources
 {
     public static class ResourcesUA
     {
         public static readonly int maxRank = 5;
         public static readonly string negative = "мінус";
 
-        public static readonly Dictionary<int, string> first100 = new Dictionary<int, string>()
+        public static readonly Dictionary<long, string> first100 = new Dictionary<long, string>()
         {
             { 0, "нуль" },
             { 1, "один" },
@@ -44,13 +44,13 @@ namespace Task5_StringNumber.Model
             { 100, "сто" }
         };
 
-        public static readonly Dictionary<int, string> first100FemaleChanges = new Dictionary<int, string>()
+        public static readonly Dictionary<long, string> first100FemaleChanges = new Dictionary<long, string>()
         {
             { 1, "одна" },
             { 2, "дві" }
         };
 
-        public static readonly Dictionary<int, string> hundreds = new Dictionary<int, string>()
+        public static readonly Dictionary<long, string> hundreds = new Dictionary<long, string>()
         {
             { 1, "сто" },
             { 2, "двісти" },
@@ -63,7 +63,7 @@ namespace Task5_StringNumber.Model
             { 9, "дев'ятсот" }
         };
 
-        public static readonly Dictionary<int, string> multiplesOf1000 = new Dictionary<int, string>()
+        public static readonly Dictionary<long, string> multiplesOf1000 = new Dictionary<long, string>()
         {
             { 0, "" },
             { 1, "тисяча" },
@@ -73,7 +73,7 @@ namespace Task5_StringNumber.Model
             { 5, "квадрильйон" },
         };
 
-        public static readonly Dictionary<int, string> multiplesOf1000Form234 = new Dictionary<int, string>()
+        public static readonly Dictionary<long, string> multiplesOf1000Form234 = new Dictionary<long, string>()
         {
             { 0, "" },
             { 1, "тисячі" },
@@ -83,7 +83,7 @@ namespace Task5_StringNumber.Model
             { 5, "квадрильйоин" },
         };
 
-        public static readonly Dictionary<int, string> multiplesOf1000Form5 = new Dictionary<int, string>()
+        public static readonly Dictionary<long, string> multiplesOf1000Form5 = new Dictionary<long, string>()
         {
             { 0, "" },
             { 1, "тисяч" },

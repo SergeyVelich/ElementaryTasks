@@ -61,11 +61,71 @@ namespace Task5_StringNumber.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на Converter Number to Text.
         /// </summary>
-        internal static string instruction {
+        internal static string ApplicationName {
             get {
-                return ResourceManager.GetString("instruction", resourceCulture);
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Do you want to continue? (yes/y).
+        /// </summary>
+        internal static string AskContunue {
+            get {
+                return ResourceManager.GetString("AskContunue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Argument 1 isn&apos;t found..
+        /// </summary>
+        internal static string ErrorArgumentNotFoundArgument1 {
+            get {
+                return ResourceManager.GetString("ErrorArgumentNotFoundArgument1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Converter isn&apos;t found.
+        /// </summary>
+        internal static string ErrorConverterNotFound {
+            get {
+                return ResourceManager.GetString("ErrorConverterNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invalid argument 1. Enter integer number from -999 999 999 999 999  to 999 999 999 999 999.
+        /// </summary>
+        internal static string ErrorInvalidArgument1 {
+            get {
+                return ResourceManager.GetString("ErrorInvalidArgument1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Application convert number to text.
+        ///
+        ///Parameters:
+        ///    - required:
+        ///        [0] - number
+        ///    - optional:
+        ///        none.
+        /// </summary>
+        internal static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на {0} = {1}.
+        /// </summary>
+        internal static string Result {
+            get {
+                return ResourceManager.GetString("Result", resourceCulture);
             }
         }
     }

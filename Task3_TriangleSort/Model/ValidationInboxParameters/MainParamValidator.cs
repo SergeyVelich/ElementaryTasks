@@ -18,7 +18,6 @@ namespace Task3_TriangleSort.Model.ValidationInboxParameters
         public InboxParameters GetMainParameters()
         {
             InboxParameters inboxParameters = new InboxParameters();
-
             return inboxParameters;
         }
     }

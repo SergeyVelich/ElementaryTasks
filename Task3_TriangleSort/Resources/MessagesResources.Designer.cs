@@ -61,11 +61,116 @@ namespace Task3_TriangleSort.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на Triangle Sorter.
         /// </summary>
-        internal static string instruction {
+        internal static string ApplicationName {
             get {
-                return ResourceManager.GetString("instruction", resourceCulture);
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add next one? (yes/y).
+        /// </summary>
+        internal static string AskAddTriangle {
+            get {
+                return ResourceManager.GetString("AskAddTriangle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Do you want to continue? (yes/y).
+        /// </summary>
+        internal static string AskContunue {
+            get {
+                return ResourceManager.GetString("AskContunue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Enter next triangle: .
+        /// </summary>
+        internal static string AskInputTriangle {
+            get {
+                return ResourceManager.GetString("AskInputTriangle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Argument 4 isn&apos;t found..
+        /// </summary>
+        internal static string ErrorArgumentNotFoundArgument4 {
+            get {
+                return ResourceManager.GetString("ErrorArgumentNotFoundArgument4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invalid argument 1..
+        /// </summary>
+        internal static string ErrorInvalidArgument1 {
+            get {
+                return ResourceManager.GetString("ErrorInvalidArgument1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invalid argument 2..
+        /// </summary>
+        internal static string ErrorInvalidArgument2 {
+            get {
+                return ResourceManager.GetString("ErrorInvalidArgument2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invalid argument 3..
+        /// </summary>
+        internal static string ErrorInvalidArgument3 {
+            get {
+                return ResourceManager.GetString("ErrorInvalidArgument3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invalid argument 4..
+        /// </summary>
+        internal static string ErrorInvalidArgument4 {
+            get {
+                return ResourceManager.GetString("ErrorInvalidArgument4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The application sorts triangles in descending order of their area.
+        ///
+        ///Parameters:
+        ///    - required:
+        ///        none
+        ///    - optional:
+        ///        none.
+        /// </summary>
+        internal static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на y.
+        /// </summary>
+        internal static string YesShort {
+            get {
+                return ResourceManager.GetString("YesShort", resourceCulture);
             }
         }
     }

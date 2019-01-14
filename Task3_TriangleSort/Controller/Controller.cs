@@ -14,8 +14,8 @@ namespace Task3_TriangleSort.Controller
     {
         private IView _view;
         private InboxParameters _inboxParameters;
-        private bool _run;
-        private bool _add;
+        private bool _continueFlag;
+        private bool _addNextTriangleFlag;
         private List<Triangle> _triangles;
 
         public Presenter(IView view)
@@ -32,7 +32,7 @@ namespace Task3_TriangleSort.Controller
 
             if (args.Length == 0)
             {
-                _view.PrintInstructionText(MessagesResources.instruction);
+                _view.PrintInstructionText(MessagesResources.Instruction);
             }
 
             try
@@ -46,50 +46,60 @@ namespace Task3_TriangleSort.Controller
             }
 
             _triangles = new List<Triangle>();
-           
+
+            do
             {
                 do
                 {
                     try
                     {
-                        _view.AskInputEnvelope("Enter next triangle: ");
+                        _view.AskInputEnvelope(MessagesResources.AskInputTriangle);
                     }
                     catch (Exception ex)
                     {
                         _view.PrintErrorText(ex.Message);
                     }
 
-                    _view.AskContinueAddTriangles("Add next one? yes(y)/no(n)");
-                } while (_add);
+                    _view.AskContinueAddTriangles(MessagesResources.AskAddTriangle);
+                } while (_addNextTriangleFlag);
 
                 sorter = new TriangleSorter(_triangles);
                 sorter.Sort(new TriangleComparerByAreaDesc());
 
-                _view.PrintAnswerText(sorter.ToString());
-                _view.AskContinue("Do you want to continue? yes(y)/no(n)");
-            }            
+                _view.PrintResultText(sorter.ToString());
+                _view.AskContinue(MessagesResources.AskContunue);
+            } while (_continueFlag);            
         }
 
         protected virtual void OnSetTriangle(object sender, EventArgs e)
         {
             if (!(((StringArrEventArgs)e).Value is string[]))
             {
-                throw new ArgumentException("Error");
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
             }
 
             string[] arrAnswer = ((StringArrEventArgs)e).Value;
 
             if(arrAnswer.Length < 4)
             {
-                throw new ArgumentException("Error");
+                throw new ArgumentException(MessagesResources.ErrorArgumentNotFoundArgument4);
             }
 
             string name = arrAnswer[0];
-            if (!double.TryParse(arrAnswer[1], out double sideA)
-                || !double.TryParse(arrAnswer[2], out double sideB)
-                || !double.TryParse(arrAnswer[3], out double sideC))
+
+            if (!double.TryParse(arrAnswer[1], out double sideA))
             {
-                throw new ArgumentException("Error");
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument2);
+            }
+
+            if (!double.TryParse(arrAnswer[2], out double sideB))
+            {
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument3);
+            }
+
+            if (!double.TryParse(arrAnswer[3], out double sideC))
+            {
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument4);
             }
 
             _triangles.Add(new Triangle(name, sideA, sideB, sideC));
@@ -97,12 +107,12 @@ namespace Task3_TriangleSort.Controller
 
         protected virtual void OnAddTriangle(object sender, EventArgs e)
         {
-            _add = ((StringEventArgs)e).Value.ToLower().Trim() == "y" || ((StringEventArgs)e).Value.ToLower().Trim() == "yes";
+            _addNextTriangleFlag = ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.Yes || ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.YesShort;
         }
 
         protected virtual void OnEndWork(object sender, EventArgs e)
         {
-            _run = ((StringEventArgs)e).Value.ToLower().Trim() == "y" || ((StringEventArgs)e).Value.ToLower().Trim() == "yes";
+            _continueFlag = ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.Yes || ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.YesShort;
         }
     }
 }

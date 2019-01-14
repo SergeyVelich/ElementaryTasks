@@ -61,76 +61,109 @@ namespace Task78_Sequences.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Fibonacci sequence from {0} to {1}: .
+        ///   Ищет локализованную строку, похожую на Sequences.
         /// </summary>
-        internal static string FibonacciAnswer {
+        internal static string ApplicationName {
             get {
-                return ResourceManager.GetString("FibonacciAnswer", resourceCulture);
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на This application generate the number sequence depending on algorythms choosen:
-        ///if 1 argument - Pow mode,
-        ///if 2 arguments - Fibonacci mode.
+        ///   Ищет локализованную строку, похожую на Do you want to continue? (yes/y).
         /// </summary>
-        internal static string instruction {
+        internal static string AskContunue {
             get {
-                return ResourceManager.GetString("instruction", resourceCulture);
+                return ResourceManager.GetString("AskContunue", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на Invalid argument 1. Enter integer number from -2 147 483 648 to 2 147 483 648.
         /// </summary>
-        internal static string InvalidArgument1 {
+        internal static string ErrorInvalidArgument1 {
             get {
-                return ResourceManager.GetString("InvalidArgument1", resourceCulture);
+                return ResourceManager.GetString("ErrorInvalidArgument1", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на Invalid argument 2. Enter integer number from -2 147 483 648 to 2 147 483 648.
         /// </summary>
-        internal static string InvalidArgument2 {
+        internal static string ErrorInvalidArgument2 {
             get {
-                return ResourceManager.GetString("InvalidArgument2", resourceCulture);
+                return ResourceManager.GetString("ErrorInvalidArgument2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на The upper limit value must be greater than lower.
         /// </summary>
-        internal static string InvalidArgumentFiboMixLimits {
+        internal static string ErrorInvalidArgumentFiboMixLimits {
             get {
-                return ResourceManager.GetString("InvalidArgumentFiboMixLimits", resourceCulture);
+                return ResourceManager.GetString("ErrorInvalidArgumentFiboMixLimits", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на The upper limit value must be greater than 0.
         /// </summary>
-        internal static string InvalidArgumentFiboNegative {
+        internal static string ErrorInvalidArgumentFiboNegative {
             get {
-                return ResourceManager.GetString("InvalidArgumentFiboNegative", resourceCulture);
+                return ResourceManager.GetString("ErrorInvalidArgumentFiboNegative", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на The upper limit value must be greater than 0.
         /// </summary>
-        internal static string InvalidArgumentPowNegative {
+        internal static string ErrorInvalidArgumentPowNegative {
             get {
-                return ResourceManager.GetString("InvalidArgumentPowNegative", resourceCulture);
+                return ResourceManager.GetString("ErrorInvalidArgumentPowNegative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Application generate the number sequence with specified algorythm.
+        ///
+        ///Pow mode 
+        ///
+        ///Parameters:
+        ///    - required:
+        ///        [0] - up limit
+        ///    - optional:
+        ///        none
+        ///
+        ///Fibonacci  mode
+        ///
+        ///Parameters:
+        ///    - required:
+        ///        [0] - low limit
+        ///        [1] - up limit
+        ///    - optional:
+        ///        none.
+        /// </summary>
+        internal static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Fibonacci sequence from {0} to {1}: .
+        /// </summary>
+        internal static string ResultFibonacci {
+            get {
+                return ResourceManager.GetString("ResultFibonacci", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на Pow sequence from {0} to {1}: .
         /// </summary>
-        internal static string PowAnswer {
+        internal static string ResultPow {
             get {
-                return ResourceManager.GetString("PowAnswer", resourceCulture);
+                return ResourceManager.GetString("ResultPow", resourceCulture);
             }
         }
     }

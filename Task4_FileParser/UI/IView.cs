@@ -8,8 +8,8 @@ namespace Task4_FileParser.UI
 {
     interface IView
     {
-        void PrintInstructionText(string instruction);
-        void PrintErrorText(string errorText);
-        void PrintAnswerText(string answerText);
+        void PrintInstructionText(string text);
+        void PrintErrorText(string text);
+        void PrintResultText(string text);
     }
 }

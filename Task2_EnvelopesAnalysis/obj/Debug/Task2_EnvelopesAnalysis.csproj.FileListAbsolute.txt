@@ -7,3 +7,12 @@ F:\Проекты C#\ElementaryTasks\Task2_EnvelopesAnalysis\bin\Debug\Task2_Env
 F:\Проекты C#\ElementaryTasks\Task2_EnvelopesAnalysis\bin\Debug\Task2_EnvelopesAnalysis.pdb
 F:\Проекты C#\ElementaryTasks\Task2_EnvelopesAnalysis\obj\Debug\Task2_EnvelopesAnalysis.exe
 F:\Проекты C#\ElementaryTasks\Task2_EnvelopesAnalysis\obj\Debug\Task2_EnvelopesAnalysis.pdb
+F:\Проекты C#\ElementaryTasksFinal\Task2_EnvelopesAnalysis\bin\Debug\Task2_EnvelopesAnalysis.exe.config
+F:\Проекты C#\ElementaryTasksFinal\Task2_EnvelopesAnalysis\bin\Debug\Task2_EnvelopesAnalysis.exe
+F:\Проекты C#\ElementaryTasksFinal\Task2_EnvelopesAnalysis\bin\Debug\Task2_EnvelopesAnalysis.pdb
+F:\Проекты C#\ElementaryTasksFinal\Task2_EnvelopesAnalysis\obj\Debug\Task2_EnvelopesAnalysis.csprojAssemblyReference.cache
+F:\Проекты C#\ElementaryTasksFinal\Task2_EnvelopesAnalysis\obj\Debug\Task2_EnvelopesAnalysis.Resources.MessagesResources.resources
+F:\Проекты C#\ElementaryTasksFinal\Task2_EnvelopesAnalysis\obj\Debug\Task2_EnvelopesAnalysis.csproj.GenerateResource.cache
+F:\Проекты C#\ElementaryTasksFinal\Task2_EnvelopesAnalysis\obj\Debug\Task2_EnvelopesAnalysis.csproj.CoreCompileInputs.cache
+F:\Проекты C#\ElementaryTasksFinal\Task2_EnvelopesAnalysis\obj\Debug\Task2_EnvelopesAnalysis.exe
+F:\Проекты C#\ElementaryTasksFinal\Task2_EnvelopesAnalysis\obj\Debug\Task2_EnvelopesAnalysis.pdb

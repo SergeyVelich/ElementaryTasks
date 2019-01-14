@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Task5_StringNumber.Model;
 using Task5_StringNumber.Model.ValidationInboxParameters;
 using Task5_StringNumber.UI;
+using Task5_StringNumber.Resources;
 
 namespace Task5_StringNumber.Controller
 {
@@ -25,7 +26,7 @@ namespace Task5_StringNumber.Controller
 
             if (args.Length == 0)
             {
-                _view.PrintInstructionText(MessagesResources.instruction);
+                _view.PrintInstructionText(MessagesResources.Instruction);
                 return;
             }
 
@@ -42,11 +43,11 @@ namespace Task5_StringNumber.Controller
             converter = GetConverter(inboxParameters.Region);
             if (converter == null)
             {
-                _view.PrintErrorText("Error");
+                _view.PrintErrorText(MessagesResources.ErrorConverterNotFound);
                 return;
             }
 
-            _view.PrintAnswerText(String.Format("{0} = {1}", inboxParameters.Number, converter.Convert(inboxParameters.Number)));
+            _view.PrintResultText(String.Format(MessagesResources.Result, inboxParameters.Number, converter.Convert(inboxParameters.Number)));
         }
 
         public ConverterToText GetConverter(Local local)

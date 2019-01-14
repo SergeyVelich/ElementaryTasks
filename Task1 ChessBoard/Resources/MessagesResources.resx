@@ -117,7 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="instruction" xml:space="preserve">
-    <value />
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Chess Board</value>
+  </data>
+  <data name="AskContunue" xml:space="preserve">
+    <value>Do you want to continue? (yes/y)</value>
+  </data>
+  <data name="ColorBlack" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="ColorWhite" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="ErrorArgumentNotFoundArgument2" xml:space="preserve">
+    <value>Argument 2 isn't found.</value>
+  </data>
+  <data name="ErrorInvalidArgument1" xml:space="preserve">
+    <value>Invalid argument 1.</value>
+  </data>
+  <data name="ErrorInvalidArgument2" xml:space="preserve">
+    <value>Invalid argument 2.</value>
+  </data>
+  <data name="ErrorInvalidArgumentNegative" xml:space="preserve">
+    <value>The upper limit value must be greater than 0</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Application displays a chessboard with the specified dimensions.
+
+Parameters:
+    - required:
+        [0] - height of board
+        [1] - width of board
+    - optional:
+        none</value>
   </data>
 </root>

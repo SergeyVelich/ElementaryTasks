@@ -56,7 +56,7 @@ namespace Task6_LuckyTickets.Model
 
             if(_method == 0)
             {
-                throw new Exception("Error");
+                throw new Exception(MessagesResources.ErrorMethodNotFound);
             }
 
             for (int i = 0; i < 1000000; i++)
@@ -98,7 +98,7 @@ namespace Task6_LuckyTickets.Model
         {
             if (_tickets == null)
             {
-                throw new Exception("Error");
+                throw new NullReferenceException();
             }
             return _tickets.Count();
         } 

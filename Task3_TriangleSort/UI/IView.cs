@@ -8,9 +8,9 @@ namespace Task3_TriangleSort.UI
 {
     interface IView
     {
-        void PrintInstructionText(string instruction);
-        void PrintErrorText(string errorText);
-        void PrintAnswerText(string answerText);
+        void PrintInstructionText(string text);
+        void PrintErrorText(string text);
+        void PrintResultText(string text);
         void AskInputEnvelope(string text);
         void AskContinue(string text);
         void AskContinueAddTriangles(string text);
