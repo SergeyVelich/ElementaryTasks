@@ -23,14 +23,14 @@ namespace Task6_LuckyTickets.Controller
         public Presenter(IView view)
         {
             _view = view;
+
+            _view.SetPath += OnSetPath;
+            _view.EndWork += OnEndWork;
         }
 
         public void Run(string[] args)
         {
             LuckyTicketsGenerator lackyGenerator = null;
-
-            _view.SetPath += OnSetPath;
-            _view.EndWork += OnEndWork;
 
             if (args.Length == 0)
             {

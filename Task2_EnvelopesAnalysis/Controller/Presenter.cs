@@ -22,16 +22,16 @@ namespace Task2_EnvelopesAnalysis.Controller
         public Presenter(IView view)
         {
             _view = view;
+
+            _view.SetHeight += OnSetHeight;
+            _view.SetWidth += OnSetWidth;
+            _view.EndWork += OnEndWork;
         }
 
         public void Run(string[] args)
         {
             Envelope[] envelopes;
             EnvelopeComparer envelopeComparer;
-
-            _view.SetHeight += OnSetHeight;
-            _view.SetWidth += OnSetWidth;
-            _view.EndWork += OnEndWork;
 
             if (args.Length == 0)
             {

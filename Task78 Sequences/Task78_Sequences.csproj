@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Controller\Presenter.cs" />
     <Compile Include="Model\ValidationInboxParameters\InboxParameters.cs" />
     <Compile Include="Model\FiboSequence.cs" />
     <Compile Include="Model\PowSequence.cs" />
