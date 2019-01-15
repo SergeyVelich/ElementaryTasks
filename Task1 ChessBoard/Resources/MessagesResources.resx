@@ -129,14 +129,11 @@
   <data name="ColorWhite" xml:space="preserve">
     <value> </value>
   </data>
-  <data name="ErrorArgumentNotFoundArgument2" xml:space="preserve">
-    <value>Argument 2 isn't found.</value>
+  <data name="ErrorArgumentNotFoundArgument" xml:space="preserve">
+    <value>Argument {0} isn't found.</value>
   </data>
-  <data name="ErrorInvalidArgument1" xml:space="preserve">
-    <value>Invalid argument 1.</value>
-  </data>
-  <data name="ErrorInvalidArgument2" xml:space="preserve">
-    <value>Invalid argument 2.</value>
+  <data name="ErrorInvalidArgument" xml:space="preserve">
+    <value>Invalid argument {0}.</value>
   </data>
   <data name="ErrorInvalidArgumentNegative" xml:space="preserve">
     <value>The upper limit value must be greater than 0</value>

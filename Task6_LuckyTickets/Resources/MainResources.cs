@@ -6,16 +6,6 @@ using System.Threading.Tasks;
 
 namespace Task6_LuckyTickets.Resources
 {
-    public class StringEventArgs : EventArgs
-    {
-        public string Value { get; private set; }
-
-        public StringEventArgs(string value)
-        {
-            Value = value;
-        }
-    }
-
     public enum GenerationLackyTicketsMethod
     {
         Indefinite,

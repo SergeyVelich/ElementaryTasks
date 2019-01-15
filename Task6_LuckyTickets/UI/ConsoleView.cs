@@ -41,15 +41,23 @@ namespace Task6_LuckyTickets.UI
         public void AskInputPath(string text)
         {
             Console.WriteLine(text);
-            string arg = Console.ReadLine();
-            SetPath?.Invoke(this, new StringEventArgs(arg));
+            SetPath?.Invoke(this, new EventArgs());
         }
 
-        public void AskContinue(string text)
+        public string GetPath()
+        {
+            return Console.ReadLine();
+        }
+
+        public void AskContinueFlag(string text)
         {
             Console.WriteLine(text);
-            string arg = Console.ReadLine();
-            EndWork?.Invoke(this, new StringEventArgs(arg));
+            EndWork?.Invoke(this, new EventArgs());
+        }
+
+        public string GetContinueFlag()
+        {
+            return Console.ReadLine();
         }
     }
 }

@@ -13,9 +13,11 @@ namespace Task6_LuckyTickets.Controller
 {
     class Presenter
     {
+        private readonly string _pathLog = "dataLog.txt";
+
         private IView _view;
         private InboxParameters _inboxParameters;
-        private bool _run;
+        private bool _continueFlag;
         private string _path;
 
         public Presenter(IView view)
@@ -62,26 +64,29 @@ namespace Task6_LuckyTickets.Controller
                         isFailed = true;
                     }
                 } while (isFailed);
-
+               
                 lackyGenerator.Generate();
+                lackyGenerator.SaveToFile(_pathLog);
                 _view.PrintResultText(lackyGenerator.Count().ToString());
-                _view.AskContinue(MessagesResources.AskContunue);
+                _view.AskContinueFlag(MessagesResources.AskContunue);
 
-            } while (_run);
+            } while (_continueFlag);
         }
 
         protected virtual void OnSetPath(object sender, EventArgs e)
         {
-            if (!File.Exists(((StringEventArgs)e).Value))
+            string path = _view.GetPath();
+            if (!File.Exists(path))
             {
                 throw new ArgumentException(MessagesResources.ErrorFileNotFound);
             }
-            _path = ((StringEventArgs)e).Value;
+            _path = path;
         }
 
         protected virtual void OnEndWork(object sender, EventArgs e)
         {
-            _run = ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.Yes || ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.YesShort;
+            string continueFlag = _view.GetContinueFlag();
+            _continueFlag = continueFlag.ToLower().Trim() == MessagesResources.Yes || continueFlag.ToLower().Trim() == MessagesResources.YesShort;
         }
     }
 }

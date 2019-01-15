@@ -7,3 +7,12 @@ F:\Проекты C#\ElementaryTasks\Task6_LuckyTickets\obj\Debug\Task6_LuckyTic
 F:\Проекты C#\ElementaryTasks\Task6_LuckyTickets\obj\Debug\Task6_LuckyTickets.exe
 F:\Проекты C#\ElementaryTasks\Task6_LuckyTickets\obj\Debug\Task6_LuckyTickets.pdb
 F:\Проекты C#\ElementaryTasks\Task6_LuckyTickets\obj\Debug\Task6_LuckyTickets.csprojAssemblyReference.cache
+F:\Проекты C#\ElementaryTasksFinal\Task6_LuckyTickets\bin\Debug\Task6_LuckyTickets.exe.config
+F:\Проекты C#\ElementaryTasksFinal\Task6_LuckyTickets\bin\Debug\Task6_LuckyTickets.exe
+F:\Проекты C#\ElementaryTasksFinal\Task6_LuckyTickets\bin\Debug\Task6_LuckyTickets.pdb
+F:\Проекты C#\ElementaryTasksFinal\Task6_LuckyTickets\obj\Debug\Task6_LuckyTickets.csprojAssemblyReference.cache
+F:\Проекты C#\ElementaryTasksFinal\Task6_LuckyTickets\obj\Debug\Task6_LuckyTickets.Resources.MessagesResources.resources
+F:\Проекты C#\ElementaryTasksFinal\Task6_LuckyTickets\obj\Debug\Task6_LuckyTickets.csproj.GenerateResource.cache
+F:\Проекты C#\ElementaryTasksFinal\Task6_LuckyTickets\obj\Debug\Task6_LuckyTickets.csproj.CoreCompileInputs.cache
+F:\Проекты C#\ElementaryTasksFinal\Task6_LuckyTickets\obj\Debug\Task6_LuckyTickets.exe
+F:\Проекты C#\ElementaryTasksFinal\Task6_LuckyTickets\obj\Debug\Task6_LuckyTickets.pdb

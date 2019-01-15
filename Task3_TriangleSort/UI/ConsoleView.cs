@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Task3_TriangleSort.Resources;
+using Task3_TriangleSort.Model;
 
 namespace Task3_TriangleSort.UI
 {
     class ConsoleView : IView
     {
         private const string BLOCK_SEPARATOR = "==================================================================";
+        private const string TRIANGLE_LIST_HEADER = "============= Triangles list: ===============";
+        private const string TRIANGLE_LIST_ROW = "{0}. [Triangle {1}]: {2} сm";
 
         public event EventHandler SetTriangle;
         public event EventHandler AddTriangle;
@@ -31,34 +33,51 @@ namespace Task3_TriangleSort.UI
             Console.WriteLine();
         }
 
-        public void PrintResultText(string text)
+        public void PrintResult(TriangleSorter triangleSorter)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(text);
-            Console.ResetColor();
+            Console.WriteLine(TRIANGLE_LIST_HEADER);
+            for (int i = 0; i < triangleSorter.Triangles.Count; i++)
+            {
+                Console.WriteLine(TRIANGLE_LIST_ROW, i + 1, triangleSorter.Triangles[i].Name, triangleSorter.Triangles[i].Area);
+                if (i < triangleSorter.Triangles.Count - 1)
+                {
+                    Console.WriteLine();
+                }
+            }
             Console.WriteLine();
         }
 
-        public void AskInputEnvelope(string text)
+        public void AskInputTriangle(string text)
         {
             Console.WriteLine(text);
-            string arg = Console.ReadLine();
-            string[] args = arg.Split(" ".ToCharArray());
-            SetTriangle?.Invoke(this, new StringArrEventArgs(args));
+            SetTriangle?.Invoke(this, new EventArgs());
         }
 
-        public void AskContinueAddTriangles(string text)
+        public string GetTriangle()
         {
-            Console.WriteLine(text);
-            string arg = Console.ReadLine();
-            AddTriangle?.Invoke(this, new StringEventArgs(arg));
+            return Console.ReadLine();
         }
 
-        public void AskContinue(string text)
+        public void AskAddTrianglesFlag(string text)
         {
             Console.WriteLine(text);
-            string arg = Console.ReadLine();
-            EndWork?.Invoke(this, new StringEventArgs(arg));
-        }     
+            AddTriangle?.Invoke(this, new EventArgs());
+        }
+
+        public string GetAddTrianglesFlag()
+        {
+            return Console.ReadLine();
+        }
+
+        public void AskContinueFlag(string text)
+        {
+            Console.WriteLine(text);
+            EndWork?.Invoke(this, new EventArgs());
+        }
+
+        public string GetContinueFlag()
+        {
+            return Console.ReadLine();
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task3_TriangleSort.Model;
 
 namespace Task3_TriangleSort.UI
 {
@@ -10,10 +11,14 @@ namespace Task3_TriangleSort.UI
     {
         void PrintInstructionText(string text);
         void PrintErrorText(string text);
-        void PrintResultText(string text);
-        void AskInputEnvelope(string text);
-        void AskContinue(string text);
-        void AskContinueAddTriangles(string text);
+        void PrintResult(TriangleSorter triangleSorter);
+        void AskInputTriangle(string text);
+        void AskContinueFlag(string text);
+        void AskAddTrianglesFlag(string text);
+
+        string GetTriangle();
+        string GetContinueFlag();
+        string GetAddTrianglesFlag();
 
         event EventHandler SetTriangle;
         event EventHandler AddTriangle;

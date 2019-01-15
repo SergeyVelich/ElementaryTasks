@@ -123,14 +123,17 @@
   <data name="AskContunue" xml:space="preserve">
     <value>Do you want to continue? (yes/y)</value>
   </data>
-  <data name="ErrorArgumentNotFoundArgument1" xml:space="preserve">
-    <value>Argument 1 isn't found.</value>
+  <data name="ErrorArgumentNotFoundArgument" xml:space="preserve">
+    <value>Argument {0} isn't found.</value>
   </data>
   <data name="ErrorConverterNotFound" xml:space="preserve">
     <value>Converter isn't found</value>
   </data>
-  <data name="ErrorInvalidArgument1" xml:space="preserve">
-    <value>Invalid argument 1. Enter integer number from -999 999 999 999 999  to 999 999 999 999 999</value>
+  <data name="ErrorInvalidArgument" xml:space="preserve">
+    <value>Invalid argument {0}. Enter integer number from -999 999 999 999 999  to 999 999 999 999 999</value>
+  </data>
+  <data name="ErrorInvalidLocal" xml:space="preserve">
+    <value>Local isn't defined</value>
   </data>
   <data name="Instruction" xml:space="preserve">
     <value>Application convert number to text.

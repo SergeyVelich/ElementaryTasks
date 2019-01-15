@@ -11,17 +11,17 @@ namespace Task6_LuckyTickets.Model
 {
     class LuckyTicketsGenerator
     {
-        private List<Ticket> _tickets;
-        private GenerationLackyTicketsMethod _method;
+        public List<Ticket> Tickets { get; set; }
+        public GenerationLackyTicketsMethod Method { get; set; }
 
         public LuckyTicketsGenerator()
         {
-            _tickets = new List<Ticket>();
+            Tickets = new List<Ticket>();
         }
 
         public LuckyTicketsGenerator(string filePath):this()
         {
-            _method = GetCountMethod(filePath);
+            Method = GetCountMethod(filePath);
         }
 
         private GenerationLackyTicketsMethod GetCountMethod(string filePath)
@@ -54,7 +54,7 @@ namespace Task6_LuckyTickets.Model
             string number;
             int n1, n2;
 
-            if(_method == 0)
+            if(Method == 0)
             {
                 throw new Exception(MessagesResources.ErrorMethodNotFound);
             }
@@ -63,7 +63,7 @@ namespace Task6_LuckyTickets.Model
             {
                 number = String.Format("{0:000000}", i);
 
-                if(_method == GenerationLackyTicketsMethod.Piter)
+                if(Method == GenerationLackyTicketsMethod.Piter)
                 {
                     n1 = (int)number[0] + (int)number[2] + (int)number[4];
                     n2 = (int)number[1] + (int)number[3] + (int)number[5];
@@ -77,7 +77,7 @@ namespace Task6_LuckyTickets.Model
                 if (n1 == n2)
                 {
                     Ticket ticket = new Ticket(number);
-                    _tickets.Add(ticket);
+                    Tickets.Add(ticket);
                     count ++;                    
                 }              
             }
@@ -87,7 +87,7 @@ namespace Task6_LuckyTickets.Model
         {
             using (StreamWriter writer = new StreamWriter(path))
             {
-                foreach (Ticket ticket in _tickets)
+                foreach (Ticket ticket in Tickets)
                 {
                     writer.WriteLine(ticket.ToString());
                 }
@@ -96,11 +96,7 @@ namespace Task6_LuckyTickets.Model
 
         public int Count()
         {
-            if (_tickets == null)
-            {
-                throw new NullReferenceException();
-            }
-            return _tickets.Count();
+            return Tickets.Count();
         } 
     }
 }

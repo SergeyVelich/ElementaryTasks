@@ -8,7 +8,7 @@ namespace Task4_FileParser.Resources
 {
     public enum WorkMode
     {
-        FindMode,
+        SearchMode,
         ReplaceMode
     }
 }

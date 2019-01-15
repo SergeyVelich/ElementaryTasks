@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Task1_ChessBoard.Model;
 
 namespace Task1_ChessBoard.UI
 {
     class ConsoleView : IView
     {
         private const string BLOCK_SEPARATOR = "==================================================================";
+        private const string CELL_COLOR_BLACK = "*";
+        private const string CELL_COLOR_WHITE = " ";
 
         public void PrintInstructionText(string text)
         {
@@ -28,13 +31,31 @@ namespace Task1_ChessBoard.UI
             Console.ReadKey();
         }
 
-        public void PrintResultText(string text)
+        public void PrintResult(Board board)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(text);
-            Console.ResetColor();
+            for (int y = 0; y <= board.Height - 1; y++)
+            {
+                for (int x = 0; x <= board.Width - 1; x++)
+                {
+                    PrintCell(board.Cells[y, x]);
+                }
+                Console.WriteLine();
+            }
+
             Console.WriteLine();
             Console.ReadKey();
+        }
+
+        public void PrintCell(Cell cell)
+        {            
+            if (cell.IsBlack)
+            {
+                Console.Write(CELL_COLOR_BLACK);
+            }
+            else
+            {
+                Console.Write(CELL_COLOR_WHITE);
+            }
         }
     }
 }

@@ -132,8 +132,8 @@
   <data name="AskInputWidth" xml:space="preserve">
     <value>Enter width:</value>
   </data>
-  <data name="ErrorInvalidArgument1" xml:space="preserve">
-    <value>Invalid argument 1.</value>
+  <data name="ErrorInvalidArgument" xml:space="preserve">
+    <value>Invalid argument {0}.</value>
   </data>
   <data name="Instruction" xml:space="preserve">
     <value>The application responds if you can put one envelope in another.

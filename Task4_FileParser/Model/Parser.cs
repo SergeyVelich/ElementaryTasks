@@ -5,23 +5,24 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Task4_FileParser.Resources;
 
 namespace Task4_FileParser.Model
 {
     public class Parser
     {
-        private string _path;
+        public string Path { get; set; }
 
         public Parser(string path)
         {
-            _path = path;
+            Path = path;
         }
 
         public int GetCountFinded(string stringToFind)
         {
             int countEntry = 0;
 
-            using (StreamReader reader = new StreamReader(_path, Encoding.Default))
+            using (StreamReader reader = new StreamReader(Path, Encoding.Default))
             {                   
                 string line;
                 int countEntryinLine;
@@ -40,11 +41,11 @@ namespace Task4_FileParser.Model
         {
             int countEntry = 0;            
 
-            string tempFileName = Path.GetDirectoryName(_path) + "\\" + Path.GetRandomFileName() + ".txt";
+            string tempFileName = System.IO.Path.GetDirectoryName(Path) + "\\" + System.IO.Path.GetRandomFileName() + ".txt";
 
             using (StreamWriter writer = new StreamWriter(tempFileName))
             {
-                using (StreamReader reader = new StreamReader(_path))
+                using (StreamReader reader = new StreamReader(Path))
                 {
                     string line;
                     int countEntryinLine;
@@ -69,11 +70,11 @@ namespace Task4_FileParser.Model
                     try
                     {
                         writer.Flush();
-                        File.Replace(tempFileName, _path, null);
+                        File.Replace(tempFileName, Path, null);
                     }
                     catch
                     {
-                        throw new IOException();
+                        throw new IOException(String.Format(MessagesResources.ErrorSaveFile, Path));
                     }
                 }
                 else
@@ -84,7 +85,7 @@ namespace Task4_FileParser.Model
                     }
                     catch
                     {
-                        throw new IOException();
+                        throw new IOException(String.Format(MessagesResources.ErrorDeleteTemporaryFile, Path));
                     }
                 }
 

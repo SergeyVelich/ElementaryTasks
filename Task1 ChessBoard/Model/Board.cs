@@ -9,58 +9,36 @@ namespace Task1_ChessBoard.Model
 {
     public class Board
     {
-        private Cell[,] _cells;
-        private int _width;
-        private int _height;
         private bool _firstBlack;
+
+        public Cell[,] Cells { get; private set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
 
         public Board(int height, int width)
         {
-            _height = height;
-            _width = width;           
+            Height = height;
+            Width = width;           
             _firstBlack = true;
 
             FillBoard();
-        }
+        }   
 
         private void FillBoard()
         {
             bool isBlack;
-            _cells = new Cell[_height, _width];           
-            for (int y = 0; y <= _height - 1; y++)
+            Cells = new Cell[Height, Width];           
+            for (int y = 0; y <= Height - 1; y++)
             {
                 isBlack = _firstBlack;
-                for (int x = 0; x <= _width - 1; x++)
+                for (int x = 0; x <= Width - 1; x++)
                 {
                     Cell cell = new Cell(y, x, isBlack);
-                    _cells[y, x] = cell;
+                    Cells[y, x] = cell;
                     isBlack = !isBlack;
                 }
                 _firstBlack = !_firstBlack;
             }
-        }
-
-        public override string ToString()
-        {
-            Cell cell;
-            StringBuilder result = new StringBuilder();
-            for (int y = 0; y <= _height - 1; y++)
-            {
-                for (int x = 0; x <= _width - 1; x++)
-                {
-                    cell = _cells[y, x];
-                    if (cell.IsBlack)
-                    {
-                        result.Append(MessagesResources.ColorBlack);
-                    }
-                    else
-                    {
-                        result.Append(MessagesResources.ColorWhite);
-                    }
-                }
-                result.Append("\n");
-            }
-            return result.ToString();
         }
     }
 }

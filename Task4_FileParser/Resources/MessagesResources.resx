@@ -123,16 +123,25 @@
   <data name="AskContunue" xml:space="preserve">
     <value>Do you want to continue? (yes/y)</value>
   </data>
-  <data name="ErrorArgumentNotFoundArgument2" xml:space="preserve">
-    <value>Argument 2 isn't found.</value>
+  <data name="ErrorArgumentNotFoundArgument" xml:space="preserve">
+    <value>Argument {0} isn't found.</value>
+  </data>
+  <data name="ErrorDeleteTemporaryFile" xml:space="preserve">
+    <value>Failed to delete temporary file {0}</value>
   </data>
   <data name="ErrorFileNotFound" xml:space="preserve">
-    <value>File isn't found</value>
+    <value>File {0} isn't found</value>
+  </data>
+  <data name="ErrorInvalidWorkMode" xml:space="preserve">
+    <value>Work mode isn't defined</value>
+  </data>
+  <data name="ErrorSaveFile" xml:space="preserve">
+    <value>Failed to save file {0}</value>
   </data>
   <data name="Instruction" xml:space="preserve">
     <value>Application find and replace entries in the text file.
 
-Mode Seeker
+Mode Searcher
 
 Parameters:
     - required:
@@ -152,5 +161,11 @@ Parameters:
         none
 
 </value>
+  </data>
+  <data name="ResultReplaceMode" xml:space="preserve">
+    <value>Replaced {0} entries</value>
+  </data>
+  <data name="ResultSearchMode" xml:space="preserve">
+    <value>Found {0} entries</value>
   </data>
 </root>

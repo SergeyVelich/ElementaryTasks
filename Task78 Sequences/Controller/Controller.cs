@@ -48,18 +48,30 @@ namespace Task78_Sequences.Controller
             else
             {
                 _workMode = WorkMode.FibonaccіMode;
-            }            
+            }
 
-            if (_workMode == WorkMode.FibonaccіMode)
+            try
             {
-                sequence = new FiboSequence(_inboxParameters.LowLimit, _inboxParameters.UpLimit);
-                _view.PrintResultText(String.Format(MessagesResources.ResultFibonacci, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
+                switch (_workMode)
+                {
+                    case WorkMode.FibonaccіMode:
+                        sequence = new FiboSequence(_inboxParameters.LowLimit, _inboxParameters.UpLimit);
+                        _view.PrintResultText(String.Format(MessagesResources.ResultFibonacciMode, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
+                        break;
+                    case WorkMode.PowMode:
+                        sequence = new PowSequence(_inboxParameters.UpLimit);
+                        _view.PrintResultText(String.Format(MessagesResources.ResultPowMode, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
+                        break;
+                    default:
+                        throw new Exception(MessagesResources.ErrorInvalidWorkMode);
+                }
             }
-            else if (_workMode == WorkMode.PowMode)
+            catch (Exception ex)
             {
-                sequence = new PowSequence(_inboxParameters.UpLimit);
-                _view.PrintResultText(String.Format(MessagesResources.ResultPow, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
+                _view.PrintErrorText(ex.Message);
+                return;
             }
+
         }
     }
 }

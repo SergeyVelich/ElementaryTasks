@@ -24,16 +24,16 @@ namespace Task5_StringNumber.Model.ValidationInboxParameters
 
             if (_args.Length < 1)
             {
-                throw new ArgumentException(MessagesResources.ErrorArgumentNotFoundArgument1);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorArgumentNotFoundArgument, _args.Length + 1));
             }
 
             if (!long.TryParse(_args[0], out long number))
             {
-                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
             }
             else if (number < long.MinValue || number > long.MaxValue)
             {
-                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
             }
 
             if (_args.Length > 1)
@@ -44,7 +44,7 @@ namespace Task5_StringNumber.Model.ValidationInboxParameters
                 }
                 else
                 {
-                    throw new ArgumentException(MessagesResources.ErrorConverterNotFound);
+                    throw new ArgumentException(MessagesResources.ErrorInvalidLocal);
                 }
             }
 

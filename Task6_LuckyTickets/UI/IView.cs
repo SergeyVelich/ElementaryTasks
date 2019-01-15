@@ -12,7 +12,10 @@ namespace Task6_LuckyTickets.UI
         void PrintErrorText(string text);
         void PrintResultText(string text);
         void AskInputPath(string text);
-        void AskContinue(string text);    
+        void AskContinueFlag(string text);
+
+        string GetPath();
+        string GetContinueFlag();
 
         event EventHandler SetPath;
         event EventHandler EndWork;

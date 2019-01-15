@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ResultFibonacci" xml:space="preserve">
+  <data name="ResultFibonacciMode" xml:space="preserve">
     <value>Fibonacci sequence from {0} to {1}: </value>
   </data>
   <data name="Instruction" xml:space="preserve">
@@ -140,11 +140,8 @@ Parameters:
     - optional:
         none</value>
   </data>
-  <data name="ErrorInvalidArgument1" xml:space="preserve">
-    <value>Invalid argument 1. Enter integer number from -2 147 483 648 to 2 147 483 648</value>
-  </data>
-  <data name="ErrorInvalidArgument2" xml:space="preserve">
-    <value>Invalid argument 2. Enter integer number from -2 147 483 648 to 2 147 483 648</value>
+  <data name="ErrorInvalidArgument" xml:space="preserve">
+    <value>Invalid argument {0}. Enter integer number from -2 147 483 648 to 2 147 483 648</value>
   </data>
   <data name="ErrorInvalidArgumentFiboMixLimits" xml:space="preserve">
     <value>The upper limit value must be greater than lower</value>
@@ -155,7 +152,7 @@ Parameters:
   <data name="ErrorInvalidArgumentPowNegative" xml:space="preserve">
     <value>The upper limit value must be greater than 0</value>
   </data>
-  <data name="ResultPow" xml:space="preserve">
+  <data name="ResultPowMode" xml:space="preserve">
     <value>Pow sequence from {0} to {1}: </value>
   </data>
   <data name="ApplicationName" xml:space="preserve">
@@ -163,5 +160,8 @@ Parameters:
   </data>
   <data name="AskContunue" xml:space="preserve">
     <value>Do you want to continue? (yes/y)</value>
+  </data>
+  <data name="ErrorInvalidWorkMode" xml:space="preserve">
+    <value>Work mode isn't defined</value>
   </data>
 </root>

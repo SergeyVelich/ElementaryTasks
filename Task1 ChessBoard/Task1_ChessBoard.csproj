@@ -46,7 +46,6 @@
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Model\Board.cs" />
     <Compile Include="Model\Cell.cs" />
-    <Compile Include="Model\Figures.cs" />
     <Compile Include="Model\ValidationInboxParameters\InboxParameters.cs" />
     <Compile Include="Model\ValidationInboxParameters\MainParamValidator.cs" />
     <Compile Include="Program.cs" />

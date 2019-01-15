@@ -97,47 +97,20 @@ namespace Task3_TriangleSort.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Argument 4 isn&apos;t found..
+        ///   Ищет локализованную строку, похожую на Argument {0} isn&apos;t found..
         /// </summary>
-        internal static string ErrorArgumentNotFoundArgument4 {
+        internal static string ErrorArgumentNotFoundArgument {
             get {
-                return ResourceManager.GetString("ErrorArgumentNotFoundArgument4", resourceCulture);
+                return ResourceManager.GetString("ErrorArgumentNotFoundArgument", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Invalid argument 1..
+        ///   Ищет локализованную строку, похожую на Invalid argument {0}..
         /// </summary>
-        internal static string ErrorInvalidArgument1 {
+        internal static string ErrorInvalidArgument {
             get {
-                return ResourceManager.GetString("ErrorInvalidArgument1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Invalid argument 2..
-        /// </summary>
-        internal static string ErrorInvalidArgument2 {
-            get {
-                return ResourceManager.GetString("ErrorInvalidArgument2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Invalid argument 3..
-        /// </summary>
-        internal static string ErrorInvalidArgument3 {
-            get {
-                return ResourceManager.GetString("ErrorInvalidArgument3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Invalid argument 4..
-        /// </summary>
-        internal static string ErrorInvalidArgument4 {
-            get {
-                return ResourceManager.GetString("ErrorInvalidArgument4", resourceCulture);
+                return ResourceManager.GetString("ErrorInvalidArgument", resourceCulture);
             }
         }
         

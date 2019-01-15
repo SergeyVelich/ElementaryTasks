@@ -106,11 +106,11 @@ namespace Task2_EnvelopesAnalysis.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Invalid argument 1..
+        ///   Ищет локализованную строку, похожую на Invalid argument {0}..
         /// </summary>
-        internal static string ErrorInvalidArgument1 {
+        internal static string ErrorInvalidArgument {
             get {
-                return ResourceManager.GetString("ErrorInvalidArgument1", resourceCulture);
+                return ResourceManager.GetString("ErrorInvalidArgument", resourceCulture);
             }
         }
         

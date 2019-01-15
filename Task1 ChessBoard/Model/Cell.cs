@@ -8,18 +8,15 @@ namespace Task1_ChessBoard.Model
 {
     public class Cell
     {
-        private int _coordinateX;
-        private int _coordinateY;
-        private bool _isBlack;
-        private Figures _figure;
-
-        public bool IsBlack { get => _isBlack; set => _isBlack = value; }
+        public bool IsBlack { get; set; }
+        public int CoordinateY { get; set; }
+        public int CoordinateX { get; set; }
 
         public Cell(int coordinateX, int coordinateY, bool firstBlack)
         {
-            _coordinateX = coordinateX;
-            _coordinateY = coordinateY;
-            _isBlack = firstBlack;
+            CoordinateX = coordinateX;
+            CoordinateY = coordinateY;
+            IsBlack = firstBlack;
         }
     }
 }

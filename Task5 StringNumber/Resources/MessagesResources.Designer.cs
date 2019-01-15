@@ -79,11 +79,11 @@ namespace Task5_StringNumber.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Argument 1 isn&apos;t found..
+        ///   Ищет локализованную строку, похожую на Argument {0} isn&apos;t found..
         /// </summary>
-        internal static string ErrorArgumentNotFoundArgument1 {
+        internal static string ErrorArgumentNotFoundArgument {
             get {
-                return ResourceManager.GetString("ErrorArgumentNotFoundArgument1", resourceCulture);
+                return ResourceManager.GetString("ErrorArgumentNotFoundArgument", resourceCulture);
             }
         }
         
@@ -97,11 +97,20 @@ namespace Task5_StringNumber.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Invalid argument 1. Enter integer number from -999 999 999 999 999  to 999 999 999 999 999.
+        ///   Ищет локализованную строку, похожую на Invalid argument {0}. Enter integer number from -999 999 999 999 999  to 999 999 999 999 999.
         /// </summary>
-        internal static string ErrorInvalidArgument1 {
+        internal static string ErrorInvalidArgument {
             get {
-                return ResourceManager.GetString("ErrorInvalidArgument1", resourceCulture);
+                return ResourceManager.GetString("ErrorInvalidArgument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Local isn&apos;t defined.
+        /// </summary>
+        internal static string ErrorInvalidLocal {
+            get {
+                return ResourceManager.GetString("ErrorInvalidLocal", resourceCulture);
             }
         }
         

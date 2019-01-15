@@ -79,20 +79,11 @@ namespace Task78_Sequences.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Invalid argument 1. Enter integer number from -2 147 483 648 to 2 147 483 648.
+        ///   Ищет локализованную строку, похожую на Invalid argument {0}. Enter integer number from -2 147 483 648 to 2 147 483 648.
         /// </summary>
-        internal static string ErrorInvalidArgument1 {
+        internal static string ErrorInvalidArgument {
             get {
-                return ResourceManager.GetString("ErrorInvalidArgument1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Invalid argument 2. Enter integer number from -2 147 483 648 to 2 147 483 648.
-        /// </summary>
-        internal static string ErrorInvalidArgument2 {
-            get {
-                return ResourceManager.GetString("ErrorInvalidArgument2", resourceCulture);
+                return ResourceManager.GetString("ErrorInvalidArgument", resourceCulture);
             }
         }
         
@@ -120,6 +111,15 @@ namespace Task78_Sequences.Resources {
         internal static string ErrorInvalidArgumentPowNegative {
             get {
                 return ResourceManager.GetString("ErrorInvalidArgumentPowNegative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Work mode isn&apos;t defined.
+        /// </summary>
+        internal static string ErrorInvalidWorkMode {
+            get {
+                return ResourceManager.GetString("ErrorInvalidWorkMode", resourceCulture);
             }
         }
         
@@ -152,18 +152,18 @@ namespace Task78_Sequences.Resources {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Fibonacci sequence from {0} to {1}: .
         /// </summary>
-        internal static string ResultFibonacci {
+        internal static string ResultFibonacciMode {
             get {
-                return ResourceManager.GetString("ResultFibonacci", resourceCulture);
+                return ResourceManager.GetString("ResultFibonacciMode", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на Pow sequence from {0} to {1}: .
         /// </summary>
-        internal static string ResultPow {
+        internal static string ResultPowMode {
             get {
-                return ResourceManager.GetString("ResultPow", resourceCulture);
+                return ResourceManager.GetString("ResultPowMode", resourceCulture);
             }
         }
     }

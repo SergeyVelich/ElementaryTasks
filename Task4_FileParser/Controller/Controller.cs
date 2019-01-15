@@ -26,6 +26,7 @@ namespace Task4_FileParser.Controller
         {
             int result;
             Parser parser;
+            WorkMode workMode;
 
             if (args.Length == 0)
             {
@@ -43,19 +44,30 @@ namespace Task4_FileParser.Controller
                 return;
             }
 
+            if(args.Length == 2)
+            {
+                workMode = WorkMode.SearchMode;
+            }
+            else
+            {
+                workMode = WorkMode.ReplaceMode;
+            }
+
             parser = new Parser(_inboxParameters.Path);
             try
             {
-                switch (_inboxParameters.workMode)
+                switch (workMode)
                 {
-                    case Resources.WorkMode.FindMode:
-                        result = parser.GetCountFinded(_inboxParameters.Pattern);                    
+                    case WorkMode.SearchMode:
+                        result = parser.GetCountFinded(_inboxParameters.Pattern);
+                        _view.PrintResultText(String.Format(MessagesResources.ResultSearchMode, result));
                         break;
-                    case Resources.WorkMode.ReplaceMode:
+                    case WorkMode.ReplaceMode:
                         result = parser.GetCountReplaced(_inboxParameters.Pattern, _inboxParameters.Replacement);
+                        _view.PrintResultText(String.Format(MessagesResources.ResultReplaceMode, result));
                         break;
                     default:
-                        throw new Exception();
+                        throw new Exception(MessagesResources.ErrorInvalidWorkMode);
                 }
             }
             catch (Exception ex)
@@ -63,8 +75,6 @@ namespace Task4_FileParser.Controller
                 _view.PrintErrorText(ex.Message);
                 return;
             }
-
-            Console.ReadKey();
         }
     }
 }

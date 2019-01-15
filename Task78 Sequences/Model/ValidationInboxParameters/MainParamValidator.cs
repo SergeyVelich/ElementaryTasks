@@ -22,11 +22,11 @@ namespace Task78_Sequences.Model.ValidationInboxParameters
 
             if (!int.TryParse(_args[0], out int lowLimit))
             {
-                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
             }
             if (!int.TryParse(_args[1], out int upLimit))
             {
-                throw new ArgumentException(MessagesResources.ErrorInvalidArgument2);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 2));
             }
 
             if (_args.Length == 1)

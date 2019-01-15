@@ -23,22 +23,18 @@ namespace Task4_FileParser.Model.ValidationInboxParameters
 
             if (_args.Length < 2)
             {
-                throw new ArgumentException(MessagesResources.ErrorArgumentNotFoundArgument2);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorArgumentNotFoundArgument, _args.Length + 1));
             }
 
             if (!File.Exists(_args[0]))
             {
-                throw new ArgumentException(MessagesResources.ErrorFileNotFound);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorFileNotFound, _args[0]));
             }
 
             inboxParameters.Path = _args[0];
-            if (_args.Length == 2)
+            inboxParameters.Pattern = _args[1];
+            if (_args.Length > 2)
             {
-                inboxParameters.Pattern = _args[1];
-            }
-            else
-            {
-                inboxParameters.Pattern = _args[1];
                 inboxParameters.Replacement = _args[2];
             }
 

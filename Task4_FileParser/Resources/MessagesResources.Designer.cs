@@ -79,16 +79,25 @@ namespace Task4_FileParser.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Argument 2 isn&apos;t found..
+        ///   Ищет локализованную строку, похожую на Argument {0} isn&apos;t found..
         /// </summary>
-        internal static string ErrorArgumentNotFoundArgument2 {
+        internal static string ErrorArgumentNotFoundArgument {
             get {
-                return ResourceManager.GetString("ErrorArgumentNotFoundArgument2", resourceCulture);
+                return ResourceManager.GetString("ErrorArgumentNotFoundArgument", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на File isn&apos;t found.
+        ///   Ищет локализованную строку, похожую на Failed to delete temporary file {0}.
+        /// </summary>
+        internal static string ErrorDeleteTemporaryFile {
+            get {
+                return ResourceManager.GetString("ErrorDeleteTemporaryFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на File {0} isn&apos;t found.
         /// </summary>
         internal static string ErrorFileNotFound {
             get {
@@ -97,9 +106,27 @@ namespace Task4_FileParser.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Work mode isn&apos;t defined.
+        /// </summary>
+        internal static string ErrorInvalidWorkMode {
+            get {
+                return ResourceManager.GetString("ErrorInvalidWorkMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Failed to save file {0}.
+        /// </summary>
+        internal static string ErrorSaveFile {
+            get {
+                return ResourceManager.GetString("ErrorSaveFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Application find and replace entries in the text file.
         ///
-        ///Mode Seeker
+        ///Mode Searcher
         ///
         ///Parameters:
         ///    - required:
@@ -123,6 +150,24 @@ namespace Task4_FileParser.Resources {
         internal static string Instruction {
             get {
                 return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Replaced {0} entries.
+        /// </summary>
+        internal static string ResultReplaceMode {
+            get {
+                return ResourceManager.GetString("ResultReplaceMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Found {0} entries.
+        /// </summary>
+        internal static string ResultSearchMode {
+            get {
+                return ResourceManager.GetString("ResultSearchMode", resourceCulture);
             }
         }
     }

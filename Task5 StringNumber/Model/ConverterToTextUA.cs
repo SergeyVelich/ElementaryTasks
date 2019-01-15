@@ -56,7 +56,6 @@ namespace Task5_StringNumber.Model
                 }
             }
 
-            //Делаем первую букву заглавной
             result[0] = char.ToUpper(result[0]);
 
             return result.ToString();

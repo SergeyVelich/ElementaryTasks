@@ -12,11 +12,12 @@ namespace Task2_EnvelopesAnalysis.Controller
 {
     class Presenter
     {
+        private readonly int QUANTITY_ENVELOPES = 2;
+
         private IView _view;
         private InboxParameters _inboxParameters;
         private Envelope _currentEnvelope;
-        private bool _run = true;
-        private readonly int QUANTITY_ENVELOPES = 2;
+        private bool _continueFlag = true;       
 
         public Presenter(IView view)
         {
@@ -25,6 +26,9 @@ namespace Task2_EnvelopesAnalysis.Controller
 
         public void Run(string[] args)
         {
+            Envelope[] envelopes;
+            EnvelopeComparer envelopeComparer;
+
             _view.SetHeight += OnSetHeight;
             _view.SetWidth += OnSetWidth;
             _view.EndWork += OnEndWork;
@@ -44,21 +48,17 @@ namespace Task2_EnvelopesAnalysis.Controller
                 return;
             }
 
-            Envelope[] envelopes;
-            EnvelopeComparer comparer;
-
-            while (_run)
+            while (_continueFlag)
             {
                 envelopes = new Envelope[QUANTITY_ENVELOPES];
-                comparer = new EnvelopeComparer(envelopes);
+                envelopeComparer = new EnvelopeComparer();
 
                 for (int i = 0; i < envelopes.Length; i++)
                 {
-                    _currentEnvelope = new Envelope();
-
                     _view.AskInputEnvelope(String.Format(MessagesResources.AskInputEnvelope, i+1));
-
+                    _currentEnvelope = new Envelope();
                     bool isFailed = false;
+
                     do
                     {
                         try
@@ -92,35 +92,42 @@ namespace Task2_EnvelopesAnalysis.Controller
 
                 for (int i = 1; i < envelopes.Length; i++)
                 {
-                    comparer.Compare(envelopes[0], envelopes[i], out string viewText);
-                    _view.PrintResultText(viewText);
+                    if (envelopeComparer.Compare(envelopes[0], envelopes[i]) > 0)
+                    {
+                        _view.PrintResultText(MessagesResources.ResultPositive);
+                    }
+                    else
+                    {
+                        _view.PrintResultText(MessagesResources.ResultNegative);
+                    }
                 }
 
-                _view.AskContinue(MessagesResources.AskContunue);
+                _view.AskContinueFlag(MessagesResources.AskContunue);
             }            
         }
 
         protected virtual void OnSetHeight(object sender, EventArgs e)
         {
-            if (!double.TryParse(((StringEventArgs)e).Value, out double height))
+            if (!double.TryParse(_view.GetHeight(), out double height))
             {
-                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
             }
             _currentEnvelope.Height = height;         
         }
 
         protected virtual void OnSetWidth(object sender, EventArgs e)
         {
-            if (!double.TryParse(((StringEventArgs)e).Value, out double width))
+            if (!double.TryParse(_view.GetWidth(), out double width))
             {
-                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
+                throw new ArgumentException(MessagesResources.ErrorInvalidArgument);
             }
             _currentEnvelope.Width = width;
         }
 
         protected virtual void OnEndWork(object sender, EventArgs e)
         {
-            _run = ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.Yes || ((StringEventArgs)e).Value.ToLower().Trim() == MessagesResources.YesShort;
+            string continueFlag = _view.GetContinueFlag();
+            _continueFlag = continueFlag.ToLower().Trim() == MessagesResources.Yes || continueFlag.ToLower().Trim() == MessagesResources.YesShort;
         }
     }
 }

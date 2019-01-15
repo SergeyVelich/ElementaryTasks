@@ -22,12 +22,12 @@ namespace Task1_ChessBoard.Model.ValidationInboxParameters
 
             if (_args.Length < 2)
             {
-                throw new ArgumentException(MessagesResources.ErrorArgumentNotFoundArgument2);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorArgumentNotFoundArgument, _args.Length + 1));
             }
 
             if (!int.TryParse(_args[0], out int height))
             {
-                throw new ArgumentException(MessagesResources.ErrorInvalidArgument1);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 2));
             }
             else if (height <= 0)
             {
@@ -36,7 +36,7 @@ namespace Task1_ChessBoard.Model.ValidationInboxParameters
 
             if (!int.TryParse(_args[1], out int width))
             {
-                throw new ArgumentException(MessagesResources.ErrorInvalidArgument2);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 2));
             }
             else if (height <= 0)
             {

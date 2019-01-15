@@ -47,22 +47,34 @@ namespace Task2_EnvelopesAnalysis.UI
         public void AskInputHeight(string text)
         {
             Console.WriteLine(text);
-            string arg = Console.ReadLine();
-            SetHeight?.Invoke(this, new StringEventArgs(arg));
+            SetHeight?.Invoke(this, new EventArgs());
+        }
+
+        public string GetHeight()
+        {
+            return Console.ReadLine();
         }
 
         public void AskInputWidth(string text)
         {
             Console.WriteLine(text);
-            string arg = Console.ReadLine();
-            SetWidth?.Invoke(this, new StringEventArgs(arg));
+            SetWidth?.Invoke(this, new EventArgs());
         }
 
-        public void AskContinue(string text)
+        public string GetWidth()
+        {
+            return Console.ReadLine();
+        }
+
+        public void AskContinueFlag(string text)
         {
             Console.WriteLine(text);
-            string arg = Console.ReadLine();
-            EndWork?.Invoke(this, new StringEventArgs(arg));
+            EndWork?.Invoke(this, new EventArgs());
+        }
+
+        public string GetContinueFlag()
+        {
+            return Console.ReadLine();
         }
     }
 }

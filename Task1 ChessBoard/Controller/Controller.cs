@@ -12,15 +12,15 @@ namespace Task1_ChessBoard.Controller
 {
     class Presenter
     {
-        private IView _view;
-        private InboxParameters _inboxParameters;
+        protected IView _view;
+        protected InboxParameters _inboxParameters;
 
         public Presenter(IView view)
         {
             _view = view;
         }
 
-        public void Run(string[] args)
+        public virtual void Run(string[] args)
         {
             if (args.Length == 0)
             {
@@ -38,7 +38,7 @@ namespace Task1_ChessBoard.Controller
                 return;
             }
 
-            _view.PrintResultText(new Board(_inboxParameters.Height, _inboxParameters.Width).ToString());          
+            _view.PrintResult(new Board(_inboxParameters.Height, _inboxParameters.Width));
         }
     }
 }

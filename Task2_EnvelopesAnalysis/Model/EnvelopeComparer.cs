@@ -9,25 +9,9 @@ namespace Task2_EnvelopesAnalysis.Model
 {
     public class EnvelopeComparer
     {
-        private Envelope[] _envelopes;
-
-        public EnvelopeComparer(Envelope[] envelopes)
+        public int Compare(Envelope envOut, Envelope envIn)
         {
-            _envelopes = envelopes;
-        }
-
-        public int Compare(Envelope envOut, Envelope envIn, out string result)
-        {
-            int comparisonResult = envOut.CompareTo(envIn);
-            if (comparisonResult > 0)
-            {
-                result = MessagesResources.ResultPositive;
-            }
-            else
-            {
-                result = MessagesResources.ResultNegative;
-            }
-            return comparisonResult;
+            return envOut.CompareTo(envIn);
         }
     }
 }
