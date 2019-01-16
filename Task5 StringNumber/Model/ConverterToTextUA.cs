@@ -7,118 +7,78 @@ using Task5_StringNumber.Resources;
 
 namespace Task5_StringNumber.Model
 {
-    public class ConverterToTextRU : ConverterToText
+    class ConverterToTextUA: ConverterToText
     {
-        public ConverterToTextRU()
+        public ConverterToTextUA()
         {
             LoadResources();
         }
 
         protected override void LoadResources()
         {
-            _first100 = ResourcesRU.first100;
-            _first100FemaleChanges = ResourcesRU.first100FemaleChanges;
-            _hundreds = ResourcesRU.hundreds;
-            _multiplesOf1000 = ResourcesRU.multiplesOf1000;
-            _multiplesOf1000Form234 = ResourcesRU.multiplesOf1000Form234;
-            _multiplesOf1000Form5 = ResourcesRU.multiplesOf1000Form5;
-            _negative = ResourcesRU.negative;
-            _maxRank = ResourcesRU.maxRank;
-        }
+            _first100 = ResourcesUA.FIRST_100;
+            _first100FemaleChanges = ResourcesUA.FIRST_100_FEMALE_CHANGES;
+            _hundreds = ResourcesUA.HUNDREDS;
+            _multiplesOf1000 = ResourcesUA.MULTIPLES_OF_1000;
+            _multiplesOf1000Form234 = ResourcesUA.MULTIPLES_OF_1000_FORM234;
+            _multiplesOf1000Form5 = ResourcesUA.MULTIPLES_OF_1000_FORM5;
+            _negative = ResourcesUA.NEGATIVE;
+        }      
 
-        public override string Convert(long value)
-        {
-            StringBuilder result = new StringBuilder();
-            bool minus = false;
-
-            if (value == 0)
-            {
-                result.Insert(0, _first100[value]);
-            }
-            else
-            {
-                if (value < 0)
-                {
-                    value = Math.Abs(value);
-                    minus = true;
-                }
-
-                for (int i = 0; i <= _maxRank && value > 0; i++)
-                {
-                    result.Insert(0, ConvertWithRank(value, i));
-                    value /= 1000;
-                }
-
-                if (minus)
-                {
-                    result.Insert(0, " ");
-                    result.Insert(0, _negative);
-                }
-            }
-
-            result[0] = char.ToUpper(result[0]);
-
-            return result.ToString();
-        }
-
-        public string ConvertWithRank(long value, int rank)
+        protected override string ConvertHundreds(short value, int rank)
         {
             StringBuilder result = new StringBuilder();
 
-            if (value == 0)
-            {
-                result.Append(String.Empty);
-            }
+            result.AppendFormat("{0} ", _hundreds[value / 100]);
 
-            long rem1000 = value % 1000;
-
-            if (rem1000 == 0)
+            short rem100 = (short)(value % 100);
+            if (rem100 < 20)
             {
-                result.Append(_first100[rem1000]);
-            }
-            else
-            {
-                result.AppendFormat("{0} ", _hundreds[rem1000 / 100]);
-
-                long rem100 = rem1000 % 100;
-                if (rem100 < 20)
+                if (rem100 == 1 || rem100 == 2 && rank == 1)
                 {
-                    if (rem100 == 1 || rem100 == 2 && rank == 1)
-                    {
-                        result.AppendFormat("{0}", _first100FemaleChanges[rem100]);
-                    }
-                    else
-                    {
-                        result.AppendFormat("{0}", _first100[rem100]);
-                    }
+                    result.AppendFormat("{0}", _first100FemaleChanges[rem100]);
                 }
                 else
                 {
-                    result.AppendFormat("{0} ", _first100[rem100 / 10 * 10]);
-                    result.AppendFormat("{0}", _first100[rem100 % 10]);
+                    result.AppendFormat("{0}", _first100[rem100]);
                 }
-
-                if (rank > 0)
-                {
-                    result.AppendFormat(" {0}", GetFormMultiplesOf1000(rem1000, rank));
-                }
-
-                if (result.Length != 0) result.Append(" ");
+            }
+            else
+            {
+                result.AppendFormat("{0} ", _first100[rem100 / 10 * 10]);
+                result.AppendFormat("{0}", _first100[rem100 % 10]);
             }
 
             return result.ToString();
         }
 
-        public string GetFormMultiplesOf1000(long val, int rank)
+        protected override string GetFormMultiplesOf1000(short value, int rank)
         {
-            long t = (val % 100 > 20) ? val % 10 : val % 20;
+            long t;
+            if (value % 100 < 20)
+            {
+                t = value % 20;
+            }
+            else
+            {
+                t = value % 10;
+            }
 
+            string formMultiplesOf1000;
             switch (t)
             {
-                case 1: return _multiplesOf1000[rank];
-                case 2: case 3: case 4: return _multiplesOf1000Form234[rank];
-                default: return _multiplesOf1000Form5[rank];
+                case 1:
+                    formMultiplesOf1000 =  _multiplesOf1000[rank];
+                    break;
+                case 2: case 3: case 4:
+                    formMultiplesOf1000 =  _multiplesOf1000Form234[rank];
+                    break;
+                default:
+                    formMultiplesOf1000 =  _multiplesOf1000Form5[rank];
+                    break;
             }
+
+            return formMultiplesOf1000;
         }
     }
 }

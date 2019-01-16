@@ -44,7 +44,7 @@ namespace Task4_FileParser.Controller
                 return;
             }
 
-            if(args.Length == 2)
+            if (args.Length == 2)
             {
                 workMode = WorkMode.SearchMode;
             }

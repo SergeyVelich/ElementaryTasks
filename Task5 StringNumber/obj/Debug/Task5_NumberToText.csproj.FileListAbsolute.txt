@@ -5,3 +5,12 @@ F:\Проекты C#\ElementaryTasks\Task5 StringNumber\obj\Debug\Task5_NumberTo
 F:\Проекты C#\ElementaryTasks\Task5 StringNumber\obj\Debug\Task5 StringNumber.exe
 F:\Проекты C#\ElementaryTasks\Task5 StringNumber\obj\Debug\Task5 StringNumber.pdb
 F:\Проекты C#\ElementaryTasks\Task5 StringNumber\obj\Debug\Task5_NumberToText.csprojAssemblyReference.cache
+F:\Проекты C#\ElementaryTasksFinal\Task5 StringNumber\bin\Debug\Task5 StringNumber.exe.config
+F:\Проекты C#\ElementaryTasksFinal\Task5 StringNumber\bin\Debug\Task5 StringNumber.exe
+F:\Проекты C#\ElementaryTasksFinal\Task5 StringNumber\bin\Debug\Task5 StringNumber.pdb
+F:\Проекты C#\ElementaryTasksFinal\Task5 StringNumber\obj\Debug\Task5_NumberToText.csprojAssemblyReference.cache
+F:\Проекты C#\ElementaryTasksFinal\Task5 StringNumber\obj\Debug\Task5_StringNumber.Resources.MessagesResources.resources
+F:\Проекты C#\ElementaryTasksFinal\Task5 StringNumber\obj\Debug\Task5_NumberToText.csproj.GenerateResource.cache
+F:\Проекты C#\ElementaryTasksFinal\Task5 StringNumber\obj\Debug\Task5_NumberToText.csproj.CoreCompileInputs.cache
+F:\Проекты C#\ElementaryTasksFinal\Task5 StringNumber\obj\Debug\Task5 StringNumber.exe
+F:\Проекты C#\ElementaryTasksFinal\Task5 StringNumber\obj\Debug\Task5 StringNumber.pdb

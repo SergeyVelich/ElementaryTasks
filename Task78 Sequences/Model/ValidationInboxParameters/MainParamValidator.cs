@@ -20,24 +20,30 @@ namespace Task78_Sequences.Model.ValidationInboxParameters
         {
             InboxParameters inboxParameters = new InboxParameters();
 
-            if (!int.TryParse(_args[0], out int lowLimit))
-            {
-                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
-            }
-            if (!int.TryParse(_args[1], out int upLimit))
-            {
-                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 2));
-            }
+            int lowLimit = 0;
+            int upLimit = 0;
 
             if (_args.Length == 1)
             {
+                if (!int.TryParse(_args[0], out upLimit))
+                {
+                    throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
+                }
                 if (upLimit < 0)
                 {
                     throw new ArgumentException(MessagesResources.ErrorInvalidArgumentPowNegative);
                 }
             }
-            else if (_args.Length > 1)
+            else
             {
+                if (!int.TryParse(_args[0], out lowLimit))
+                {
+                    throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
+                }
+                if (!int.TryParse(_args[1], out upLimit))
+                {
+                    throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 2));
+                }
                 if (upLimit <= 0)
                 {
                     throw new ArgumentException(MessagesResources.ErrorInvalidArgumentFiboNegative);

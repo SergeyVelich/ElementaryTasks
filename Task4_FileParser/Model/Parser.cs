@@ -63,18 +63,20 @@ namespace Task4_FileParser.Model
 
                         writer.WriteLine(line);
                     }
+                    reader.Dispose();
                 }
 
                 if (countEntry > 0)
                 {
                     try
                     {
-                        writer.Flush();
+                        //writer.Flush();
                         File.Replace(tempFileName, Path, null);
                     }
                     catch
                     {
-                        throw new IOException(String.Format(MessagesResources.ErrorSaveFile, Path));
+                        throw new IOException();
+                        //throw new IOException(String.Format(MessagesResources.ErrorSaveFile, Path));
                     }
                 }
                 else

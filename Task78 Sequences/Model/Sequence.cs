@@ -18,6 +18,7 @@ namespace Task78_Sequences.Model
         {
             _lowLimit = 0;
             _upLimit = upLimit;
+            _sequenceMembers = new List<int>();
 
             GenerateSequence();
         }
@@ -26,6 +27,7 @@ namespace Task78_Sequences.Model
         {
             _lowLimit = lowLimit;
             _upLimit = upLimit;
+            _sequenceMembers = new List<int>();
 
             GenerateSequence();
         }

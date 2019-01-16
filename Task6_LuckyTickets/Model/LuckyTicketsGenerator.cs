@@ -38,7 +38,7 @@ namespace Task6_LuckyTickets.Model
                         method = (GenerationLackyTicketsMethod)Enum.Parse(typeof(GenerationLackyTicketsMethod), m.Value);
                         break;
                     }
-                    if(method > 0)
+                    if (method > 0)
                     {
                         break;
                     }
@@ -54,7 +54,7 @@ namespace Task6_LuckyTickets.Model
             string number;
             int n1, n2;
 
-            if(Method == 0)
+            if (Method == 0)
             {
                 throw new Exception(MessagesResources.ErrorMethodNotFound);
             }
@@ -63,7 +63,7 @@ namespace Task6_LuckyTickets.Model
             {
                 number = String.Format("{0:000000}", i);
 
-                if(Method == GenerationLackyTicketsMethod.Piter)
+                if (Method == GenerationLackyTicketsMethod.Piter)
                 {
                     n1 = (int)number[0] + (int)number[2] + (int)number[4];
                     n2 = (int)number[1] + (int)number[3] + (int)number[5];

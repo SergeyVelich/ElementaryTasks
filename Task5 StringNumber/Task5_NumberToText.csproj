@@ -45,8 +45,8 @@
   <ItemGroup>
     <Compile Include="Controller\Presenter.cs" />
     <Compile Include="Model\ConverterToTextEN.cs" />
-    <Compile Include="Model\ConverterToTextUA.cs" />
     <Compile Include="Model\ConverterToTextRU.cs" />
+    <Compile Include="Model\ConverterToTextUA.cs" />
     <Compile Include="Model\ConverterToText.cs" />
     <Compile Include="Resources\Local.cs" />
     <Compile Include="Resources\MessagesResources.Designer.cs">

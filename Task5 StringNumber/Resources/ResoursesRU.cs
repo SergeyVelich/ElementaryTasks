@@ -8,10 +8,9 @@ namespace Task5_StringNumber.Resources
 {
     public static class ResourcesRU
     {
-        public static readonly int maxRank = 5;
-        public static readonly string negative = "минус";
-      
-        public static readonly Dictionary<long, string> first100 = new Dictionary<long, string>()
+        public const string NEGATIVE = "минус";
+
+        public static readonly Dictionary<long, string> FIRST_100 = new Dictionary<long, string>()
         {
             { 0, "ноль" },
             { 1, "один" },
@@ -44,13 +43,13 @@ namespace Task5_StringNumber.Resources
             { 100, "сто" }
         };
 
-        public static readonly Dictionary<long, string> first100FemaleChanges = new Dictionary<long, string>()
+        public static readonly Dictionary<long, string> FIRST_100_FEMALE_CHANGES = new Dictionary<long, string>()
         {
             { 1, "одна" },
             { 2, "две" }
         };
 
-        public static readonly Dictionary<long, string> hundreds = new Dictionary<long, string>()
+        public static readonly Dictionary<long, string> HUNDREDS = new Dictionary<long, string>()
         {
             { 1, "сто" },
             { 2, "двести" },
@@ -63,7 +62,7 @@ namespace Task5_StringNumber.Resources
             { 9, "девятьсот" }
         };
 
-        public static readonly Dictionary<long, string> multiplesOf1000 = new Dictionary<long, string>()
+        public static readonly Dictionary<long, string> MULTIPLES_OF_1000 = new Dictionary<long, string>()
         {
             { 0, "" },
             { 1, "тысяча" },
@@ -73,7 +72,7 @@ namespace Task5_StringNumber.Resources
             { 5, "квадриллион" },
         };
 
-        public static readonly Dictionary<long, string> multiplesOf1000Form234 = new Dictionary<long, string>()
+        public static readonly Dictionary<long, string> MULTIPLES_OF_1000_FORM234 = new Dictionary<long, string>()
         {
             { 0, "" },
             { 1, "тысячи" },
@@ -83,7 +82,7 @@ namespace Task5_StringNumber.Resources
             { 5, "квадриллиона" },
         };
 
-        public static readonly Dictionary<long, string> multiplesOf1000Form5 = new Dictionary<long, string>()
+        public static readonly Dictionary<long, string> MULTIPLES_OF_1000_FORM5 = new Dictionary<long, string>()
         {
             { 0, "" },
             { 1, "тысяч" },

@@ -7,3 +7,12 @@ F:\Проекты C#\ElementaryTasks\Task78 Sequences\obj\Debug\Task78_Sequences
 F:\Проекты C#\ElementaryTasks\Task78 Sequences\obj\Debug\Task78 Sequences.exe
 F:\Проекты C#\ElementaryTasks\Task78 Sequences\obj\Debug\Task78 Sequences.pdb
 F:\Проекты C#\ElementaryTasks\Task78 Sequences\obj\Debug\Task78_Sequences.Resources.MessagesResources.resources
+F:\Проекты C#\ElementaryTasksFinal\Task78 Sequences\bin\Debug\Task78 Sequences.exe.config
+F:\Проекты C#\ElementaryTasksFinal\Task78 Sequences\bin\Debug\Task78 Sequences.exe
+F:\Проекты C#\ElementaryTasksFinal\Task78 Sequences\bin\Debug\Task78 Sequences.pdb
+F:\Проекты C#\ElementaryTasksFinal\Task78 Sequences\obj\Debug\Task78_Sequences.csprojAssemblyReference.cache
+F:\Проекты C#\ElementaryTasksFinal\Task78 Sequences\obj\Debug\Task78_Sequences.Resources.MessagesResources.resources
+F:\Проекты C#\ElementaryTasksFinal\Task78 Sequences\obj\Debug\Task78_Sequences.csproj.GenerateResource.cache
+F:\Проекты C#\ElementaryTasksFinal\Task78 Sequences\obj\Debug\Task78_Sequences.csproj.CoreCompileInputs.cache
+F:\Проекты C#\ElementaryTasksFinal\Task78 Sequences\obj\Debug\Task78 Sequences.exe
+F:\Проекты C#\ElementaryTasksFinal\Task78 Sequences\obj\Debug\Task78 Sequences.pdb

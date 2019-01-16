@@ -8,43 +8,46 @@ namespace Task5_StringNumber.Resources
 {
     public static class ResourcesEN
     {
-        public static readonly int maxRank = 5;
-        public static readonly string negative = "minus";      
+        public const string NEGATIVE = "minus";          
 
-        public static readonly Dictionary<long, string> first100 = new Dictionary<long, string>()
+        public static readonly Dictionary<long, string> FIRST_100 = new Dictionary<long, string>()
         {
             { 0, "ноль" },
             { 1, "one" },
             { 2, "two" },
             { 3, "three" },
-            { 4, "четыре" },
-            { 5, "пять" },
-            { 6, "шесть" },
-            { 7, "семь" },
-            { 8, "восемь" },
-            { 9, "девять" },
-            { 10, "десять" },
-            { 11, "одиннадцать" },
-            { 12, "двенадцать" },
-            { 13, "тринадцать" },
-            { 14, "четырадцать" },
-            { 15, "пятнадцать" },
-            { 16, "шестнадцать" },
-            { 17, "семнадцать" },
-            { 18, "восемнадцать" },
-            { 19, "девятнадцать" },
-            { 20, "двадцать" },
-            { 30, "тридцать" },
-            { 40, "сорок" },
-            { 50, "пятьдесят" },
-            { 60, "шестьдесят" },
-            { 70, "семьдесят" },
-            { 80, "восемьдесят" },
-            { 90, "девяносто" },
-            { 100, "handred" }
+            { 4, "four" },
+            { 5, "five" },
+            { 6, "six" },
+            { 7, "seven" },
+            { 8, "eight" },
+            { 9, "nine" },
+            { 10, "ten" },
+            { 11, "eleven" },
+            { 12, "twelve" },
+            { 13, "thirteen" },
+            { 14, "fourteen" },
+            { 15, "fifteen" },
+            { 16, "sixteen" },
+            { 17, "seventeen" },
+            { 18, "eighteen" },
+            { 19, "nineteen" },
+            { 20, "twenty" },
+            { 30, "thirty" },
+            { 40, "forty" },
+            { 50, "fifty" },
+            { 60, "sixty" },
+            { 70, "seventy" },
+            { 80, "eighty" },
+            { 90, "ninety" },
         };
 
-        public static readonly Dictionary<long, string> multiplesOf1000 = new Dictionary<long, string>()
+        public static readonly Dictionary<long, string> HUNDREDS = new Dictionary<long, string>()
+        {
+            { 0, "handred" },
+        };
+
+        public static readonly Dictionary<long, string> MULTIPLES_OF_1000 = new Dictionary<long, string>()
         {
             { 0, "" },
             { 1, "thousand" },

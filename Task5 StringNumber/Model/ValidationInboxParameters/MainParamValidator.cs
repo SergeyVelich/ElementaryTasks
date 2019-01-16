@@ -35,6 +35,10 @@ namespace Task5_StringNumber.Model.ValidationInboxParameters
             {
                 throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
             }
+            else if (number> ConverterToText.MAX_RANK)
+            {
+                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
+            }
 
             if (_args.Length > 1)
             {

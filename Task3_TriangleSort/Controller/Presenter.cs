@@ -7,7 +7,7 @@ using Task3_TriangleSort.Model;
 using Task3_TriangleSort.Model.ValidationInboxParameters;
 using Task3_TriangleSort.UI;
 using Task3_TriangleSort.Resources;
-
+//?? fabric with checking
 namespace Task3_TriangleSort.Controller
 {
     class Presenter
@@ -79,7 +79,7 @@ namespace Task3_TriangleSort.Controller
 
             string[] arrTriangle = triangle.Split("".ToCharArray());
 
-            if(arrTriangle.Length < NUMBER_REQUIRED_ARGS)
+            if (arrTriangle.Length < NUMBER_REQUIRED_ARGS)
             {
                 throw new ArgumentException(String.Format(MessagesResources.ErrorArgumentNotFoundArgument, arrTriangle.Length + 1));
             }

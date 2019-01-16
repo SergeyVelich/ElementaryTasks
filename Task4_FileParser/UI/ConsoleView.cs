@@ -15,7 +15,7 @@ namespace Task4_FileParser.UI
             Console.WriteLine(BLOCK_SEPARATOR);
             Console.WriteLine(text);
             Console.WriteLine(BLOCK_SEPARATOR);
-            Console.WriteLine(text);
+            Console.WriteLine();
             Console.ReadKey();
         }
 
@@ -24,7 +24,7 @@ namespace Task4_FileParser.UI
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine(text);
             Console.ResetColor();
-            Console.WriteLine(text);
+            Console.WriteLine();
             Console.ReadKey();
         }
 
@@ -33,7 +33,7 @@ namespace Task4_FileParser.UI
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(text);
             Console.ResetColor();
-            Console.WriteLine(text);
+            Console.WriteLine();
             Console.ReadKey();
         }
     }
