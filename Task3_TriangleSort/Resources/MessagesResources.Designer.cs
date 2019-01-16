@@ -115,6 +115,15 @@ namespace Task3_TriangleSort.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Triangle cannot be created. Each side must be less than the sum of the other two..
+        /// </summary>
+        internal static string ErrorInvalidTriangleSides {
+            get {
+                return ResourceManager.GetString("ErrorInvalidTriangleSides", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на The application sorts triangles in descending order of their area.
         ///
         ///Parameters:

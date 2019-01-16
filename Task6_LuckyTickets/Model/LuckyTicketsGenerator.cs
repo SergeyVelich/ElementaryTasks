@@ -26,26 +26,9 @@ namespace Task6_LuckyTickets.Model
 
         private GenerationLackyTicketsMethod GetCountMethod(string filePath)
         {
-            GenerationLackyTicketsMethod method = 0;
+            string[] allStrings = File.ReadAllLines(filePath);
 
-            using (StreamReader str = new StreamReader(filePath, Encoding.Default))
-            {
-                while (!str.EndOfStream)
-                {
-                    string st = str.ReadLine();
-                    foreach (Match m in Regex.Matches(st, "Moskow|Piter", RegexOptions.IgnoreCase))
-                    {
-                        method = (GenerationLackyTicketsMethod)Enum.Parse(typeof(GenerationLackyTicketsMethod), m.Value);
-                        break;
-                    }
-                    if (method > 0)
-                    {
-                        break;
-                    }
-                }
-            }
-
-            return method;
+            return (GenerationLackyTicketsMethod)Enum.Parse(typeof(GenerationLackyTicketsMethod), allStrings[0]);
         }
 
         public void Generate()

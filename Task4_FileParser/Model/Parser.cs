@@ -18,7 +18,7 @@ namespace Task4_FileParser.Model
             Path = path;
         }
 
-        public int GetCountFinded(string stringToFind)
+        public int GetCountFinded(string pattern)
         {
             int countEntry = 0;
 
@@ -29,7 +29,7 @@ namespace Task4_FileParser.Model
 
                 while ((line = reader.ReadLine()) != null)
                 {
-                    countEntryinLine = Regex.Matches(line, stringToFind).Count;
+                    countEntryinLine = Regex.Matches(line, pattern).Count;
                     countEntry += countEntryinLine;
                 }
             }
@@ -37,7 +37,7 @@ namespace Task4_FileParser.Model
             return countEntry;
         }
 
-        public int GetCountReplaced(string stringToReplace, string stringReplacer)
+        public int GetCountReplaced(string pattern, string replacement)
         {
             int countEntry = 0;            
 
@@ -53,46 +53,45 @@ namespace Task4_FileParser.Model
                     while (!reader.EndOfStream)
                     {
                         line = reader.ReadLine();
-                        countEntryinLine = Regex.Matches(line, stringToReplace).Count;
+                        countEntryinLine = Regex.Matches(line, pattern).Count;
                         countEntry += countEntryinLine;
 
                         if (countEntryinLine > 0)
                         {
-                            Regex.Replace(line, stringToReplace, stringReplacer);
+                            line = Regex.Replace(line, pattern, replacement);
                         }
 
                         writer.WriteLine(line);
                     }
-                    reader.Dispose();
                 }
+                writer.Flush();
+            }
 
+            
+            try
+            {
                 if (countEntry > 0)
                 {
-                    try
-                    {
-                        //writer.Flush();
-                        File.Replace(tempFileName, Path, null);
-                    }
-                    catch
-                    {
-                        throw new IOException();
-                        //throw new IOException(String.Format(MessagesResources.ErrorSaveFile, Path));
-                    }
+                    File.Replace(tempFileName, Path, null);
                 }
-                else
-                {
-                    try
-                    {
-                        File.Delete(tempFileName);
-                    }
-                    catch
-                    {
-                        throw new IOException(String.Format(MessagesResources.ErrorDeleteTemporaryFile, Path));
-                    }
-                }
-
-                return countEntry;
             }
+            catch
+            {
+                throw new IOException(String.Format(MessagesResources.ErrorSaveFile, Path));
+            }
+            finally
+            {
+                try
+                {
+                    File.Delete(tempFileName);
+                }
+                catch
+                {
+                    throw new IOException(String.Format(MessagesResources.ErrorDeleteTemporaryFile, Path));
+                }
+            }
+
+            return countEntry;
         }
     }
 }
