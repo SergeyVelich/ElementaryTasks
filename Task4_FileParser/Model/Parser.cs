@@ -64,10 +64,8 @@ namespace Task4_FileParser.Model
                         writer.WriteLine(line);
                     }
                 }
-                writer.Flush();
             }
-
-            
+         
             try
             {
                 if (countEntry > 0)

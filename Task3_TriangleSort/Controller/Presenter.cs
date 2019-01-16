@@ -101,19 +101,21 @@ namespace Task3_TriangleSort.Controller
                 throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 4));
             }
 
-            _triangles.Add(new Triangle(name, sideA, sideB, sideC));
+            _triangles.Add(Triangle.CreateTriangle(name, sideA, sideB, sideC));
         }
 
         protected virtual void OnAddTriangle(object sender, EventArgs e)
         {
             string addNextTriangleFlag = _view.GetAddTrianglesFlag();
-            _addNextTriangleFlag = addNextTriangleFlag.ToLower().Trim() == MessagesResources.Yes || addNextTriangleFlag.ToLower().Trim() == MessagesResources.YesShort;
+            _addNextTriangleFlag = addNextTriangleFlag.ToLower().Trim() == MessagesResources.Yes 
+                || addNextTriangleFlag.ToLower().Trim() == MessagesResources.YesShort;
         }
 
         protected virtual void OnEndWork(object sender, EventArgs e)
         {
             string continueFlag = _view.GetContinueFlag();
-            _continueFlag = continueFlag.ToLower().Trim() == MessagesResources.Yes || continueFlag.ToLower().Trim() == MessagesResources.YesShort;
+            _continueFlag = continueFlag.ToLower().Trim() == MessagesResources.Yes 
+                || continueFlag.ToLower().Trim() == MessagesResources.YesShort;
         }
     }
 }

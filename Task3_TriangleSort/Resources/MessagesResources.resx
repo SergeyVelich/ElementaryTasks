@@ -135,6 +135,9 @@
   <data name="ErrorInvalidArgument" xml:space="preserve">
     <value>Invalid argument {0}.</value>
   </data>
+  <data name="ErrorInvalidTriangleSides" xml:space="preserve">
+    <value>Triangle cannot be created. Each side must be less than the sum of the other two.</value>
+  </data>
   <data name="Instruction" xml:space="preserve">
     <value>The application sorts triangles in descending order of their area.
 

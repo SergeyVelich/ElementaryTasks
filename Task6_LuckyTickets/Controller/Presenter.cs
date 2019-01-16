@@ -13,7 +13,8 @@ namespace Task6_LuckyTickets.Controller
 {
     class Presenter
     {
-        private readonly string _pathLog = "dataLog.txt";
+        private readonly string PATH_LOG = "dataLog.txt";
+        private readonly int QUANTITY_DIGITS = 6;
 
         private IView _view;
         private InboxParameters _inboxParameters;
@@ -55,7 +56,19 @@ namespace Task6_LuckyTickets.Controller
                     try
                     {
                         _view.AskInputPath(MessagesResources.AskInputPath);
-                        lackyGenerator = new LuckyTicketsGenerator(_path);
+
+                        switch (GetCountMethod(_path))
+                        {
+                            case GenerationLackyTicketsMethod.Moskow:
+                                lackyGenerator = new LuckyTicketsGeneratorMoskow();
+                                break;
+                            case GenerationLackyTicketsMethod.Piter:
+                                lackyGenerator = new LuckyTicketsGeneratorPiter();
+                                break;
+                            default:
+                                isFailed = true;
+                                throw new Exception(MessagesResources.ErrorInvalidWorkMode);
+                        }                       
                         isFailed = false;
                     }
                     catch (Exception ex)
@@ -65,8 +78,8 @@ namespace Task6_LuckyTickets.Controller
                     }
                 } while (isFailed);
                
-                lackyGenerator.Generate();
-                lackyGenerator.SaveToFile(_pathLog);
+                lackyGenerator.Generate(QUANTITY_DIGITS);
+                lackyGenerator.SaveToFile(PATH_LOG);
                 _view.PrintResultText(lackyGenerator.Count().ToString());
                 _view.AskContinueFlag(MessagesResources.AskContunue);
 
@@ -88,5 +101,24 @@ namespace Task6_LuckyTickets.Controller
             string continueFlag = _view.GetContinueFlag();
             _continueFlag = continueFlag.ToLower().Trim() == MessagesResources.Yes || continueFlag.ToLower().Trim() == MessagesResources.YesShort;
         }
+
+        private GenerationLackyTicketsMethod GetCountMethod(string filePath)
+        {
+            string[] allStrings = File.ReadAllLines(filePath);
+
+            GenerationLackyTicketsMethod method;
+
+            try
+            {
+                method = (GenerationLackyTicketsMethod)Enum.Parse(typeof(GenerationLackyTicketsMethod), allStrings[0]);
+            }
+            catch
+            {
+                throw new Exception(MessagesResources.ErrorMethodNotFound);
+            }
+
+            return method;
+        }
+
     }
 }

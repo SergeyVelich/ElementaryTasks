@@ -8,7 +8,6 @@ namespace Task6_LuckyTickets.Resources
 {
     public enum GenerationLackyTicketsMethod
     {
-        Indefinite,
         Moskow,
         Piter,
     }

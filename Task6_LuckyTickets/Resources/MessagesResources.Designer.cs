@@ -97,6 +97,15 @@ namespace Task6_LuckyTickets.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Work mode isn&apos;t defined.
+        /// </summary>
+        internal static string ErrorInvalidWorkMode {
+            get {
+                return ResourceManager.GetString("ErrorInvalidWorkMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Generation method not found.
         /// </summary>
         internal static string ErrorMethodNotFound {
