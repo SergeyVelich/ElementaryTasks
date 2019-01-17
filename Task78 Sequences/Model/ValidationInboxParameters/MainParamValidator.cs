@@ -16,9 +16,9 @@ namespace Task78_Sequences.Model.ValidationInboxParameters
             _args = args;
         }
 
-        public InboxParameters GetMainParameters()
+        public InboxParams GetMainParameters()
         {
-            InboxParameters inboxParameters = new InboxParameters();
+            InboxParams inboxParams = new InboxParams();
 
             int lowLimit = 0;
             int upLimit = 0;
@@ -54,10 +54,10 @@ namespace Task78_Sequences.Model.ValidationInboxParameters
                 }
             }
 
-            inboxParameters.LowLimit = lowLimit;
-            inboxParameters.UpLimit = upLimit;
+            inboxParams.LowLimit = lowLimit;
+            inboxParams.UpLimit = upLimit;
 
-            return inboxParameters;
+            return inboxParams;
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,10 +28,27 @@ namespace Task78_Sequences.UI
             Console.ReadKey();
         }
 
-        public void PrintResultText(string text)
+        public void PrintResult(string text, IEnumerable sequence)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(text);
+
+            bool isEmptyResult = true;
+
+            foreach (int f in sequence)
+            {
+                if (!isEmptyResult)
+                {
+                    Console.Write(", ");
+                }
+                else
+                {
+                    isEmptyResult = false;
+                }
+
+                Console.Write(f.ToString());
+            };
+
             Console.ResetColor();
             Console.WriteLine();
             Console.ReadKey();

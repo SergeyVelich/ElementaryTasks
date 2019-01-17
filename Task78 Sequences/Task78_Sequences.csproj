@@ -47,7 +47,7 @@
     <Compile Include="Model\ValidationInboxParameters\InboxParameters.cs" />
     <Compile Include="Model\FiboSequence.cs" />
     <Compile Include="Model\PowSequence.cs" />
-    <Compile Include="Model\Sequence.cs" />
+    <Compile Include="Model\ISequence.cs" />
     <Compile Include="Model\ValidationInboxParameters\MainParamValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

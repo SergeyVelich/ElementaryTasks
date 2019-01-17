@@ -1,33 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Task78_Sequences.Model
 {
-    class FiboSequence : Sequence
+    class FiboSequence : ISequence
     {
-        public FiboSequence(int lowLimit, int upLimit) : base(lowLimit, upLimit)
+        public int LowLimit { get; set; }
+        public int UpLimit { get; set; }
+
+        public FiboSequence(int lowLimit, int upLimit)
         {
-            
+            LowLimit = lowLimit;
+            UpLimit = upLimit;
         }
 
-        protected override void GenerateSequence()
+        public IEnumerator GetEnumerator()
         {
             int p;
             int p1 = 0;
             int p2 = 1;
-
-            for (int i = 0; p2 < UpLimit; i++)
+            while (p1 + p2 <= UpLimit)
             {
+                p = p1 + p2;
+                p1 = p2;
+                p2 = p;
                 if (p2 > LowLimit)
                 {
-                    SequenceMembers.Add(p2);
+                    yield return p2;
                 }
-                p = p1;
-                p1 = p2;
-                p2 = p2 + p;
             }
         }
     }

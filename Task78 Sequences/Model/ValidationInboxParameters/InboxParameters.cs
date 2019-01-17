@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task78_Sequences.Model.ValidationInboxParameters
 {
-    public struct InboxParameters
+    public struct InboxParams
     {
         public int LowLimit { get; set; }
         public int UpLimit { get; set; }

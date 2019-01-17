@@ -1,25 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Task78_Sequences.Model
 {
-    public class PowSequence : Sequence
+    public class PowSequence : ISequence
     {
-        public PowSequence(int upLimit) : base(upLimit)
-        {
+        public int LowLimit { get; set; }
+        public int UpLimit { get; set; }
 
+        public PowSequence(int upLimit)
+        {
+            LowLimit = 0;
+            UpLimit = upLimit;
         }
 
-        protected override void GenerateSequence()
+        public IEnumerator GetEnumerator()
         {
             int upLimitNumber = (int)Math.Sqrt(UpLimit);
             int lowLimitNumber = (int)Math.Sqrt(LowLimit);
             for (int i = lowLimitNumber; i <= upLimitNumber; i++)
             {
-                SequenceMembers.Add(i);
+                yield return i;
             }
         }
     }

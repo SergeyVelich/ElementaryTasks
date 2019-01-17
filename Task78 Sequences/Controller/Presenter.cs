@@ -11,9 +11,10 @@ using Task78_Sequences.Resources;
 namespace Task78_Sequences.Controller
 {
     class Presenter
-    {
+    {       
         private IView _view;
-        private InboxParameters _inboxParameters;
+        private string[] _args;
+        private InboxParams _inboxParams;
         private WorkMode _workMode;
 
         public Presenter(IView view)
@@ -22,10 +23,10 @@ namespace Task78_Sequences.Controller
         }
 
         public void Run(string[] args)
-        {                        
-            Sequence sequence;
+        {
+            _args = args;
 
-            if (args.Length == 0)
+            if (_args.Length == 0)
             {
                 _view.PrintInstructionText(MessagesResources.Instruction);
                 return;
@@ -33,7 +34,7 @@ namespace Task78_Sequences.Controller
 
             try
             {
-                _inboxParameters = new MainParamValidator(args).GetMainParameters();
+                _inboxParams = new MainParamValidator(_args).GetMainParameters();
             }
             catch (Exception ex)
             {
@@ -41,26 +42,20 @@ namespace Task78_Sequences.Controller
                 return;
             }
 
-            if (args.Length == 1)
-            {
-                _workMode = WorkMode.PowMode;
-            }
-            else
-            {
-                _workMode = WorkMode.FibonaccіMode;
-            }
+            _workMode = GetWorkMode();
 
             try
             {
+                ISequence sequence;
                 switch (_workMode)
                 {
                     case WorkMode.FibonaccіMode:
-                        sequence = new FiboSequence(_inboxParameters.LowLimit, _inboxParameters.UpLimit);
-                        _view.PrintResultText(String.Format(MessagesResources.ResultFibonacciMode, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
+                        sequence = new FiboSequence(_inboxParams.LowLimit, _inboxParams.UpLimit);
+                        _view.PrintResult(String.Format(MessagesResources.ResultFibonacciMode, _inboxParams.LowLimit, _inboxParams.UpLimit), sequence);
                         break;
                     case WorkMode.PowMode:
-                        sequence = new PowSequence(_inboxParameters.UpLimit);
-                        _view.PrintResultText(String.Format(MessagesResources.ResultPowMode, _inboxParameters.LowLimit, _inboxParameters.UpLimit) + sequence.ToString());
+                        sequence = new PowSequence(_inboxParams.UpLimit);
+                        _view.PrintResult(String.Format(MessagesResources.ResultPowMode, _inboxParams.LowLimit, _inboxParams.UpLimit), sequence);
                         break;
                     default:
                         throw new Exception(MessagesResources.ErrorInvalidWorkMode);
@@ -72,6 +67,22 @@ namespace Task78_Sequences.Controller
                 return;
             }
 
+        }
+
+        private WorkMode GetWorkMode()
+        {
+            WorkMode workMode;
+
+            if (_args.Length == 1)
+            {
+                workMode = WorkMode.PowMode;
+            }
+            else
+            {
+                workMode = WorkMode.FibonaccіMode;
+            }
+
+            return workMode;
         }
     }
 }
