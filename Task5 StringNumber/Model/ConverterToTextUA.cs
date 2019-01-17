@@ -29,24 +29,26 @@ namespace Task5_StringNumber.Model
         {
             StringBuilder result = new StringBuilder();
 
-            result.AppendFormat("{0} ", _hundreds[value / 100]);
+            result.Append(_hundreds[value / 100].ToString());
+            result.Append(" ");
 
             short rem100 = (short)(value % 100);
             if (rem100 < 20)
             {
                 if (rem100 == 1 || rem100 == 2 && rank == 1)
                 {
-                    result.AppendFormat("{0}", _first100FemaleChanges[rem100]);
+                    result.Append(_first100FemaleChanges[rem100].ToString());
                 }
                 else
                 {
-                    result.AppendFormat("{0}", _first100[rem100]);
+                    result.Append(_first100[rem100].ToString());
                 }
             }
             else
             {
-                result.AppendFormat("{0} ", _first100[rem100 / 10 * 10]);
-                result.AppendFormat("{0}", _first100[rem100 % 10]);
+                result.Append(_first100[rem100 / 10 * 10].ToString());
+                result.Append(" ");
+                result.Append(_first100[rem100 % 10].ToString());
             }
 
             return result.ToString();

@@ -19,11 +19,11 @@ namespace Task78_Sequences.Model
             int p1 = 0;
             int p2 = 1;
 
-            for (int i = 0; p2 < _upLimit; i++)
+            for (int i = 0; p2 < UpLimit; i++)
             {
-                if (p2 > _lowLimit)
+                if (p2 > LowLimit)
                 {
-                    _sequenceMembers.Add(p2);
+                    SequenceMembers.Add(p2);
                 }
                 p = p1;
                 p1 = p2;

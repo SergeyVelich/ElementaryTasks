@@ -8,37 +8,31 @@ namespace Task78_Sequences.Model
 {
     public abstract class Sequence
     {
-        protected int _lowLimit;
-        protected int _upLimit;
-        protected List<int> _sequenceMembers;
+        public int LowLimit { get; set; }
+        public int UpLimit { get; set; }
+        public List<int> SequenceMembers { get; private set; }
 
         protected abstract void GenerateSequence();
 
         public Sequence(int upLimit)
         {
-            _lowLimit = 0;
-            _upLimit = upLimit;
-            _sequenceMembers = new List<int>();
-
-            GenerateSequence();
+            LowLimit = 0;
+            UpLimit = upLimit;
         }
 
         public Sequence(int lowLimit, int upLimit)
         {
-            _lowLimit = lowLimit;
-            _upLimit = upLimit;
-            _sequenceMembers = new List<int>();
-
-            GenerateSequence();
+            LowLimit = lowLimit;
+            UpLimit = upLimit;
         }
 
         public override string ToString()
         {
             StringBuilder representationBuilder = new StringBuilder();
-            for (int i = 0; i < _sequenceMembers.Count; i++)
+            for (int i = 0; i < SequenceMembers.Count; i++)
             {
-                representationBuilder.Append(_sequenceMembers[i]);
-                if (i < _sequenceMembers.Count - 1)
+                representationBuilder.Append(SequenceMembers[i]);
+                if (i < SequenceMembers.Count - 1)
                 {
                     representationBuilder.Append(", ");
                 }

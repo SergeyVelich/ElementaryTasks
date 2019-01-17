@@ -15,11 +15,11 @@ namespace Task78_Sequences.Model
 
         protected override void GenerateSequence()
         {
-            int upLimitNumber = (int)Math.Sqrt(_upLimit);
-            int lowLimitNumber = (int)Math.Sqrt(_lowLimit);
+            int upLimitNumber = (int)Math.Sqrt(UpLimit);
+            int lowLimitNumber = (int)Math.Sqrt(LowLimit);
             for (int i = lowLimitNumber; i <= upLimitNumber; i++)
             {
-                _sequenceMembers.Add(i);
+                SequenceMembers.Add(i);
             }
         }
     }

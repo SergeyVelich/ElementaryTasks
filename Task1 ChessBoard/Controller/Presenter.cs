@@ -12,8 +12,8 @@ namespace Task1_ChessBoard.Controller
 {
     class Presenter
     {
-        protected IView _view;
-        protected InboxParameters _inboxParameters;
+        private IView _view;
+        private InboxParameters _inboxParameters;
 
         public Presenter(IView view)
         {

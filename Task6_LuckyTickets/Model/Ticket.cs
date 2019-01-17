@@ -22,7 +22,6 @@ namespace Task6_LuckyTickets.Model
 
         private void FillNumbersAsRanks()
         {
-            int tempNumber;
             _numbersAsDigit = new int[_quantityDigits];
             for (int i = 0; i < _quantityDigits - 1; i++)
             {

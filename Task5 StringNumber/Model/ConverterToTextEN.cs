@@ -26,18 +26,21 @@ namespace Task5_StringNumber.Model
         {
             StringBuilder result = new StringBuilder();
 
-            result.AppendFormat("{0} ", _first100[value / 100]);
-            result.AppendFormat("{0} ", _hundreds[0]);
+            result.Append(_first100[value / 100].ToString());
+            result.Append(" ");
+            result.Append(_hundreds[0].ToString());
+            result.Append(" ");
 
             int rem100 = value % 100;
             if (rem100 < 20)
             {
-                result.AppendFormat("{0}", _first100[rem100]);
+                result.Append(_first100[rem100]);
             }
             else
             {
-                result.AppendFormat("{0} ", _first100[rem100 / 10 * 10]);
-                result.AppendFormat("{0}", _first100[rem100 % 10]);
+                result.Append(_first100[rem100 / 10 * 10].ToString());
+                result.Append(" ");
+                result.Append(_first100[rem100 % 10].ToString());
             }
 
             return result.ToString();

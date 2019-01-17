@@ -77,7 +77,8 @@ namespace Task5_StringNumber.Model
 
                 if (rank > 0)
                 {
-                    result.AppendFormat(" {0}", GetFormMultiplesOf1000(rem1000, rank));
+                    result.Append(" ");
+                    result.Append(GetFormMultiplesOf1000(rem1000, rank).ToString());
                 }
 
                 if (result.Length != 0) result.Append(" ");

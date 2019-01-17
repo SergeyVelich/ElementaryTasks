@@ -13,8 +13,8 @@ namespace Task6_LuckyTickets.Controller
 {
     class Presenter
     {
-        private readonly string PATH_LOG = "dataLog.txt";
-        private readonly int QUANTITY_DIGITS = 6;
+        private readonly string _pathLog = "dataLog.txt";
+        private readonly int _quantityDigits = 6;
 
         private IView _view;
         private InboxParameters _inboxParameters;
@@ -78,8 +78,8 @@ namespace Task6_LuckyTickets.Controller
                     }
                 } while (isFailed);
                
-                lackyGenerator.Generate(QUANTITY_DIGITS);
-                lackyGenerator.SaveToFile(PATH_LOG);
+                lackyGenerator.Generate(_quantityDigits);
+                lackyGenerator.SaveToFile(_pathLog);
                 _view.PrintResultText(lackyGenerator.Count().ToString());
                 _view.AskContinueFlag(MessagesResources.AskContunue);
 

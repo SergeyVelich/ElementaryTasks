@@ -31,7 +31,6 @@ namespace Task2_EnvelopesAnalysis.Controller
         public void Run(string[] args)
         {
             Envelope[] envelopes;
-            EnvelopeComparer envelopeComparer;
 
             if (args.Length == 0)
             {
@@ -51,7 +50,6 @@ namespace Task2_EnvelopesAnalysis.Controller
             while (_continueFlag)
             {
                 envelopes = new Envelope[QUANTITY_ENVELOPES];
-                envelopeComparer = new EnvelopeComparer();
 
                 for (int i = 0; i < envelopes.Length; i++)
                 {
@@ -92,7 +90,7 @@ namespace Task2_EnvelopesAnalysis.Controller
 
                 for (int i = 1; i < envelopes.Length; i++)
                 {
-                    if (envelopeComparer.Compare(envelopes[0], envelopes[i]) > 0)
+                    if (EnvelopeComparer.Compare(envelopes[0], envelopes[i]) > 0)
                     {
                         _view.PrintResultText(MessagesResources.ResultPositive);
                     }
@@ -127,7 +125,8 @@ namespace Task2_EnvelopesAnalysis.Controller
         protected virtual void OnEndWork(object sender, EventArgs e)
         {
             string continueFlag = _view.GetContinueFlag();
-            _continueFlag = continueFlag.ToLower().Trim() == MessagesResources.Yes || continueFlag.ToLower().Trim() == MessagesResources.YesShort;
+            _continueFlag = continueFlag.ToLower().Trim() == MessagesResources.Yes 
+                || continueFlag.ToLower().Trim() == MessagesResources.YesShort;
         }
     }
 }

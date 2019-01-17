@@ -7,9 +7,9 @@ using Task2_EnvelopesAnalysis.Resources;
 
 namespace Task2_EnvelopesAnalysis.Model
 {
-    public class EnvelopeComparer
+    public static class EnvelopeComparer
     {
-        public int Compare(Envelope envOut, Envelope envIn)
+        public static int Compare(Envelope envOut, Envelope envIn)
         {
             return envOut.CompareTo(envIn);
         }
