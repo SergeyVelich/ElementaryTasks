@@ -11,22 +11,24 @@ namespace Task6_LuckyTickets.Model
 {
     class LuckyTicketsGeneratorPiter : LuckyTicketsGenerator
     {
-        public override void Generate(int quantityDigits)
+        public LuckyTicketsGeneratorPiter(int quantityDigits) : base(quantityDigits)
         {
-            int n1, n2;
 
-            for (int i = 1; i < Math.Pow(10, quantityDigits); i++)
+        }
+
+        protected override int[] GetPattern()
+        {
+            int[] pattern = new int[QuantityDigits / 2];
+
+            for (int i = 0; i < QuantityDigits; i++)
             {
-                Ticket ticket = new Ticket(i, quantityDigits);
-
-                n1 = ticket[0] + ticket[2] + ticket[4];
-                n2 = ticket[1] + ticket[3] + ticket[5];
-
-                if (n1 == n2)
-                {                   
-                    Tickets.Add(ticket);                   
-                }              
+                if (i % 2 != 0)
+                {
+                    pattern[i / 2] = i;
+                }
             }
+
+            return pattern;
         }
     }
 }

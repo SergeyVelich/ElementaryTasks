@@ -144,6 +144,9 @@ Parameters:
     - optional:
         none</value>
   </data>
+  <data name="Result" xml:space="preserve">
+    <value>Count lacky tickets: {0}</value>
+  </data>
   <data name="Yes" xml:space="preserve">
     <value>yes</value>
   </data>

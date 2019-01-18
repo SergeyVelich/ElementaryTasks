@@ -130,6 +130,15 @@ namespace Task6_LuckyTickets.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Count lacky tickets: {0}.
+        /// </summary>
+        internal static string Result {
+            get {
+                return ResourceManager.GetString("Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на yes.
         /// </summary>
         internal static string Yes {

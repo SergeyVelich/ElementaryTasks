@@ -60,10 +60,10 @@ namespace Task6_LuckyTickets.Controller
                         switch (GetCountMethod(_path))
                         {
                             case GenerationLackyTicketsMethod.Moskow:
-                                lackyGenerator = new LuckyTicketsGeneratorMoskow();
+                                lackyGenerator = new LuckyTicketsGeneratorMoskow(_quantityDigits);
                                 break;
                             case GenerationLackyTicketsMethod.Piter:
-                                lackyGenerator = new LuckyTicketsGeneratorPiter();
+                                lackyGenerator = new LuckyTicketsGeneratorPiter(_quantityDigits);
                                 break;
                             default:
                                 isFailed = true;
@@ -78,9 +78,9 @@ namespace Task6_LuckyTickets.Controller
                     }
                 } while (isFailed);
                
-                lackyGenerator.Generate(_quantityDigits);
+                lackyGenerator.Generate();
                 lackyGenerator.SaveToFile(_pathLog);
-                _view.PrintResultText(lackyGenerator.Count().ToString());
+                _view.PrintResultText(String.Format(MessagesResources.Result, lackyGenerator.Count().ToString()));
                 _view.AskContinueFlag(MessagesResources.AskContunue);
 
             } while (_continueFlag);
@@ -99,10 +99,11 @@ namespace Task6_LuckyTickets.Controller
         protected virtual void OnEndWork(object sender, EventArgs e)
         {
             string continueFlag = _view.GetContinueFlag();
-            _continueFlag = continueFlag.ToLower().Trim() == MessagesResources.Yes || continueFlag.ToLower().Trim() == MessagesResources.YesShort;
+            _continueFlag = continueFlag.ToLower().Trim() == MessagesResources.Yes 
+                || continueFlag.ToLower().Trim() == MessagesResources.YesShort;
         }
 
-        private GenerationLackyTicketsMethod GetCountMethod(string filePath)
+        protected virtual GenerationLackyTicketsMethod GetCountMethod(string filePath)
         {
             string[] allStrings = File.ReadAllLines(filePath);
 
@@ -119,6 +120,5 @@ namespace Task6_LuckyTickets.Controller
 
             return method;
         }
-
     }
 }
