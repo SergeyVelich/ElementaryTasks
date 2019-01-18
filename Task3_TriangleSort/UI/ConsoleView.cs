@@ -33,12 +33,12 @@ namespace Task3_TriangleSort.UI
             Console.WriteLine();
         }
 
-        public void PrintResult(TriangleSorter triangleSorter)
+        public void PrintResult(ISorter triangleSorter)
         {
             Console.WriteLine(TRIANGLE_LIST_HEADER);
             for (int i = 0; i < triangleSorter.Triangles.Count; i++)
             {
-                Console.WriteLine(TRIANGLE_LIST_ROW, i + 1, triangleSorter.Triangles[i].Name, triangleSorter.Triangles[i].Area);
+                Console.WriteLine(TRIANGLE_LIST_ROW, i + 1, triangleSorter.Triangles[i].Name, triangleSorter.Triangles[i].GetArea());
                 if (i < triangleSorter.Triangles.Count - 1)
                 {
                     Console.WriteLine();

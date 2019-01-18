@@ -6,21 +6,16 @@ using System.Threading.Tasks;
 
 namespace Task3_TriangleSort.Model
 {
-    public class TriangleSorter
+    public class TriangleSorter : ISorter
     {
-        public List<Triangle> Triangles { get; set; }
+        public List<IFigure> Triangles { get; set; }
 
-        public TriangleSorter()
-        {
-
-        }
-
-        public TriangleSorter(List<Triangle> triangles)
+        public TriangleSorter(List<IFigure> triangles)
         {
             Triangles = triangles;
         }       
 
-        public void Sort(IComparer<Triangle> comparer)
+        public void Sort(IComparer<IFigure> comparer)
         {
             Triangles.Sort(comparer);
         }

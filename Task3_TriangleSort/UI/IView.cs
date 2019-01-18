@@ -11,7 +11,7 @@ namespace Task3_TriangleSort.UI
     {
         void PrintInstructionText(string text);
         void PrintErrorText(string text);
-        void PrintResult(TriangleSorter triangleSorter);
+        void PrintResult(ISorter triangleSorter);
         void AskInputTriangle(string text);
         void AskContinueFlag(string text);
         void AskAddTrianglesFlag(string text);

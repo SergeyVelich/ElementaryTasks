@@ -18,20 +18,19 @@ namespace Task3_TriangleSort.Controller
         private InboxParameters _inboxParameters;
         private bool _continueFlag;
         private bool _addNextTriangleFlag;
-        private List<Triangle> _triangles;
+        private List<IFigure> _triangles;
 
         public Presenter(IView view)
         {
             _view = view;
+
+            _view.SetTriangle += OnSetTriangle;
+            _view.AddTriangle += OnAddTriangle;
+            _view.EndWork += OnEndWork;
         }
 
         public void Run(string[] args)
         {
-            TriangleSorter sorter;
-            _view.SetTriangle += OnSetTriangle;
-            _view.AddTriangle += OnAddTriangle;
-            _view.EndWork += OnEndWork;
-
             if (args.Length == 0)
             {
                 _view.PrintInstructionText(MessagesResources.Instruction);
@@ -47,10 +46,10 @@ namespace Task3_TriangleSort.Controller
                 return;
             }
 
-            _triangles = new List<Triangle>();
-
             do
             {
+                _triangles = new List<IFigure>();
+
                 do
                 {
                     try
@@ -65,7 +64,7 @@ namespace Task3_TriangleSort.Controller
                     _view.AskAddTrianglesFlag(MessagesResources.AskAddTriangle);
                 } while (_addNextTriangleFlag);
 
-                sorter = new TriangleSorter(_triangles);
+                ISorter sorter = new TriangleSorter(_triangles);
                 sorter.Sort(new TriangleComparerByAreaDesc());
 
                 _view.PrintResult(sorter);

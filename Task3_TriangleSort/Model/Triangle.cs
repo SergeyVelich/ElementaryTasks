@@ -7,13 +7,12 @@ using Task3_TriangleSort.Resources;
 
 namespace Task3_TriangleSort.Model
 {
-    public class Triangle : IComparable<Triangle>
+    public class Triangle : IFigure
     {
         public string Name { get; set; }
         public double SideA { get; set; }
         public double SideB { get; set; }
         public double SideC { get; set; }
-        public double Area { get; set; }
 
         public static Triangle CreateTriangle(string name, double sideA, double sideB, double sideC)
         {
@@ -30,8 +29,6 @@ namespace Task3_TriangleSort.Model
             SideA = sideA;
             SideB = sideB;
             SideC = sideC;
-
-            Area = GetArea();
         }
 
         public double GetArea()
@@ -43,9 +40,9 @@ namespace Task3_TriangleSort.Model
             return Area;
         }
 
-        public int CompareTo(Triangle triangle)
+        public int CompareTo(IFigure triangle)
         {
-            int comparison = Area.CompareTo(triangle.Area);
+            int comparison = GetArea().CompareTo(triangle.GetArea());
             if (comparison == 0)
                 comparison = Name.CompareTo(triangle.Name);
 

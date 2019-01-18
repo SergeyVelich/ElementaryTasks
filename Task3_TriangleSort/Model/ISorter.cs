@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Task3_TriangleSort.Model
 {
-    class TriangleComparerByAreaDesc : IComparer<IFigure>
+    interface ISorter
     {
-        public int Compare(IFigure x, IFigure y)
-        {
-            return -x.CompareTo(y);
-        }
+        List<IFigure> Triangles { get; set; }
+
+        void Sort(IComparer<IFigure> comparer);
     }
 }
