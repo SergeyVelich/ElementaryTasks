@@ -25,12 +25,19 @@ namespace Task4_FileParser.Model
             using (StreamReader reader = new StreamReader(Path, Encoding.Default))
             {                   
                 string line;
-                int countEntryinLine;
 
                 while ((line = reader.ReadLine()) != null)
                 {
-                    countEntryinLine = Regex.Matches(line, pattern).Count;
-                    countEntry += countEntryinLine;
+                    int startIndex = 0;
+                    do
+                    {
+                        startIndex = line.IndexOf(pattern, startIndex);
+                        if (startIndex > -1)
+                        {
+                            countEntry ++;
+                            startIndex = Math.Min(++ startIndex, line.Length);
+                        }
+                    } while (startIndex > -1);
                 }
             }
 
@@ -48,19 +55,21 @@ namespace Task4_FileParser.Model
                 using (StreamReader reader = new StreamReader(Path))
                 {
                     string line;
-                    int countEntryinLine;
 
-                    while (!reader.EndOfStream)
+                    while ((line = reader.ReadLine()) != null)
                     {
-                        line = reader.ReadLine();
-                        countEntryinLine = Regex.Matches(line, pattern).Count;
-                        countEntry += countEntryinLine;
-
-                        if (countEntryinLine > 0)
+                        int startIndex = 0;
+                        do
                         {
-                            line = Regex.Replace(line, pattern, replacement);
-                        }
+                            startIndex = line.IndexOf(pattern, startIndex);
+                            if (startIndex > -1)
+                            {
+                                countEntry++;
+                                startIndex = Math.Min(++startIndex, line.Length);
+                            }
+                        } while (startIndex > -1);
 
+                        line = line.Replace(pattern, replacement);
                         writer.WriteLine(line);
                     }
                 }

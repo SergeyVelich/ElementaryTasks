@@ -15,7 +15,9 @@ namespace Task4_FileParser.Controller
     class Presenter
     {
         private IView _view;
+        private string[] _args;
         private InboxParameters _inboxParameters;
+        private WorkMode _workMode;
 
         public Presenter(IView view)
         {
@@ -24,11 +26,9 @@ namespace Task4_FileParser.Controller
 
         public void Run(string[] args)
         {
-            int result;
-            Parser parser;
-            WorkMode workMode;
+            _args = args;
 
-            if (args.Length == 0)
+            if (_args.Length == 0)
             {
                 _view.PrintInstructionText(MessagesResources.Instruction);
                 return;
@@ -36,7 +36,7 @@ namespace Task4_FileParser.Controller
 
             try
             {
-                _inboxParameters = new MainParamValidator(args).GetMainParameters();
+                _inboxParameters = new MainParamValidator(_args).GetMainParameters();
             }
             catch (Exception ex)
             {
@@ -44,19 +44,13 @@ namespace Task4_FileParser.Controller
                 return;
             }
 
-            if (args.Length == 2)
-            {
-                workMode = WorkMode.SearchMode;
-            }
-            else
-            {
-                workMode = WorkMode.ReplaceMode;
-            }
+            _workMode = GetWorkMode();
 
-            parser = new Parser(_inboxParameters.Path);
+            int result;
+            Parser parser = new Parser(_inboxParameters.Path);
             try
             {
-                switch (workMode)
+                switch (_workMode)
                 {
                     case WorkMode.SearchMode:
                         result = parser.GetCountFinded(_inboxParameters.Pattern);
@@ -75,6 +69,22 @@ namespace Task4_FileParser.Controller
                 _view.PrintErrorText(ex.Message);
                 return;
             }
+        }
+
+        private WorkMode GetWorkMode()
+        {
+            WorkMode workMode;
+
+            if (_args.Length == 2)
+            {
+                workMode = WorkMode.SearchMode;
+            }
+            else
+            {
+                workMode = WorkMode.ReplaceMode;
+            }
+
+            return workMode;
         }
     }
 }
