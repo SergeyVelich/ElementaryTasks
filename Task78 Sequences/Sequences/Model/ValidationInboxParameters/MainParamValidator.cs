@@ -20,12 +20,12 @@ namespace Sequences.Model.ValidationInboxParameters
         {
             InboxParams inboxParams = new InboxParams();
 
-            int lowLimit = 0;
-            int upLimit = 0;
+            long lowLimit = 0;
+            long upLimit = 0;
 
             if (_args.Length == 1)
             {
-                if (!int.TryParse(_args[0], out upLimit))
+                if (!long.TryParse(_args[0], out upLimit))
                 {
                     throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
                 }
@@ -36,11 +36,11 @@ namespace Sequences.Model.ValidationInboxParameters
             }
             else
             {
-                if (!int.TryParse(_args[0], out lowLimit))
+                if (!long.TryParse(_args[0], out lowLimit))
                 {
                     throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
                 }
-                if (!int.TryParse(_args[1], out upLimit))
+                if (!long.TryParse(_args[1], out upLimit))
                 {
                     throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 2));
                 }

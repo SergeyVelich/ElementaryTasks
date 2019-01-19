@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace Sequences.Model
 {
-    interface ISequence : IEnumerable
+    interface ISequence
     {
-        int LowLimit { get; set; }
-        int UpLimit { get; set; }
+        long LowLimit { get; }
+        long UpLimit { get; }
+
+        IEnumerable<long> GetSequence();
     }
 }

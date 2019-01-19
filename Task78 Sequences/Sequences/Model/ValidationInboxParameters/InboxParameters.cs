@@ -8,7 +8,7 @@ namespace Sequences.Model.ValidationInboxParameters
 {
     public struct InboxParams
     {
-        public int LowLimit { get; set; }
-        public int UpLimit { get; set; }
+        public long LowLimit { get; set; }
+        public long UpLimit { get; set; }
     }
 }

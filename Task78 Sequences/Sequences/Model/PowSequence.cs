@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,20 +9,20 @@ namespace Sequences.Model
 {
     public class PowSequence : ISequence
     {
-        public int LowLimit { get; set; }
-        public int UpLimit { get; set; }
+        public long LowLimit { get; private set; }
+        public long UpLimit { get; private set; }
 
-        public PowSequence(int upLimit)
+        public PowSequence(long upLimit)
         {
             LowLimit = 0;
             UpLimit = upLimit;
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerable<long> GetSequence()
         {
-            int upLimitNumber = (int)Math.Sqrt(UpLimit);
-            int lowLimitNumber = (int)Math.Sqrt(LowLimit);
-            for (int i = lowLimitNumber; i <= upLimitNumber; i++)
+            long upLimitNumber = (long)Math.Sqrt(UpLimit);
+            long lowLimitNumber = (int)Math.Sqrt(LowLimit);
+            for (long i = lowLimitNumber; i <= upLimitNumber; i++)
             {
                 yield return i;
             }

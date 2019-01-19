@@ -51,11 +51,11 @@ namespace Sequences.Controller
                 {
                     case WorkMode.FibonaccіMode:
                         sequence = new FiboSequence(_inboxParams.LowLimit, _inboxParams.UpLimit);
-                        _view.PrintResult(String.Format(MessagesResources.ResultFibonacciMode, _inboxParams.LowLimit, _inboxParams.UpLimit), sequence);
+                        _view.PrintResult(String.Format(MessagesResources.ResultFibonacciMode, _inboxParams.LowLimit, _inboxParams.UpLimit), sequence.GetSequence());
                         break;
                     case WorkMode.PowMode:
                         sequence = new PowSequence(_inboxParams.UpLimit);
-                        _view.PrintResult(String.Format(MessagesResources.ResultPowMode, _inboxParams.LowLimit, _inboxParams.UpLimit), sequence);
+                        _view.PrintResult(String.Format(MessagesResources.ResultPowMode, _inboxParams.LowLimit, _inboxParams.UpLimit), sequence.GetSequence());
                         break;
                     default:
                         throw new Exception(MessagesResources.ErrorInvalidWorkMode);
