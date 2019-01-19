@@ -7,7 +7,7 @@ using NumberToText.Resources;
 
 namespace NumberToText.Model
 {
-    class ConverterToTextEN: ConverterToText
+    public class ConverterToTextEN: ConverterToText
     {
         public ConverterToTextEN()
         {

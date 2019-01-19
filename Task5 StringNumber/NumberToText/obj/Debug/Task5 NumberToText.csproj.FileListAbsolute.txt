@@ -1,7 +1,0 @@
-F:\Проекты C#\ElementaryTasks\Task5 StringNumber\bin\Debug\Task5 StringNumber.exe.config
-F:\Проекты C#\ElementaryTasks\Task5 StringNumber\bin\Debug\Task5 StringNumber.exe
-F:\Проекты C#\ElementaryTasks\Task5 StringNumber\bin\Debug\Task5 StringNumber.pdb
-F:\Проекты C#\ElementaryTasks\Task5 StringNumber\obj\Debug\Task5 NumberToText.csproj.CoreCompileInputs.cache
-F:\Проекты C#\ElementaryTasks\Task5 StringNumber\obj\Debug\Task5 StringNumber.exe
-F:\Проекты C#\ElementaryTasks\Task5 StringNumber\obj\Debug\Task5 StringNumber.pdb
-F:\Проекты C#\ElementaryTasks\Task5 StringNumber\obj\Debug\Task5 NumberToText.csprojAssemblyReference.cache

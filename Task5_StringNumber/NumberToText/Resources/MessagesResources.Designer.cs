@@ -39,7 +39,7 @@ namespace NumberToText.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("NumberToText.Resources.MessagesResources", typeof(MessagesResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Task5_StringNumber.Resources.MessagesResources", typeof(MessagesResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

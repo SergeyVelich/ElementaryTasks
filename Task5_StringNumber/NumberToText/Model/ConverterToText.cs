@@ -79,9 +79,12 @@ namespace NumberToText.Model
                 {
                     result.Append(" ");
                     result.Append(GetFormMultiplesOf1000(rem1000, rank).ToString());
-                }
 
-                if (result.Length != 0) result.Append(" ");
+                    if (result.Length != 0)
+                    {
+                        result.Append(" ");
+                    }
+                }
             }
 
             return result.ToString();

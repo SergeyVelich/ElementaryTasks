@@ -7,7 +7,7 @@ using NumberToText.Resources;
 
 namespace NumberToText.Model
 {
-    class ConverterToTextRU : ConverterToTextUA
+    public class ConverterToTextRU : ConverterToTextUA
     {
         public ConverterToTextRU()
         {
