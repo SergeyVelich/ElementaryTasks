@@ -9,23 +9,20 @@ using LuckyTickets.Resources;
 
 namespace LuckyTickets.Model
 {
-    class LuckyTicketsGeneratorMoskow : LuckyTicketsGenerator
+    public class LuckyTicketsGeneratorMoskow : LuckyTicketsGenerator
     {
-        public LuckyTicketsGeneratorMoskow(int quantityDigits) : base(quantityDigits)
+        public LuckyTicketsGeneratorMoskow(byte quantityDigits) : base(quantityDigits)
         {
 
         }
 
-        protected override int[] GetPattern()
+        protected override bool[] GetPattern()
         {
-            int[] pattern = new int[QuantityDigits / 2];
+            bool[] pattern = new bool[QuantityDigits];
 
             for (int i = 0; i < QuantityDigits; i++)
             {
-                if (i < pattern.Length)
-                {
-                    pattern[i] = i;
-                }
+                pattern[i] = i < QuantityDigits / 2;
             }
 
             return pattern;

@@ -39,7 +39,7 @@ namespace LuckyTickets.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LuckyTickets.Resources.MessagesResources", typeof(MessagesResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Task6_LuckyTickets.Resources.MessagesResources", typeof(MessagesResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

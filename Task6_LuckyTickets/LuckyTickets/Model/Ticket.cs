@@ -9,10 +9,10 @@ namespace LuckyTickets.Model
     public class Ticket
     {
         public int QuantityDigits { get; private set; }
-        public int Number { get; private set; }
-        public int[] NumbersAsDigit { get; private set; }
+        public uint Number { get; private set; }
+        public byte[] NumbersAsDigit { get; private set; }
 
-        public Ticket(int number, int quantityDigits)
+        public Ticket(uint number, byte quantityDigits)
         {
             Number = number;
             QuantityDigits = quantityDigits;
@@ -20,13 +20,13 @@ namespace LuckyTickets.Model
             NumbersAsDigit = GetNumbersAsRanks();
         }
 
-        private int[] GetNumbersAsRanks()
+        private byte[] GetNumbersAsRanks()
         {
-            int number = Number;
-            int[] numbersAsDigit = new int[QuantityDigits];
+            uint number = Number;
+            byte[] numbersAsDigit = new byte[QuantityDigits];
             for (int i = QuantityDigits - 1; i >= 0; i--)
             {
-                numbersAsDigit[i] = number % 10;
+                numbersAsDigit[i] = (byte)(number % 10);
                 number /= 10;
             }
 
@@ -38,7 +38,7 @@ namespace LuckyTickets.Model
             return Number.ToString().PadLeft(QuantityDigits, '0');
         }
 
-        public int this[int index]
+        public byte this[int index]
         {
             get
             {

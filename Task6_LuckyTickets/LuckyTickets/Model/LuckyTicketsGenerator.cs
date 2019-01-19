@@ -9,12 +9,12 @@ using LuckyTickets.Resources;
 
 namespace LuckyTickets.Model
 {
-    abstract class LuckyTicketsGenerator
+    public abstract class LuckyTicketsGenerator
     {
-        public int QuantityDigits { get; set; }
+        public byte QuantityDigits { get; set; }
         public List<Ticket> Tickets { get; private set; }        
 
-        public LuckyTicketsGenerator(int quantityDigits)
+        public LuckyTicketsGenerator(byte quantityDigits)
         {
             QuantityDigits = quantityDigits;
             Tickets = new List<Ticket>();          
@@ -22,36 +22,20 @@ namespace LuckyTickets.Model
 
         public void Generate()
         {
-            int[] pattern = GetPattern();
+            bool[] pattern = GetPattern();
 
             int limit = (int)Math.Pow(10, QuantityDigits);
-            for (int i = 1; i < limit; i++)
+            for (uint i = 1; i < limit; i++)
             {
-                int n1 = 0;
-                int n2 = 0;
-
                 Ticket ticket = new Ticket(i, QuantityDigits);
-
-                for (int j = 0; j < QuantityDigits; j++)
-                {
-                    if (pattern.Contains(j))
-                    {
-                        n1 += ticket[j];
-                    }
-                    else
-                    {
-                        n2 += ticket[j];
-                    };
-                }
-
-                if (n1 == n2)
+                if (IsLuckyTicket(ticket, pattern))
                 {
                     Tickets.Add(ticket);
                 }
             }
         }
 
-        protected abstract int[] GetPattern();
+        protected abstract bool[] GetPattern();
 
         public void SaveToFile(string path)
         {
@@ -67,6 +51,26 @@ namespace LuckyTickets.Model
         public int Count()
         {
             return Tickets.Count();
-        } 
+        }
+
+        public bool IsLuckyTicket(Ticket ticket, bool[] pattern)
+        {
+            int n1 = 0;
+            int n2 = 0;
+
+            for (byte j = 0; j < ticket.QuantityDigits; j++)
+            {
+                if (pattern[j])
+                {
+                    n1 += ticket[j];
+                }
+                else
+                {
+                    n2 += ticket[j];
+                };
+            }
+
+            return n1 == n2;
+        }
     }
 }

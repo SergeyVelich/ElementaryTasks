@@ -14,7 +14,7 @@ namespace LuckyTickets.Controller
     class Presenter
     {
         private readonly string _pathLog = "dataLog.txt";
-        private readonly int _quantityDigits = 6;
+        private readonly byte _quantityDigits = 6;
 
         private IView _view;
         private InboxParameters _inboxParameters;
@@ -70,6 +70,7 @@ namespace LuckyTickets.Controller
                                 throw new Exception(MessagesResources.ErrorInvalidWorkMode);
                         }                       
                         isFailed = false;
+                        lackyGenerator.Generate();                       
                     }
                     catch (Exception ex)
                     {
@@ -77,9 +78,9 @@ namespace LuckyTickets.Controller
                         isFailed = true;
                     }
                 } while (isFailed);
-               
-                lackyGenerator.Generate();
+
                 lackyGenerator.SaveToFile(_pathLog);
+
                 _view.PrintResultText(String.Format(MessagesResources.Result, lackyGenerator.Count().ToString()));
                 _view.AskContinueFlag(MessagesResources.AskContunue);
 
@@ -105,7 +106,16 @@ namespace LuckyTickets.Controller
 
         protected virtual GenerationLackyTicketsMethod GetCountMethod(string filePath)
         {
-            string[] allStrings = File.ReadAllLines(filePath);
+            string[] allStrings;
+
+            try
+            {
+                allStrings = File.ReadAllLines(filePath);
+            }
+            catch
+            {
+                throw;
+            }
 
             GenerationLackyTicketsMethod method;
 
