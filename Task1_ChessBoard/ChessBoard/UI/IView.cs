@@ -11,6 +11,6 @@ namespace ChessBoard.UI
     {
         void PrintInstructionText(string text);
         void PrintErrorText(string text);
-        void PrintResult(Board board);
+        void PrintResult(IBoard<ICell> board);
     }
 }

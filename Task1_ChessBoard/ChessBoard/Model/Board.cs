@@ -7,13 +7,13 @@ using ChessBoard.Resources;
 
 namespace ChessBoard.Model
 {
-    public class Board
+    public class Board : IBoard<ICell>
     {
         private bool _firstBlack;
 
         public Cell[,] Cells { get; private set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public int Width { get; private set; }
+        public int Height { get; private set; }
 
         public Board(int height, int width)
         {
@@ -21,24 +21,26 @@ namespace ChessBoard.Model
             Width = width;           
             _firstBlack = true;
 
-            FillBoard();
+            Cells = GetEmptyBoard();
         }   
 
-        private void FillBoard()
+        private Cell[,] GetEmptyBoard()
         {
-            bool isBlack;
-            Cells = new Cell[Height, Width];           
+            bool isBlack = _firstBlack;
+            Cell[,] cells = new Cell[Height, Width];           
             for (int y = 0; y <= Height - 1; y++)
             {
                 isBlack = _firstBlack;
                 for (int x = 0; x <= Width - 1; x++)
                 {
                     Cell cell = new Cell(y, x, isBlack);
-                    Cells[y, x] = cell;
+                    cells[y, x] = cell;
                     isBlack = !isBlack;
                 }
                 _firstBlack = !_firstBlack;
             }
+
+            return cells;
         }
     }
 }

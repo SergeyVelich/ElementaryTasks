@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ChessBoard.Model
 {
-    public class Cell
+    public class Cell : ICell
     {
-        public bool IsBlack { get; set; }
-        public int CoordinateY { get; set; }
-        public int CoordinateX { get; set; }
+        public bool IsBlack { get; private set; }
+        public int CoordinateY { get; private set; }
+        public int CoordinateX { get; private set; }
 
         public Cell(int coordinateX, int coordinateY, bool firstBlack)
         {

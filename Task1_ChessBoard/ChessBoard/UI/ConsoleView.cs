@@ -31,7 +31,7 @@ namespace ChessBoard.UI
             Console.ReadKey();
         }
 
-        public void PrintResult(Board board)
+        public void PrintResult(IBoard<ICell> board)
         {
             for (int y = 0; y <= board.Height - 1; y++)
             {
@@ -46,7 +46,7 @@ namespace ChessBoard.UI
             Console.ReadKey();
         }
 
-        public void PrintCell(Cell cell)
+        public void PrintCell(ICell cell)
         {            
             if (cell.IsBlack)
             {
