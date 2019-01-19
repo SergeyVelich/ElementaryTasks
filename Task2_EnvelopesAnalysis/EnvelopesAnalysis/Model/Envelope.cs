@@ -26,11 +26,16 @@ namespace EnvelopesAnalysis.Model
         {
             if (Math.Max(Height, Width) > Math.Max(env.Height, env.Width) 
                 && Math.Min(Height, Width) > Math.Min(env.Height, env.Width))
-
+            {
                 return 1;
-            else
+            }  
+            else if(Math.Max(Height, Width) < Math.Max(env.Height, env.Width)
+                && Math.Min(Height, Width) < Math.Min(env.Height, env.Width))
+            {
                 return -1;
+            }
+            else
+                return 0;
         }
-
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvelopesAnalysis", "EnvelopesAnalysis\EnvelopesAnalysis.csproj", "{4CE3EC67-0977-466C-9D9E-C0B76791B106}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvelopesAnalysis.Tests", "EnvelopesAnalysis.Tests\EnvelopesAnalysis.Tests.csproj", "{5A0AE2F6-7D02-49D2-A023-4B7F0EB0E9F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4CE3EC67-0977-466C-9D9E-C0B76791B106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CE3EC67-0977-466C-9D9E-C0B76791B106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CE3EC67-0977-466C-9D9E-C0B76791B106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0AE2F6-7D02-49D2-A023-4B7F0EB0E9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0AE2F6-7D02-49D2-A023-4B7F0EB0E9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0AE2F6-7D02-49D2-A023-4B7F0EB0E9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0AE2F6-7D02-49D2-A023-4B7F0EB0E9F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -39,7 +39,7 @@ namespace EnvelopesAnalysis.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EnvelopesAnalysis.Resources.MessagesResources", typeof(MessagesResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Task2_EnvelopesAnalysis.Resources.MessagesResources", typeof(MessagesResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
