@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Controller\Presenter.cs" />
     <Compile Include="Model\IFigure.cs" />
-    <Compile Include="Model\ISorter.cs" />
     <Compile Include="Model\Triangle.cs" />
     <Compile Include="Model\TriangleComparerByAreaDesc.cs" />
     <Compile Include="Model\ValidationInboxParameters\InboxParameters.cs" />
@@ -59,7 +58,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Model\TriangleSorter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

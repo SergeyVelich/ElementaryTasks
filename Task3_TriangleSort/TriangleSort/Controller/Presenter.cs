@@ -64,10 +64,9 @@ namespace TriangleSort.Controller
                     _view.AskAddTrianglesFlag(MessagesResources.AskAddTriangle);
                 } while (_addNextTriangleFlag);
 
-                ISorter sorter = new TriangleSorter(_triangles);
-                sorter.Sort(new TriangleComparerByAreaDesc());
+                _triangles.Sort(new TriangleComparerByAreaDesc());
 
-                _view.PrintResult(sorter);
+                _view.PrintResult(_triangles);
                 _view.AskContinueFlag(MessagesResources.AskContunue);
             } while (_continueFlag);            
         }

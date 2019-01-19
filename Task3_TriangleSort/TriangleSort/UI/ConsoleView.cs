@@ -33,16 +33,14 @@ namespace TriangleSort.UI
             Console.WriteLine();
         }
 
-        public void PrintResult(ISorter triangleSorter)
+        public void PrintResult(IEnumerable<IFigure> triangles)
         {
+            int count = 0;
+
             Console.WriteLine(TRIANGLE_LIST_HEADER);
-            for (int i = 0; i < triangleSorter.Triangles.Count; i++)
+            foreach (IFigure triangle in triangles)
             {
-                Console.WriteLine(TRIANGLE_LIST_ROW, i + 1, triangleSorter.Triangles[i].Name, triangleSorter.Triangles[i].GetArea());
-                if (i < triangleSorter.Triangles.Count - 1)
-                {
-                    Console.WriteLine();
-                }
+                Console.WriteLine(TRIANGLE_LIST_ROW, count++, triangle.Name, triangle.GetArea());
             }
             Console.WriteLine();
         }

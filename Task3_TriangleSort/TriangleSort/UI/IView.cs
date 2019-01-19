@@ -11,7 +11,7 @@ namespace TriangleSort.UI
     {
         void PrintInstructionText(string text);
         void PrintErrorText(string text);
-        void PrintResult(ISorter triangleSorter);
+        void PrintResult(IEnumerable<IFigure> triangles);
         void AskInputTriangle(string text);
         void AskContinueFlag(string text);
         void AskAddTrianglesFlag(string text);
