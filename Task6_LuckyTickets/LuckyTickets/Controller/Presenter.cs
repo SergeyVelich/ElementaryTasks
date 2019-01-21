@@ -17,7 +17,7 @@ namespace LuckyTickets.Controller
         private readonly byte _quantityDigits = 6;
 
         private IView _view;
-        private InboxParameters _inboxParameters;
+        private InboxParameters _inboxParams;
         private bool _continueFlag;
         private string _path;
 
@@ -31,55 +31,67 @@ namespace LuckyTickets.Controller
 
         public void Run(string[] args)
         {
-            LuckyTicketsGenerator lackyGenerator = null;
-
-            if (args.Length == 0)
-            {
-                _view.PrintInstructionText(MessagesResources.Instruction);
-            }
+            _view.PrintTitleText(MessagesResources.ApplicationName);
 
             try
             {
-                _inboxParameters = new MainParamValidator(args).GetMainParameters();
+                _inboxParams = new MainParamValidator(args).GetMainParameters();
             }
             catch (Exception ex)
             {
                 _view.PrintErrorText(ex.Message);
                 return;
             }
+            if (_inboxParams.WorkMode == WorkMode.HelpMode)
+            {
+                _view.PrintInstructionText(MessagesResources.Instruction);
+            }
 
+            LuckyTicketsGenerator lackyGenerator = null;
+            GenerationLackyTicketsMethod countMethod;
             do
             {
-                bool isFailed = false;
+                bool isFailed;
                 do
                 {
+                    isFailed = false;                    
                     try
                     {
                         _view.AskInputPath(MessagesResources.AskInputPath);
-
-                        switch (GetCountMethod(_path))
-                        {
-                            case GenerationLackyTicketsMethod.Moskow:
-                                lackyGenerator = new LuckyTicketsGeneratorMoskow(_quantityDigits);
-                                break;
-                            case GenerationLackyTicketsMethod.Piter:
-                                lackyGenerator = new LuckyTicketsGeneratorPiter(_quantityDigits);
-                                break;
-                            default:
-                                isFailed = true;
-                                throw new Exception(MessagesResources.ErrorInvalidWorkMode);
-                        }                       
-                        isFailed = false;
-                        lackyGenerator.Generate();                       
+                        countMethod = GetCountMethod(_path);
                     }
                     catch (Exception ex)
                     {
                         _view.PrintErrorText(ex.Message);
                         isFailed = true;
+                        continue;
                     }
+
+                    switch (countMethod)
+                    {
+                        case GenerationLackyTicketsMethod.Moskow:
+                            lackyGenerator = new LuckyTicketsGeneratorMoskow(_quantityDigits);
+                            break;
+                        case GenerationLackyTicketsMethod.Piter:
+                            lackyGenerator = new LuckyTicketsGeneratorPiter(_quantityDigits);
+                            break;
+                        default:
+                            _view.PrintErrorText(MessagesResources.ErrorInvalidWorkMode);
+                            isFailed = true;
+                            break;
+                    }                                                   
                 } while (isFailed);
 
-                lackyGenerator.SaveToFile(_pathLog);
+                lackyGenerator.Generate();
+
+                try
+                {
+                    lackyGenerator.SaveToFile(_pathLog);
+                }
+                catch
+                {
+                    _view.PrintErrorText(MessagesResources.ErrorFileNotSaved);
+                }
 
                 _view.PrintResultText(String.Format(MessagesResources.Result, lackyGenerator.Count().ToString()));
                 _view.AskContinueFlag(MessagesResources.AskContunue);
@@ -119,13 +131,16 @@ namespace LuckyTickets.Controller
 
             GenerationLackyTicketsMethod method;
 
-            try
+            switch (allStrings[0])
             {
-                method = (GenerationLackyTicketsMethod)Enum.Parse(typeof(GenerationLackyTicketsMethod), allStrings[0]);
-            }
-            catch
-            {
-                throw new Exception(MessagesResources.ErrorMethodNotFound);
+                case "Moskow":
+                    method = GenerationLackyTicketsMethod.Moskow;
+                    break;
+                case "Piter":
+                    method = GenerationLackyTicketsMethod.Piter;
+                    break;
+                default:
+                    throw new Exception(MessagesResources.ErrorMethodNotFound);
             }
 
             return method;

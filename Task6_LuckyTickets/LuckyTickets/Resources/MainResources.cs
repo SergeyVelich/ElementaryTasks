@@ -11,4 +11,10 @@ namespace LuckyTickets.Resources
         Moskow,
         Piter,
     }
+
+    public enum WorkMode
+    {
+        HelpMode,
+        MainMode,
+    }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LuckyTickets.Resources {
+namespace LuckyTickets {
     using System;
     
     
@@ -61,7 +61,7 @@ namespace LuckyTickets.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Lacky Tickets.
+        ///   Ищет локализованную строку, похожую на LUCKY TICKETS.
         /// </summary>
         internal static string ApplicationName {
             get {
@@ -93,6 +93,15 @@ namespace LuckyTickets.Resources {
         internal static string ErrorFileNotFound {
             get {
                 return ResourceManager.GetString("ErrorFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на File wasn&apos;t saved..
+        /// </summary>
+        internal static string ErrorFileNotSaved {
+            get {
+                return ResourceManager.GetString("ErrorFileNotSaved", resourceCulture);
             }
         }
         

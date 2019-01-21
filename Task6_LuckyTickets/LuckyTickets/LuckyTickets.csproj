@@ -68,6 +68,7 @@
     <EmbeddedResource Include="Resources\MessagesResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MessagesResources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>LuckyTickets</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

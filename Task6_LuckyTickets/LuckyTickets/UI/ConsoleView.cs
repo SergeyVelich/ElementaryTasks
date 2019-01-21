@@ -14,6 +14,14 @@ namespace LuckyTickets.UI
         public event EventHandler SetPath;
         public event EventHandler EndWork;
 
+        public void PrintTitleText(string text)
+        {
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine(text);
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine();
+        }
+
         public void PrintInstructionText(string text)
         {
             Console.WriteLine(BLOCK_SEPARATOR);

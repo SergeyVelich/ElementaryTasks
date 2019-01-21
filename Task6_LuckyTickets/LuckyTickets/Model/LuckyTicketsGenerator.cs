@@ -39,12 +39,19 @@ namespace LuckyTickets.Model
 
         public void SaveToFile(string path)
         {
-            using (StreamWriter writer = new StreamWriter(path))
+            try
             {
-                foreach (Ticket ticket in Tickets)
+                using (StreamWriter writer = new StreamWriter(path))
                 {
-                    writer.WriteLine(ticket.ToString());
+                    foreach (Ticket ticket in Tickets)
+                    {
+                        writer.WriteLine(ticket.ToString());
+                    }
                 }
+            }
+            catch
+            {
+                throw;
             }
         }
 
