@@ -48,7 +48,7 @@
     <Compile Include="Model\ConverterToTextRU.cs" />
     <Compile Include="Model\ConverterToTextUA.cs" />
     <Compile Include="Model\ConverterToText.cs" />
-    <Compile Include="Resources\Local.cs" />
+    <Compile Include="Resources\MainResources.cs" />
     <Compile Include="Resources\MessagesResources.Designer.cs">
       <DependentUpon>MessagesResources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -71,6 +71,7 @@
     <EmbeddedResource Include="Resources\MessagesResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MessagesResources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>NumberToText</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

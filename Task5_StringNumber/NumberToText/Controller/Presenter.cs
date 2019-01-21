@@ -13,7 +13,7 @@ namespace NumberToText.Controller
     class Presenter
     {
         private IView _view;
-        private InboxParameters inboxParameters;
+        private InboxParameters _inboxParams;
 
         public Presenter(IView view)
         {
@@ -22,32 +22,31 @@ namespace NumberToText.Controller
 
         public void Run(string[] args)
         {
-            ConverterToText converter;
-
-            if (args.Length == 0)
-            {
-                _view.PrintInstructionText(MessagesResources.Instruction);
-                return;
-            }
+            _view.PrintTitleText(MessagesResources.ApplicationName);
 
             try
             {
-                inboxParameters = new MainParamValidator(args).GetMainParameters();
+                _inboxParams = new MainParamValidator(args).GetMainParameters();
             }
             catch (Exception ex)
             {
                 _view.PrintErrorText(ex.Message);
                 return;
             }
+            if (_inboxParams.WorkMode == WorkMode.HelpMode)
+            {
+                _view.PrintInstructionText(MessagesResources.Instruction);
+                return;
+            }
 
-            converter = GetConverter(inboxParameters.Region);
+            ConverterToText converter = GetConverter(_inboxParams.Region);
             if (converter == null)
             {
                 _view.PrintErrorText(MessagesResources.ErrorConverterNotFound);
                 return;
             }
 
-            _view.PrintResultText(String.Format(MessagesResources.Result, inboxParameters.Number, converter.Convert(inboxParameters.Number)));
+            _view.PrintResultText(String.Format(MessagesResources.Result, _inboxParams.Number, converter.Convert(_inboxParams.Number)));
         }
 
         public ConverterToText GetConverter(Local local)

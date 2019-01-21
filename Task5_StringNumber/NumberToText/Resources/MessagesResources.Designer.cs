@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NumberToText.Resources {
+namespace NumberToText {
     using System;
     
     
@@ -61,7 +61,7 @@ namespace NumberToText.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Converter Number to Text.
+        ///   Ищет локализованную строку, похожую на NUMBER TO TEXT.
         /// </summary>
         internal static string ApplicationName {
             get {

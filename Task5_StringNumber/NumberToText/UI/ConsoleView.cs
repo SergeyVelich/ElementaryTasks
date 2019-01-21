@@ -10,6 +10,14 @@ namespace NumberToText.UI
     {
         private const string BLOCK_SEPARATOR = "==================================================================";
 
+        public void PrintTitleText(string text)
+        {
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine(text);
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine();
+        }
+
         public void PrintInstructionText(string text)
         {
             Console.WriteLine(BLOCK_SEPARATOR);

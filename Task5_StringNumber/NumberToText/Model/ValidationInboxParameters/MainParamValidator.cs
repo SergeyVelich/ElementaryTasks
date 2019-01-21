@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using NumberToText.Resources;
 
 namespace NumberToText.Model.ValidationInboxParameters
@@ -18,9 +15,12 @@ namespace NumberToText.Model.ValidationInboxParameters
 
         public InboxParameters GetMainParameters()
         {
-            Local region = Local.RU;
-
-            InboxParameters inboxParameters = new InboxParameters();
+            InboxParameters inboxParams = new InboxParameters();
+            inboxParams.WorkMode = GetWorkMode();
+            if (inboxParams.WorkMode == WorkMode.HelpMode)
+            {
+                return inboxParams;
+            }
 
             if (_args.Length < 1)
             {
@@ -31,14 +31,12 @@ namespace NumberToText.Model.ValidationInboxParameters
             {
                 throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
             }
-            else if (number < long.MinValue || number > long.MaxValue)
+            else if (Math.Abs(number)>= Math.Pow(10, ConverterToText.MAX_RANK))
             {
                 throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
             }
-            else if (number> ConverterToText.MAX_RANK)
-            {
-                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
-            }
+
+            Local region = Local.RU;
 
             if (_args.Length > 1)
             {
@@ -52,10 +50,26 @@ namespace NumberToText.Model.ValidationInboxParameters
                 }
             }
 
-            inboxParameters.Region = region;
-            inboxParameters.Number = number;            
+            inboxParams.Region = region;
+            inboxParams.Number = number;            
 
-            return inboxParameters;
+            return inboxParams;
+        }
+
+        private WorkMode GetWorkMode()
+        {
+            WorkMode workMode;
+
+            if (_args.Length == 0)
+            {
+                workMode = WorkMode.HelpMode;
+            }
+            else
+            {
+                workMode = WorkMode.MainMode;
+            }
+
+            return workMode;
         }
     }
 }

@@ -12,4 +12,10 @@ namespace NumberToText.Resources
         RU,
         UA,
     }
+
+    public enum WorkMode
+    {
+        HelpMode,
+        MainMode,
+    }
 }

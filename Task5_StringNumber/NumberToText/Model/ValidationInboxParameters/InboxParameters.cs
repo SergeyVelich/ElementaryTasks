@@ -11,5 +11,6 @@ namespace NumberToText.Model.ValidationInboxParameters
     {
         public long Number { get; set; }
         public Local Region { get; set; }
+        public WorkMode WorkMode { get; set; }
     }
 }
