@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace Sequences.UI
             Console.ReadKey();
         }
 
-        public void PrintResult(string text, IEnumerable sequence)
+        public void PrintResult(string text, IEnumerable<long> sequence)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(text);

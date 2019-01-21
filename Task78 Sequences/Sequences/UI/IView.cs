@@ -13,6 +13,6 @@ namespace Sequences.UI
         void PrintTitleText(string text);
         void PrintInstructionText(string text);
         void PrintErrorText(string text);
-        void PrintResult(string text, IEnumerable sequence);
+        void PrintResult(string text, IEnumerable<long> sequence);
     }
 }

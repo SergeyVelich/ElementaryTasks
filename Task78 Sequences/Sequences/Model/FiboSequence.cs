@@ -20,12 +20,11 @@ namespace Sequences.Model
 
         public IEnumerable<long> GetSequence()
         {
-            long p;
             long p1 = 0;
             long p2 = 1;
             while (p1 + p2 <= UpLimit)
             {
-                p = p1 + p2;
+                long p = p1 + p2;
                 p1 = p2;
                 p2 = p;
                 if (p2 > LowLimit)
