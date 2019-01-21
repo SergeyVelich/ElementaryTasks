@@ -156,7 +156,7 @@ Parameters:
     <value>Pow sequence from {0} to {1}: </value>
   </data>
   <data name="ApplicationName" xml:space="preserve">
-    <value>Sequences</value>
+    <value>SEQUENCES</value>
   </data>
   <data name="AskContunue" xml:space="preserve">
     <value>Do you want to continue? (yes/y)</value>

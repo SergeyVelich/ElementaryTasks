@@ -13,9 +13,7 @@ namespace Sequences.Controller
     class Presenter
     {       
         private IView _view;
-        private string[] _args;
         private InboxParams _inboxParams;
-        private WorkMode _workMode;
 
         public Presenter(IView view)
         {
@@ -24,65 +22,38 @@ namespace Sequences.Controller
 
         public void Run(string[] args)
         {
-            _args = args;
+            _view.PrintTitleText(MessagesResources.ApplicationName);
 
-            if (_args.Length == 0)
+            try
+            {
+                _inboxParams = new MainParamValidator(args).GetMainParameters();
+            }
+            catch (Exception ex)
+            {
+                _view.PrintErrorText(ex.Message);
+                return;
+            }
+            if (_inboxParams.WorkMode == WorkMode.HelpMode)
             {
                 _view.PrintInstructionText(MessagesResources.Instruction);
                 return;
             }
 
-            try
+            ISequence sequence;
+            switch (_inboxParams.WorkMode)
             {
-                _inboxParams = new MainParamValidator(_args).GetMainParameters();
+                case WorkMode.FibonaccіMode:
+                    sequence = new FiboSequence(_inboxParams.LowLimit, _inboxParams.UpLimit);
+                    _view.PrintResult(String.Format(MessagesResources.ResultFibonacciMode, _inboxParams.LowLimit, _inboxParams.UpLimit), sequence.GetSequence());
+                    break;
+                case WorkMode.PowMode:
+                    sequence = new PowSequence(_inboxParams.UpLimit);
+                    _view.PrintResult(String.Format(MessagesResources.ResultPowMode, _inboxParams.LowLimit, _inboxParams.UpLimit), sequence.GetSequence());
+                    break;
+                default:
+                    _view.PrintErrorText(MessagesResources.ErrorInvalidWorkMode);
+                    return;
             }
-            catch (Exception ex)
-            {
-                _view.PrintErrorText(ex.Message);
-                return;
-            }
-
-            _workMode = GetWorkMode();
-
-            try
-            {
-                ISequence sequence;
-                switch (_workMode)
-                {
-                    case WorkMode.FibonaccіMode:
-                        sequence = new FiboSequence(_inboxParams.LowLimit, _inboxParams.UpLimit);
-                        _view.PrintResult(String.Format(MessagesResources.ResultFibonacciMode, _inboxParams.LowLimit, _inboxParams.UpLimit), sequence.GetSequence());
-                        break;
-                    case WorkMode.PowMode:
-                        sequence = new PowSequence(_inboxParams.UpLimit);
-                        _view.PrintResult(String.Format(MessagesResources.ResultPowMode, _inboxParams.LowLimit, _inboxParams.UpLimit), sequence.GetSequence());
-                        break;
-                    default:
-                        throw new Exception(MessagesResources.ErrorInvalidWorkMode);
-                }
-            }
-            catch (Exception ex)
-            {
-                _view.PrintErrorText(ex.Message);
-                return;
-            }
-
-        }
-
-        private WorkMode GetWorkMode()
-        {
-            WorkMode workMode;
-
-            if (_args.Length == 1)
-            {
-                workMode = WorkMode.PowMode;
-            }
-            else
-            {
-                workMode = WorkMode.FibonaccіMode;
-            }
-
-            return workMode;
         }
     }
 }

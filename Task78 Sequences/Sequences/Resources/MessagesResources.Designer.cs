@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sequences.Resources {
+namespace Sequences {
     using System;
     
     
@@ -61,7 +61,7 @@ namespace Sequences.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Sequences.
+        ///   Ищет локализованную строку, похожую на SEQUENCES.
         /// </summary>
         internal static string ApplicationName {
             get {

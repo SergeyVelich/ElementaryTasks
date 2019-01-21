@@ -69,6 +69,7 @@
     <EmbeddedResource Include="Resources\MessagesResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MessagesResources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Sequences</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

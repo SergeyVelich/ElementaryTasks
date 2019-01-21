@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sequences.Resources
 {
-    enum WorkMode
+    public enum WorkMode
     {
+        HelpMode,
         FibonaccіMode,
         PowMode,
     }
