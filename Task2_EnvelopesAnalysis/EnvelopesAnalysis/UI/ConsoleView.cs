@@ -15,6 +15,14 @@ namespace EnvelopesAnalysis.UI
         public event EventHandler SetWidth;
         public event EventHandler EndWork;
 
+        public void PrintTitleText(string text)
+        {
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine(text);
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine();
+        }
+
         public void PrintInstructionText(string text)
         {
             Console.WriteLine(BLOCK_SEPARATOR);

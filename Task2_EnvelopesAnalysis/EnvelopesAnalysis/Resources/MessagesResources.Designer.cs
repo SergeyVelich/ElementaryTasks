@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EnvelopesAnalysis.Resources {
+namespace EnvelopesAnalysis {
     using System;
     
     
@@ -61,7 +61,7 @@ namespace EnvelopesAnalysis.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Envelope Analyzer.
+        ///   Ищет локализованную строку, похожую на ENVELOPE ANALYZER.
         /// </summary>
         internal static string ApplicationName {
             get {

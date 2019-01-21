@@ -7,7 +7,8 @@ using EnvelopesAnalysis.Resources;
 
 namespace EnvelopesAnalysis.Model
 {
-    public static class EnvelopeComparer
+    public static
+        class EnvelopeComparer
     {
         public static int Compare(Envelope envOut, Envelope envIn)
         {

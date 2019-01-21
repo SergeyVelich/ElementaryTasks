@@ -15,7 +15,7 @@ namespace EnvelopesAnalysis.Controller
         private readonly int QUANTITY_ENVELOPES = 2;
 
         private IView _view;
-        private InboxParameters _inboxParameters;
+        private InboxParameters _inboxParams;
         private Envelope _currentEnvelope;
         private bool _continueFlag = true;       
 
@@ -30,22 +30,23 @@ namespace EnvelopesAnalysis.Controller
 
         public void Run(string[] args)
         {
-            Envelope[] envelopes;
-
-            if (args.Length == 0)
-            {
-                _view.PrintInstructionText(MessagesResources.Instruction);
-            }
+            _view.PrintTitleText(MessagesResources.ApplicationName);
 
             try
             {
-                _inboxParameters = new MainParamValidator(args).GetMainParameters();
+                _inboxParams = new MainParamValidator(args).GetMainParameters();
             }
             catch (Exception ex)
             {
                 _view.PrintErrorText(ex.Message);
                 return;
             }
+            if (_inboxParams.WorkMode == WorkMode.HelpMode)
+            {
+                _view.PrintInstructionText(MessagesResources.Instruction);
+            }
+
+            Envelope[] envelopes;
 
             while (_continueFlag)
             {
@@ -55,14 +56,14 @@ namespace EnvelopesAnalysis.Controller
                 {
                     _view.AskInputEnvelope(String.Format(MessagesResources.AskInputEnvelope, i+1));
                     _currentEnvelope = new Envelope();
-                    bool isFailed = false;
+                    bool isFailed;
 
                     do
                     {
+                        isFailed = false;
                         try
                         {
                             _view.AskInputHeight(MessagesResources.AskInputHeight);
-                            isFailed = false;
                         }
                         catch(Exception ex)
                         {
@@ -73,10 +74,10 @@ namespace EnvelopesAnalysis.Controller
 
                     do
                     {
+                        isFailed = false;
                         try
                         {
                             _view.AskInputWidth(MessagesResources.AskInputWidth);
-                            isFailed = false;
                         }
                         catch (Exception ex)
                         {

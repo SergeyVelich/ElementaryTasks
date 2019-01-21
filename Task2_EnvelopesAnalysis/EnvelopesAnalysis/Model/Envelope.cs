@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnvelopesAnalysis.Model
 {
-    public class Envelope
+    public class Envelope : IComparable<Envelope>
     {
         public double Height { get; set; }
         public double Width { get; set; }
