@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ChessBoard.Resources;
 
 namespace ChessBoard.Model.ValidationInboxParameters
@@ -18,7 +14,12 @@ namespace ChessBoard.Model.ValidationInboxParameters
 
         public InboxParameters GetMainParameters()
         {
-            InboxParameters inboxParameters = new InboxParameters();
+            InboxParameters inboxParams = new InboxParameters();
+            inboxParams.WorkMode = GetWorkMode();
+            if (inboxParams.WorkMode == WorkMode.HelpMode)
+            {
+                return inboxParams;
+            }
 
             if (_args.Length < 2)
             {
@@ -38,15 +39,31 @@ namespace ChessBoard.Model.ValidationInboxParameters
             {
                 throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 2));
             }
-            else if (height <= 0)
+            else if (width <= 0)
             {
                 throw new ArgumentException(MessagesResources.ErrorInvalidArgumentNegative);
             }
 
-            inboxParameters.Height = height;
-            inboxParameters.Width = width;
+            inboxParams.Height = height;
+            inboxParams.Width = width;
 
-            return inboxParameters;
+            return inboxParams;
+        }
+
+        private WorkMode GetWorkMode()
+        {
+            WorkMode workMode;
+
+            if (_args.Length == 0)
+            {
+                workMode = WorkMode.HelpMode;
+            }
+            else
+            {
+                workMode = WorkMode.MainMode;
+            }
+
+            return workMode;
         }
     }
 }

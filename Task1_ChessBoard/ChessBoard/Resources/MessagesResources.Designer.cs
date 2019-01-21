@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ChessBoard.Resources {
+namespace ChessBoard {
     using System;
     
     
@@ -61,7 +61,7 @@ namespace ChessBoard.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Chess Board.
+        ///   Ищет локализованную строку, похожую на CHESS BOARD.
         /// </summary>
         internal static string ApplicationName {
             get {

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ApplicationName" xml:space="preserve">
-    <value>Chess Board</value>
+    <value>CHESS BOARD</value>
   </data>
   <data name="AskContunue" xml:space="preserve">
     <value>Do you want to continue? (yes/y)</value>

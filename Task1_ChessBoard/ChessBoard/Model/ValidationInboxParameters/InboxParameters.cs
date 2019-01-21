@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChessBoard.Resources;
 
 namespace ChessBoard.Model.ValidationInboxParameters
 {
@@ -10,5 +11,6 @@ namespace ChessBoard.Model.ValidationInboxParameters
     {
         public int Height { get; set; }
         public int Width { get; set; }
+        public WorkMode WorkMode { get; set; }
     }
 }

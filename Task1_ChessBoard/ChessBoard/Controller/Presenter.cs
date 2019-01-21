@@ -13,7 +13,7 @@ namespace ChessBoard.Controller
     class Presenter
     {
         private IView _view;
-        private InboxParameters _inboxParameters;
+        private InboxParameters _inboxParams;
 
         public Presenter(IView view)
         {
@@ -22,23 +22,24 @@ namespace ChessBoard.Controller
 
         public virtual void Run(string[] args)
         {
-            if (args.Length == 0)
-            {
-                _view.PrintInstructionText(MessagesResources.Instruction);
-                return;
-            }
+            _view.PrintTitleText(MessagesResources.ApplicationName);
 
             try
             {
-                _inboxParameters = new MainParamValidator(args).GetMainParameters();
+                _inboxParams = new MainParamValidator(args).GetMainParameters();
             }
             catch (Exception ex)
             {
                 _view.PrintErrorText(ex.Message);
                 return;
             }
+            if (_inboxParams.WorkMode == WorkMode.HelpMode)
+            {
+                _view.PrintInstructionText(MessagesResources.Instruction);
+                return;
+            }
 
-            _view.PrintResult(new Board(_inboxParameters.Height, _inboxParameters.Width));
+            _view.PrintResult(new Board(_inboxParams.Height, _inboxParams.Width));
         }
     }
 }

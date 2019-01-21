@@ -13,6 +13,14 @@ namespace ChessBoard.UI
         private const string CELL_COLOR_BLACK = "*";
         private const string CELL_COLOR_WHITE = " ";
 
+        public void PrintTitleText(string text)
+        {
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine(text);
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine();
+        }
+
         public void PrintInstructionText(string text)
         {
             Console.WriteLine(BLOCK_SEPARATOR);
