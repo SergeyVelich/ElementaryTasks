@@ -39,7 +39,7 @@ namespace ChessBoard.Controller
                 return;
             }
 
-            _view.PrintResult(new Board(_inboxParams.Height, _inboxParams.Width));
+            _view.PrintResult(new Board(_inboxParams.Height, _inboxParams.Width), String.Format(MessagesResources.Result, _inboxParams.Height, _inboxParams.Width));
         }
     }
 }

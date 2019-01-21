@@ -39,8 +39,11 @@ namespace ChessBoard.UI
             Console.ReadKey();
         }
 
-        public void PrintResult(IBoard<ICell> board)
+        public void PrintResult(IBoard<ICell> board, string text)
         {
+            Console.WriteLine(text);
+            Console.WriteLine();
+
             for (int y = 0; y <= board.Height - 1; y++)
             {
                 for (int x = 0; x <= board.Width - 1; x++)

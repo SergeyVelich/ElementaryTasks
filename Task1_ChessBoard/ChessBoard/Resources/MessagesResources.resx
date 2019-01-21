@@ -148,4 +148,7 @@ Parameters:
     - optional:
         none</value>
   </data>
+  <data name="Result" xml:space="preserve">
+    <value>Chess board {0} x {1}:</value>
+  </data>
 </root>
