@@ -8,6 +8,7 @@ namespace FileParser.Resources
 {
     public enum WorkMode
     {
+        HelpMode,
         SearchMode,
         ReplaceMode
     }

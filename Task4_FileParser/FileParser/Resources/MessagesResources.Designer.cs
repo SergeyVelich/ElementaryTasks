@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FileParser.Resources {
+namespace FileParser {
     using System;
     
     
@@ -61,7 +61,7 @@ namespace FileParser.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на File Parser.
+        ///   Ищет локализованную строку, похожую на FILE PARSER.
         /// </summary>
         internal static string ApplicationName {
             get {

@@ -5,14 +5,14 @@ using FileParser.Model;
 namespace FileParser.Tests
 {
     [TestClass]
-    public class ParserTest
+    public class ParserTxtTest
     {
         [TestMethod]
         [DataRow("data.txt", "finded", 5)]
         public void GetCountFinded(string path, string pattern, int expected)
         {
             // Arrange
-            Parser parser = new Parser(path);
+            ParserTxt parser = new ParserTxt(path);
 
             // Act
             int real = parser.GetCountFinded(pattern);
@@ -26,7 +26,7 @@ namespace FileParser.Tests
         public void GetCountReplaced(string path, string pattern, string replacement, int expected)
         {
             // Arrange
-            Parser parser = new Parser(path);
+            ParserTxt parser = new ParserTxt(path);
 
             // Act
             int real = parser.GetCountFinded(pattern);

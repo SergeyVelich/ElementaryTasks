@@ -12,5 +12,6 @@ namespace FileParser.Model.ValidationInboxParameters
         public string Path { get; set; }
         public string Pattern { get; set; }
         public string Replacement { get; set; }
+        public WorkMode WorkMode { get; set; }
     }
 }

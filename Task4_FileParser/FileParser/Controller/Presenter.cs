@@ -15,9 +15,7 @@ namespace FileParser.Controller
     class Presenter
     {
         private IView _view;
-        private string[] _args;
-        private InboxParameters _inboxParameters;
-        private WorkMode _workMode;
+        private InboxParameters _inboxParams;
 
         public Presenter(IView view)
         {
@@ -26,65 +24,40 @@ namespace FileParser.Controller
 
         public void Run(string[] args)
         {
-            _args = args;
+            _view.PrintTitleText(MessagesResources.ApplicationName);
 
-            if (_args.Length == 0)
+            try
+            {
+                _inboxParams = new MainParamValidator(args).GetMainParameters();
+            }
+            catch (Exception ex)
+            {
+                _view.PrintErrorText(ex.Message);
+                return;
+            }
+            if (_inboxParams.WorkMode == WorkMode.HelpMode)
             {
                 _view.PrintInstructionText(MessagesResources.Instruction);
                 return;
             }
 
-            try
-            {
-                _inboxParameters = new MainParamValidator(_args).GetMainParameters();
-            }
-            catch (Exception ex)
-            {
-                _view.PrintErrorText(ex.Message);
-                return;
-            }
-
-            _workMode = GetWorkMode();
-
             int result;
-            Parser parser = new Parser(_inboxParameters.Path);
-            try
-            {
-                switch (_workMode)
-                {
-                    case WorkMode.SearchMode:
-                        result = parser.GetCountFinded(_inboxParameters.Pattern);
-                        _view.PrintResultText(String.Format(MessagesResources.ResultSearchMode, result));
-                        break;
-                    case WorkMode.ReplaceMode:
-                        result = parser.GetCountReplaced(_inboxParameters.Pattern, _inboxParameters.Replacement);
-                        _view.PrintResultText(String.Format(MessagesResources.ResultReplaceMode, result));
-                        break;
-                    default:
-                        throw new Exception(MessagesResources.ErrorInvalidWorkMode);
-                }
-            }
-            catch (Exception ex)
-            {
-                _view.PrintErrorText(ex.Message);
-                return;
-            }
-        }
+            ParserTxt parser = new ParserTxt(_inboxParams.Path);
 
-        private WorkMode GetWorkMode()
-        {
-            WorkMode workMode;
-
-            if (_args.Length == 2)
+            switch (_inboxParams.WorkMode)
             {
-                workMode = WorkMode.SearchMode;
+                case WorkMode.SearchMode:
+                    result = parser.GetCountFinded(_inboxParams.Pattern);
+                    _view.PrintResultText(String.Format(MessagesResources.ResultSearchMode, result));
+                    break;
+                case WorkMode.ReplaceMode:
+                    result = parser.GetCountReplaced(_inboxParams.Pattern, _inboxParams.Replacement);
+                    _view.PrintResultText(String.Format(MessagesResources.ResultReplaceMode, result));
+                    break;
+                default:
+                    _view.PrintErrorText(MessagesResources.ErrorInvalidWorkMode);
+                    return;
             }
-            else
-            {
-                workMode = WorkMode.ReplaceMode;
-            }
-
-            return workMode;
         }
     }
 }

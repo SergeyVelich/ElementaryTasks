@@ -9,11 +9,11 @@ using FileParser.Resources;
 
 namespace FileParser.Model
 {
-    public class Parser
+    public class ParserTxt
     {
         public string Path { get; set; }
 
-        public Parser(string path)
+        public ParserTxt(string path)
         {
             Path = path;
         }

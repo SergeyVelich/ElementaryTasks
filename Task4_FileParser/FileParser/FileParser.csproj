@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Presenter.cs" />
-    <Compile Include="Model\Parser.cs" />
+    <Compile Include="Model\ParserTxt.cs" />
     <Compile Include="Model\ValidationInboxParameters\InboxParameters.cs" />
     <Compile Include="Model\ValidationInboxParameters\MainParamValidator.cs" />
     <Compile Include="Program.cs" />
@@ -66,6 +66,7 @@
     <EmbeddedResource Include="Resources\MessagesResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MessagesResources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>FileParser</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

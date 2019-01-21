@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FileParser.Resources;
 
 namespace FileParser.Model.ValidationInboxParameters
@@ -19,7 +15,12 @@ namespace FileParser.Model.ValidationInboxParameters
 
         public InboxParameters GetMainParameters()
         {
-            InboxParameters inboxParameters = new InboxParameters();
+            InboxParameters inboxParams = new InboxParameters();
+            inboxParams.WorkMode = GetWorkMode();
+            if (inboxParams.WorkMode == WorkMode.HelpMode)
+            {
+                return inboxParams;
+            }
 
             if (_args.Length < 2)
             {
@@ -30,15 +31,43 @@ namespace FileParser.Model.ValidationInboxParameters
             {
                 throw new ArgumentException(String.Format(MessagesResources.ErrorFileNotFound, _args[0]));
             }
+            inboxParams.Path = _args[0];
 
-            inboxParameters.Path = _args[0];
-            inboxParameters.Pattern = _args[1];
-            if (_args.Length > 2)
+            inboxParams.Pattern = _args[1];
+            if (inboxParams.WorkMode == WorkMode.SearchMode)
             {
-                inboxParameters.Replacement = _args[2];
+
+            }
+            else if (inboxParams.WorkMode == WorkMode.ReplaceMode)
+            {
+                inboxParams.Replacement = _args[2];
+            }
+            else
+            {
+                throw new ArgumentException(MessagesResources.ErrorInvalidWorkMode);
             }
 
-            return inboxParameters;
+            return inboxParams;
+        }
+
+        private WorkMode GetWorkMode()
+        {
+            WorkMode workMode;
+
+            if (_args.Length == 0)
+            {
+                workMode = WorkMode.HelpMode;
+            }
+            else if (_args.Length == 2)
+            {
+                workMode = WorkMode.SearchMode;
+            }
+            else
+            {
+                workMode = WorkMode.ReplaceMode;
+            }
+
+            return workMode;
         }
     }
 }
