@@ -15,7 +15,7 @@ namespace TriangleSort.Controller
         private const int NUMBER_REQUIRED_ARGS = 4;
 
         private IView _view;
-        private InboxParameters _inboxParameters;
+        private InboxParameters _inboxParams;
         private bool _continueFlag;
         private bool _addNextTriangleFlag;
         private List<IFigure> _triangles;
@@ -31,19 +31,20 @@ namespace TriangleSort.Controller
 
         public void Run(string[] args)
         {
-            if (args.Length == 0)
-            {
-                _view.PrintInstructionText(MessagesResources.Instruction);
-            }
+            _view.PrintTitleText(MessagesResources.ApplicationName);
 
             try
             {
-                _inboxParameters = new MainParamValidator(args).GetMainParameters();
+                _inboxParams = new MainParamValidator(args).GetMainParameters();
             }
             catch (Exception ex)
             {
                 _view.PrintErrorText(ex.Message);
                 return;
+            }
+            if (_inboxParams.WorkMode == WorkMode.HelpMode)
+            {
+                _view.PrintInstructionText(MessagesResources.Instruction);
             }
 
             do

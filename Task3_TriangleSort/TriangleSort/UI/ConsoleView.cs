@@ -17,6 +17,14 @@ namespace TriangleSort.UI
         public event EventHandler AddTriangle;
         public event EventHandler EndWork;
 
+        public void PrintTitleText(string text)
+        {
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine(text);
+            Console.WriteLine(BLOCK_SEPARATOR);
+            Console.WriteLine();
+        }
+
         public void PrintInstructionText(string text)
         {
             Console.WriteLine(BLOCK_SEPARATOR);

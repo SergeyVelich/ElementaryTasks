@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TriangleSort.Resources {
+namespace TriangleSort {
     using System;
     
     
@@ -61,7 +61,7 @@ namespace TriangleSort.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Triangle Sorter.
+        ///   Ищет локализованную строку, похожую на TRIANGLE SORTER.
         /// </summary>
         internal static string ApplicationName {
             get {

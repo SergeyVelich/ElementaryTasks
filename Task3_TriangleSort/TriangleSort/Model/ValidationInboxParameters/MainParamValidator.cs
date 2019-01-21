@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TriangleSort.Resources;
 
 namespace TriangleSort.Model.ValidationInboxParameters
 {
@@ -17,8 +14,26 @@ namespace TriangleSort.Model.ValidationInboxParameters
 
         public InboxParameters GetMainParameters()
         {
-            InboxParameters inboxParameters = new InboxParameters();
-            return inboxParameters;
+            InboxParameters inboxParams = new InboxParameters();
+            inboxParams.WorkMode = GetWorkMode();
+
+            return inboxParams;
+        }
+
+        private WorkMode GetWorkMode()
+        {
+            WorkMode workMode;
+
+            if (_args.Length == 0)
+            {
+                workMode = WorkMode.HelpMode;
+            }
+            else
+            {
+                workMode = WorkMode.MainMode;
+            }
+
+            return workMode;
         }
     }
 }
