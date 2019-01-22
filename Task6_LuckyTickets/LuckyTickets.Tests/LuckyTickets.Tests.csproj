@@ -50,8 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LuckyTicketsGeneratorTest.cs" />
-    <Compile Include="LuckyTicketsGeneratorMoskowTest.cs" />
-    <Compile Include="LuckyTicketsGeneratorPiterTest.cs" />
     <Compile Include="TicketTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

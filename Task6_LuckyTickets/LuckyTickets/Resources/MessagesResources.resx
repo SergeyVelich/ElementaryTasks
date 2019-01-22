@@ -132,6 +132,9 @@
   <data name="ErrorFileNotSaved" xml:space="preserve">
     <value>File wasn't saved.</value>
   </data>
+  <data name="ErrorInvalidArgument" xml:space="preserve">
+    <value>Invalid argument {0}.</value>
+  </data>
   <data name="ErrorInvalidWorkMode" xml:space="preserve">
     <value>Work mode isn't defined</value>
   </data>

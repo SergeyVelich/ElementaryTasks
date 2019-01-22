@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LuckyTickets.Model;
@@ -13,13 +12,13 @@ namespace LuckyTickets.Controller
 {
     class Presenter
     {
-        private readonly string _pathLog = "dataLog.txt";
-        private readonly byte _quantityDigits = 6;
+        private const string MOSKOW_METHOD = "Moskow";
+        private const string PITER_METHOD = "Piter";
 
         private IView _view;
         private InboxParameters _inboxParams;
         private bool _continueFlag;
-        private string _path;
+        private GenerationLackyTicketsMethod _countMethod;
 
         public Presenter(IView view)
         {
@@ -32,6 +31,7 @@ namespace LuckyTickets.Controller
         public void Run(string[] args)
         {
             _view.PrintTitleText(MessagesResources.ApplicationName);
+            _view.PrintInstructionText(MessagesResources.Instruction);
 
             try
             {
@@ -42,13 +42,7 @@ namespace LuckyTickets.Controller
                 _view.PrintErrorText(ex.Message);
                 return;
             }
-            if (_inboxParams.WorkMode == WorkMode.HelpMode)
-            {
-                _view.PrintInstructionText(MessagesResources.Instruction);
-            }
 
-            LuckyTicketsGenerator lackyGenerator = null;
-            GenerationLackyTicketsMethod countMethod;
             do
             {
                 bool isFailed;
@@ -57,36 +51,23 @@ namespace LuckyTickets.Controller
                     isFailed = false;                    
                     try
                     {
-                        _view.AskInputPath(MessagesResources.AskInputPath);
-                        countMethod = GetCountMethod(_path);
+                        _view.AskInputPath(MessagesResources.AskInputPath);                        
                     }
                     catch (Exception ex)
                     {
                         _view.PrintErrorText(ex.Message);
                         isFailed = true;
-                        continue;
                     }
-
-                    switch (countMethod)
-                    {
-                        case GenerationLackyTicketsMethod.Moskow:
-                            lackyGenerator = new LuckyTicketsGeneratorMoskow(_quantityDigits);
-                            break;
-                        case GenerationLackyTicketsMethod.Piter:
-                            lackyGenerator = new LuckyTicketsGeneratorPiter(_quantityDigits);
-                            break;
-                        default:
-                            _view.PrintErrorText(MessagesResources.ErrorInvalidWorkMode);
-                            isFailed = true;
-                            break;
-                    }                                                   
                 } while (isFailed);
 
-                lackyGenerator.Generate();
-
+                LuckyTicketsGenerator lackyGenerator = LuckyTicketsGenerator.Create(_countMethod, _inboxParams.QuantityDigits);
+                
                 try
                 {
-                    lackyGenerator.SaveToFile(_pathLog);
+                    if(_inboxParams.PathLog != String.Empty)
+                    {
+                        lackyGenerator.SaveToFile(_inboxParams.PathLog);
+                    }
                 }
                 catch
                 {
@@ -106,7 +87,8 @@ namespace LuckyTickets.Controller
             {
                 throw new ArgumentException(MessagesResources.ErrorFileNotFound);
             }
-            _path = path;
+
+            _countMethod = GetCountMethod(path);
         }
 
         protected virtual void OnEndWork(object sender, EventArgs e)
@@ -133,10 +115,10 @@ namespace LuckyTickets.Controller
 
             switch (allStrings[0])
             {
-                case "Moskow":
+                case MOSKOW_METHOD:
                     method = GenerationLackyTicketsMethod.Moskow;
                     break;
-                case "Piter":
+                case PITER_METHOD:
                     method = GenerationLackyTicketsMethod.Piter;
                     break;
                 default:

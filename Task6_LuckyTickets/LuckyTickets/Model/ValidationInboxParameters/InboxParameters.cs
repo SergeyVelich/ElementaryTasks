@@ -10,5 +10,7 @@ namespace LuckyTickets.Model.ValidationInboxParameters
     public struct InboxParameters
     {
         public WorkMode WorkMode { get; set; }
+        public string PathLog { get; set; }
+        public byte QuantityDigits { get; set; }
     }
 }

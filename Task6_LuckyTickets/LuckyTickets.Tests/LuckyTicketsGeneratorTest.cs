@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LuckyTickets.Model;
 using System.Linq;
+using LuckyTickets.Resources;
 
 namespace LuckyTickets.Tests
 {
@@ -9,12 +10,12 @@ namespace LuckyTickets.Tests
     public class LuckyTicketsGeneratorTest
     {
         [TestMethod]
-        [DataRow((byte)6, 55251)]
-        public void Count(byte quantityDigits, int expected)
+        [DataRow(GenerationLackyTicketsMethod.Moskow, (byte)6, 55251)]
+        [DataRow(GenerationLackyTicketsMethod.Piter, (byte)6, 55251)]
+        public void Count(GenerationLackyTicketsMethod method, byte quantityDigits, int expected)
         {
             // Arrange
-            LuckyTicketsGenerator lackyGenerator = new LuckyTicketsGeneratorMoskow(quantityDigits);
-            lackyGenerator.Generate();
+            LuckyTicketsGenerator lackyGenerator = LuckyTicketsGenerator.Create(method, quantityDigits);
 
             // Act
             int real = lackyGenerator.Count();

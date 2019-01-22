@@ -18,7 +18,7 @@ namespace LuckyTickets.Model
 
         protected override bool[] GetPattern()
         {
-            bool[] pattern = new bool[QuantityDigits / 2];
+            bool[] pattern = new bool[QuantityDigits];
 
             for (int i = 0; i < QuantityDigits; i++)
             {

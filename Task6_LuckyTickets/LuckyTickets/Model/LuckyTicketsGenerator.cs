@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,18 +10,31 @@ using LuckyTickets.Resources;
 
 namespace LuckyTickets.Model
 {
-    public abstract class LuckyTicketsGenerator
+    public abstract class LuckyTicketsGenerator : IEnumerable<Ticket>
     {
-        public byte QuantityDigits { get; set; }
-        public List<Ticket> Tickets { get; private set; }        
+        public byte QuantityDigits { get; set; }    
 
         public LuckyTicketsGenerator(byte quantityDigits)
         {
-            QuantityDigits = quantityDigits;
-            Tickets = new List<Ticket>();          
+            QuantityDigits = quantityDigits;      
         }
 
-        public void Generate()
+        public static LuckyTicketsGenerator Create(GenerationLackyTicketsMethod method, byte quantityDigits)
+        {
+            switch (method)
+            {
+                case GenerationLackyTicketsMethod.Moskow:
+                    return new LuckyTicketsGeneratorMoskow(quantityDigits);
+
+                case GenerationLackyTicketsMethod.Piter:
+                    return new LuckyTicketsGeneratorPiter(quantityDigits);
+
+                default:
+                    throw new ArgumentException(MessagesResources.ErrorInvalidWorkMode);
+            }
+        }
+
+        public IEnumerator<Ticket> GetEnumerator()
         {
             bool[] pattern = GetPattern();
 
@@ -30,9 +44,14 @@ namespace LuckyTickets.Model
                 Ticket ticket = new Ticket(i, QuantityDigits);
                 if (IsLuckyTicket(ticket, pattern))
                 {
-                    Tickets.Add(ticket);
+                    yield return ticket;
                 }
-            }
+            }          
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         protected abstract bool[] GetPattern();
@@ -43,7 +62,7 @@ namespace LuckyTickets.Model
             {
                 using (StreamWriter writer = new StreamWriter(path))
                 {
-                    foreach (Ticket ticket in Tickets)
+                    foreach (Ticket ticket in this)
                     {
                         writer.WriteLine(ticket.ToString());
                     }
@@ -57,7 +76,7 @@ namespace LuckyTickets.Model
 
         public int Count()
         {
-            return Tickets.Count();
+            return (this as IEnumerable<Ticket>).Count();
         }
 
         public bool IsLuckyTicket(Ticket ticket, bool[] pattern)
