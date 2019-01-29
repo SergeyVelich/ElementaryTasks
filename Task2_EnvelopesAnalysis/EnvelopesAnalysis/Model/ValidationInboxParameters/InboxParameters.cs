@@ -10,5 +10,6 @@ namespace EnvelopesAnalysis.Model.ValidationInboxParameters
     public struct InboxParameters
     {
         public WorkMode WorkMode { get; set; }
+        public uint QuantityEnvelopes { get; set; }        
     }
 }

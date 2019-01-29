@@ -8,8 +8,8 @@ namespace ChessBoard.Tests
     public class BoardTest
     {
         [TestMethod]
-        [DataRow(3, 4)]
-        public void CreateBoard(int height, int width)
+        [DataRow(3u, 4u)]
+        public void CreateBoard_Result(uint height, uint width)
         {
             // Act
             Board board = new Board(height, width);

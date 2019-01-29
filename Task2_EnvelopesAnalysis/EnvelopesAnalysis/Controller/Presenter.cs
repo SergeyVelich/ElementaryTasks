@@ -12,8 +12,6 @@ namespace EnvelopesAnalysis.Controller
 {
     class Presenter
     {
-        private readonly int QUANTITY_ENVELOPES = 2;
-
         private IView _view;
         private InboxParameters _inboxParams;
         private Envelope _currentEnvelope;
@@ -50,7 +48,7 @@ namespace EnvelopesAnalysis.Controller
 
             while (_continueFlag)
             {
-                envelopes = new Envelope[QUANTITY_ENVELOPES];
+                envelopes = new Envelope[_inboxParams.QuantityEnvelopes];
 
                 for (int i = 0; i < envelopes.Length; i++)
                 {

@@ -36,17 +36,22 @@ namespace LuckyTickets.Model
 
         public IEnumerator<Ticket> GetEnumerator()
         {
+            return GetEnumerator(1, (int)Math.Pow(10, QuantityDigits));
+        }
+
+        public IEnumerator<Ticket> GetEnumerator(int lowLimit, int upLimit)
+        {
             bool[] pattern = GetPattern();
 
             int limit = (int)Math.Pow(10, QuantityDigits);
-            for (uint i = 1; i < limit; i++)
+            for (uint i = (uint)Math.Max(1, lowLimit); i < (uint)Math.Min(limit, upLimit); i++)
             {
-                Ticket ticket = new Ticket(i, QuantityDigits);
+                Ticket ticket = Ticket.Create(i, QuantityDigits);
                 if (IsLuckyTicket(ticket, pattern))
                 {
                     yield return ticket;
                 }
-            }          
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -76,7 +81,34 @@ namespace LuckyTickets.Model
 
         public int Count()
         {
-            return (this as IEnumerable<Ticket>).Count();
+            const int arrLenght = 10;
+            const int arrLenghtDelta = 9;
+
+            int[] baseArr = new int[arrLenght] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            int[] currentArr = null;
+            for (int i = 1; i < QuantityDigits / 2; i++)
+            {
+                currentArr = new int[baseArr.Length + arrLenghtDelta];
+                for (int j = 0; j < currentArr.Length; j++)
+                {
+                    int kStart = Math.Max((j - arrLenght + 1), 0);
+                    int kFinish = Math.Min(baseArr.Length - 1, j);
+                    for (int k = kStart; k <= kFinish; k++)
+                    {
+                        currentArr[j] += baseArr[k];
+                    }
+                }
+
+                baseArr = currentArr;
+            }
+
+            int count = 0;
+            for (int i = 1; i < currentArr.Length; i++)
+            {
+                count += (int)Math.Pow(currentArr[i], 2);
+            }
+
+            return count;
         }
 
         public bool IsLuckyTicket(Ticket ticket, bool[] pattern)

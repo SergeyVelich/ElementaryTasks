@@ -12,10 +12,10 @@ namespace ChessBoard.Model
         private bool _firstBlack;
 
         public Cell[,] Cells { get; private set; }
-        public int Width { get; private set; }
-        public int Height { get; private set; }
+        public uint Width { get; private set; }
+        public uint Height { get; private set; }
 
-        public Board(int height, int width)
+        public Board(uint height, uint width)
         {
             Height = height;
             Width = width;           

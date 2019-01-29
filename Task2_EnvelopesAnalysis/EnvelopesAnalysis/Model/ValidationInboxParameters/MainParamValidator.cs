@@ -5,10 +5,11 @@ namespace EnvelopesAnalysis.Model.ValidationInboxParameters
 {
     public class MainParamValidator
     {
+        private readonly uint QUANTITY_ENVELOPES = 2;
         private readonly string[] _args;
 
         public MainParamValidator(string[] args)
-        {
+        {            
             _args = args;
         }
 
@@ -16,6 +17,7 @@ namespace EnvelopesAnalysis.Model.ValidationInboxParameters
         {
             InboxParameters inboxParams = new InboxParameters();
             inboxParams.WorkMode = GetWorkMode();
+            inboxParams.QuantityEnvelopes = QUANTITY_ENVELOPES;
 
             return inboxParams;
         }

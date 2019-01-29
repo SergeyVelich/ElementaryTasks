@@ -12,7 +12,17 @@ namespace LuckyTickets.Model
         public uint Number { get; private set; }
         public byte[] NumbersAsDigit { get; private set; }
 
-        public Ticket(uint number, byte quantityDigits)
+        public static Ticket Create(uint number, byte quantityDigits)
+        {
+            if (number >= Math.Pow(10, quantityDigits))
+            {
+                throw new ArgumentException(MessagesResources.ErrorNumberIsTooBig);
+            }
+
+            return new Ticket(number, quantityDigits);
+        }
+
+        private Ticket(uint number, byte quantityDigits)
         {
             Number = number;
             QuantityDigits = quantityDigits;
@@ -34,7 +44,7 @@ namespace LuckyTickets.Model
         }
 
         public override string ToString()
-        { 
+        {
             return Number.ToString().PadLeft(QuantityDigits, '0');
         }
 

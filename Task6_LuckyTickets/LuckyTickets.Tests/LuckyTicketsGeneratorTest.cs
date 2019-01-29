@@ -33,7 +33,7 @@ namespace LuckyTickets.Tests
         {
             // Arrange
             LuckyTicketsGenerator lackyGenerator = new LuckyTicketsGeneratorMoskow(quantityDigits);
-            Ticket ticket = new Ticket(number, quantityDigits);
+            Ticket ticket = Ticket.Create(number, quantityDigits);
 
             // Act
             bool real = lackyGenerator.IsLuckyTicket(ticket, pattern);

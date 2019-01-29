@@ -9,7 +9,7 @@ namespace ChessBoard.Model
     interface IBoard<ICell>
     {
         Cell[,] Cells { get; }
-        int Width { get; }
-        int Height { get; }
+        uint Width { get; }
+        uint Height { get; }
     }
 }

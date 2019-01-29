@@ -26,7 +26,7 @@ namespace ChessBoard.Model.ValidationInboxParameters
                 throw new ArgumentException(String.Format(MessagesResources.ErrorArgumentNotFoundArgument, _args.Length + 1));
             }
 
-            if (!int.TryParse(_args[0], out int height))
+            if (!uint.TryParse(_args[0], out uint height))
             {
                 throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 2));
             }
@@ -35,7 +35,7 @@ namespace ChessBoard.Model.ValidationInboxParameters
                 throw new ArgumentException(MessagesResources.ErrorInvalidArgumentNegative);
             }
 
-            if (!int.TryParse(_args[1], out int width))
+            if (!uint.TryParse(_args[1], out uint width))
             {
                 throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 2));
             }

@@ -9,6 +9,8 @@ namespace EnvelopesAnalysis.Tests
     {
         [TestMethod]
         [DataRow(20, 18, 14, 16, 1)]
+        [DataRow(12, 18, 14, 16, -1)]
+        [DataRow(12, 18, 12, 18, 0)]
         public void CompareTo(double height1, double width1, double height2, double width2, int expected)
         {
             // Arrange

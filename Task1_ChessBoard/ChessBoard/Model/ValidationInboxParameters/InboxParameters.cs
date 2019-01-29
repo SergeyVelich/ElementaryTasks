@@ -9,8 +9,8 @@ namespace ChessBoard.Model.ValidationInboxParameters
 {
     public struct InboxParameters
     {
-        public int Height { get; set; }
-        public int Width { get; set; }
+        public uint Height { get; set; }
+        public uint Width { get; set; }
         public WorkMode WorkMode { get; set; }
     }
 }

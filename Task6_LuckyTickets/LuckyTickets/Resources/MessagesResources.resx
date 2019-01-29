@@ -141,6 +141,9 @@
   <data name="ErrorMethodNotFound" xml:space="preserve">
     <value>Generation method not found</value>
   </data>
+  <data name="ErrorNumberIsTooBig" xml:space="preserve">
+    <value>Number is too big.</value>
+  </data>
   <data name="Instruction" xml:space="preserve">
     <value>Application count lacky tickets.
 
