@@ -44,61 +44,9 @@ namespace EnvelopesAnalysis.Controller
                 _view.PrintInstructionText(MessagesResources.Instruction);
             }
 
-            Envelope[] envelopes;
-
             while (_continueFlag)
             {
-                envelopes = new Envelope[_inboxParams.QuantityEnvelopes];
-
-                for (int i = 0; i < envelopes.Length; i++)
-                {
-                    _view.AskInputEnvelope(String.Format(MessagesResources.AskInputEnvelope, i+1));
-                    _currentEnvelope = new Envelope();
-                    bool isFailed;
-
-                    do
-                    {
-                        isFailed = false;
-                        try
-                        {
-                            _view.AskInputHeight(MessagesResources.AskInputHeight);
-                        }
-                        catch(Exception ex)
-                        {
-                            _view.PrintErrorText(ex.Message);
-                            isFailed = true;
-                        }
-                    } while (isFailed);
-
-                    do
-                    {
-                        isFailed = false;
-                        try
-                        {
-                            _view.AskInputWidth(MessagesResources.AskInputWidth);
-                        }
-                        catch (Exception ex)
-                        {
-                            _view.PrintErrorText(ex.Message);
-                            isFailed = true;
-                        }
-                    } while (isFailed);
-
-                    envelopes[i] = _currentEnvelope;
-                }
-
-                for (int i = 1; i < envelopes.Length; i++)
-                {
-                    if (EnvelopeComparer.Compare(envelopes[0], envelopes[i]) > 0)
-                    {
-                        _view.PrintResultText(MessagesResources.ResultPositive);
-                    }
-                    else
-                    {
-                        _view.PrintResultText(MessagesResources.ResultNegative);
-                    }
-                }
-
+                AskEnvelops();
                 _view.AskContinueFlag(MessagesResources.AskContunue);
             }            
         }
@@ -116,7 +64,7 @@ namespace EnvelopesAnalysis.Controller
         {
             if (!double.TryParse(_view.GetWidth(), out double width))
             {
-                throw new ArgumentException(MessagesResources.ErrorInvalidArgument);
+                throw new ArgumentException(String.Format(MessagesResources.ErrorInvalidArgument, 1));
             }
             _currentEnvelope.Width = width;
         }
@@ -126,6 +74,69 @@ namespace EnvelopesAnalysis.Controller
             string continueFlag = _view.GetContinueFlag();
             _continueFlag = continueFlag.ToLower().Trim() == MessagesResources.Yes 
                 || continueFlag.ToLower().Trim() == MessagesResources.YesShort;
+        }
+
+        protected virtual void AskEnvelops()
+        {
+            bool isMainEnvelope = true;
+            EnvelopeComparer envelopeComparer = new EnvelopeComparer(_inboxParams.QuantityEnvelopes);
+
+            for (int i = 0; i < _inboxParams.QuantityEnvelopes; i++)
+            {
+                _view.AskInputEnvelope(String.Format(MessagesResources.AskInputEnvelope, i + 1));
+                _currentEnvelope = new Envelope();
+                bool isFailed;
+
+                do
+                {
+                    isFailed = false;
+                    try
+                    {
+                        _view.AskInputHeight(MessagesResources.AskInputHeight);
+                    }
+                    catch (Exception ex)
+                    {
+                        _view.PrintErrorText(ex.Message);
+                        isFailed = true;
+                    }
+                } while (isFailed);
+
+                do
+                {
+                    isFailed = false;
+                    try
+                    {
+                        _view.AskInputWidth(MessagesResources.AskInputWidth);
+                    }
+                    catch (Exception ex)
+                    {
+                        _view.PrintErrorText(ex.Message);
+                        isFailed = true;
+                    }
+                } while (isFailed);
+
+                if (isMainEnvelope)
+                {
+                    envelopeComparer.MainEnvelope = _currentEnvelope;
+                    isMainEnvelope = false;
+                }
+                else
+                {
+                    envelopeComparer.Insert(i - 1, _currentEnvelope);
+                }
+            }
+
+            foreach (Envelope envelope in envelopeComparer)
+            {
+                if (envelopeComparer.Compare(envelope) > 0)
+                {
+                    _view.PrintResultText(MessagesResources.ResultPositive);
+                }
+                else
+                {
+                    _view.PrintResultText(MessagesResources.ResultNegative);
+                }
+            }
         }
     }
 }

@@ -29,13 +29,15 @@ namespace EnvelopesAnalysis.Model
             {
                 return 1;
             }  
-            else if(Math.Max(Height, Width) < Math.Max(env.Height, env.Width)
-                && Math.Min(Height, Width) < Math.Min(env.Height, env.Width))
+            else if(Math.Max(Height, Width) == Math.Max(env.Height, env.Width)
+                && Math.Min(Height, Width) == Math.Min(env.Height, env.Width))
             {
-                return -1;
+                return 0;
             }
             else
-                return 0;
+            {
+                return -1;
+            }               
         }
     }
 }
